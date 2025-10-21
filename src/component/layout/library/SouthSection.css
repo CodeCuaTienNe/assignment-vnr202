@@ -1,0 +1,457 @@
+/* SouthSection.css - Consistent with Image-Focused Layout */
+
+.south-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Fraunces", serif;
+}
+
+/* Specific crisis and card styles for South section */
+.crisis-box {
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 26, 26, 0.1),
+    rgba(212, 175, 55, 0.05)
+  );
+  border-radius: 12px;
+  border-left: 5px solid var(--lacquer-red);
+  margin: 2rem 0;
+}
+
+.crisis-box h5 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 1rem 0;
+}
+
+.crisis-box p {
+  font-size: 1.1rem;
+  color: var(--ink-black);
+  margin: 0;
+  line-height: 1.8;
+}
+
+.resolution-card,
+.uprising-card {
+  padding: 2rem;
+  border-radius: 12px;
+  border: 3px solid;
+  height: 100%;
+}
+
+.resolution-card {
+  border-color: var(--lacquer-red);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 26, 26, 0.05),
+    rgba(245, 241, 232, 0.8)
+  );
+}
+
+.uprising-card {
+  border-color: var(--jade-green);
+  background: linear-gradient(
+    135deg,
+    rgba(92, 122, 107, 0.05),
+    rgba(245, 241, 232, 0.8)
+  );
+}
+
+.resolution-badge,
+.uprising-badge {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.resolution-badge {
+  background: var(--lacquer-red);
+}
+
+.uprising-badge {
+  background: var(--jade-green);
+}
+
+.resolution-card h5,
+.uprising-card h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--lacquer-red);
+  margin: 1rem 0 1.5rem 0;
+}
+
+.war-card {
+  border-left: 5px solid var(--lacquer-gold);
+}
+
+.strategy-description {
+  padding: 1.5rem;
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.battle-highlight {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.1),
+    rgba(245, 241, 232, 0.8)
+  );
+  border-radius: 16px;
+  border: 3px solid var(--lacquer-gold);
+  margin: 2rem 0;
+}
+
+.battle-icon {
+  flex-shrink: 0;
+}
+
+.battle-content h5 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 1rem 0;
+}
+
+.tactic-box {
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(245, 241, 232, 0.6);
+  border-radius: 12px;
+  border: 2px solid var(--museum-beige);
+  transition: all 0.3s ease;
+}
+
+.tactic-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--lacquer-gold);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+.tactic-box h6 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--lacquer-red);
+  margin: 1rem 0 0.5rem 0;
+}
+
+.tactic-box p {
+  font-size: 1rem;
+  color: var(--jade-green);
+  margin: 0;
+}
+
+.battle-timeline .ant-timeline-item-content {
+  font-family: "Fraunces", serif;
+}
+
+.timeline-item h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--lacquer-red);
+  margin: 0 0 0.8rem 0;
+}
+
+.timeline-item p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink-black);
+}
+
+.vietnamization-card {
+  border: 3px solid var(--lacquer-red);
+}
+
+.strategy-box-inline {
+  padding: 1.5rem;
+  background: rgba(139, 26, 26, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid var(--lacquer-red);
+}
+
+.campaign-card {
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(92, 122, 107, 0.08),
+    rgba(245, 241, 232, 0.8)
+  );
+  border-radius: 12px;
+  border: 2px solid var(--jade-green);
+  transition: all 0.3s ease;
+}
+
+.campaign-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(92, 122, 107, 0.2);
+}
+
+.campaign-card h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--lacquer-red);
+  margin: 0 0 1rem 0;
+}
+
+.campaign-card p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink-black);
+  margin: 0;
+}
+
+.paris-agreement {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.1),
+    rgba(139, 26, 26, 0.05)
+  );
+  border-radius: 16px;
+  border: 3px solid var(--lacquer-gold);
+}
+
+.agreement-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--lacquer-gold);
+}
+
+.agreement-icon {
+  font-size: 4rem;
+  color: var(--lacquer-red);
+}
+
+.agreement-header h5 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 0.5rem 0;
+}
+
+.agreement-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--jade-green);
+  margin: 0;
+}
+
+.agreement-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+.agreement-point strong {
+  font-size: 1.5rem;
+  color: var(--lacquer-gold);
+  flex-shrink: 0;
+}
+
+.agreement-point p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-black);
+  margin: 0;
+}
+
+.spring-offensive-card {
+  border: 4px double var(--lacquer-red);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 26, 26, 0.03),
+    rgba(212, 175, 55, 0.03)
+  );
+}
+
+.offensive-intro {
+  padding: 2rem;
+  background: rgba(245, 241, 232, 0.6);
+  border-radius: 12px;
+  border-left: 5px solid var(--lacquer-red);
+}
+
+.spring-timeline .ant-timeline-item-label {
+  font-family: "Fraunces", serif;
+}
+
+.timeline-campaign {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  border-left: 4px solid var(--jade-green);
+}
+
+.timeline-campaign h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--lacquer-red);
+  margin: 0 0 0.8rem 0;
+}
+
+.timeline-campaign p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink-black);
+  margin: 0;
+}
+
+.highlight-campaign {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.15),
+    rgba(245, 241, 232, 0.9)
+  );
+  border-left-color: var(--lacquer-gold);
+  border-left-width: 5px;
+  padding: 2rem;
+}
+
+.campaign-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--lacquer-gold);
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.campaign-details {
+  margin-top: 1.5rem;
+}
+
+.victory-moment {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 26, 26, 0.1),
+    rgba(212, 175, 55, 0.1)
+  );
+  border-radius: 12px;
+  border: 3px solid var(--lacquer-red);
+}
+
+.victory-date {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.victory-text {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: var(--ink-black);
+  text-align: center;
+  margin: 0;
+}
+
+.unification-box {
+  margin-top: 3rem;
+  padding: 3rem;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.15),
+    rgba(139, 26, 26, 0.08)
+  );
+  border-radius: 20px;
+  border: 4px solid var(--lacquer-gold);
+  text-align: center;
+}
+
+.unification-flag {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.unification-content h4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 1.5rem 0;
+}
+
+.unification-content .lead-text {
+  font-size: 1.3rem;
+  line-height: 2;
+}
+
+@media (max-width: 1024px) {
+  .battle-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .agreement-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .battle-content h5 {
+    font-size: 1.5rem;
+  }
+
+  .victory-date {
+    font-size: 2rem;
+  }
+
+  .unification-flag {
+    font-size: 4rem;
+  }
+
+  .unification-content h4 {
+    font-size: 2rem;
+  }
+}
+
+/* Hình ảnh chính */
+.section-image-container {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-main-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 16px;
+  border: 4px solid var(--lacquer-gold);
+  box-shadow: 0 8px 24px rgba(139, 26, 26, 0.15);
+  margin-bottom: 1rem;
+}
+
+.section-image-caption {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  font-family: "Fraunces", serif;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.section-image-caption:hover {
+  opacity: 1;
+}

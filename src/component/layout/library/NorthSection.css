@@ -1,0 +1,53 @@
+/* NorthSection.css - Consistent with Image-Focused Layout */
+
+.north-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Fraunces", serif;
+}
+
+/* Stat Cards - for displaying statistics */
+.stat-card {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(92, 122, 107, 0.1),
+    rgba(245, 241, 232, 0.8)
+  );
+  border-radius: 12px;
+  border: 3px solid var(--jade-green);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(92, 122, 107, 0.3);
+  border-color: var(--lacquer-gold);
+}
+
+.stat-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: var(--jade-green);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 3rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+/* All main styles inherited from page.css */

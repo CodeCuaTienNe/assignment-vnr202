@@ -1,463 +1,606 @@
 "use client";
 
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
 import "./SouthSection.css";
 
 export default function SouthSection() {
-  const [expandedSections, setExpandedSections] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalContent, setModalContent] = useState({ title: "", content: "" });
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    content: null,
+    images: [],
+  });
 
-  const toggleSection = (sectionId) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [sectionId]: !prev[sectionId],
-    }));
+  const openModal = (title, content, images = []) => {
+    setModalContent({ title, content, images });
+    setModalVisible(true);
   };
 
-  const openModal = (title, content) => {
-    setModalContent({ title, content });
-    setModalVisible(true);
+  const closeModal = () => {
+    setModalVisible(false);
   };
 
   return (
     <div className="south-section">
       {/* Hero Banner */}
-      <div className="image-story-container">
-        <div className="image-wrapper aspect-16-9">
-          <Image
-            src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
-            alt="Miền Nam tiền tuyến lớn"
-            preview={true}
-            className="story-image"
-          />
-          <div className="image-caption-overlay">
-            Miền Nam: Tiền tuyến Lớn Chiến Đấu (1954-1975)
-          </div>
+      {/* <div className="hero-container">
+        <Image
+          src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/rBMwPsNgEe/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_ca_nuoc_truc_tiep_chien_dau_chong_de_quoc_my_xam_luoc_1965_-_1973__151902709_stand-665x463.jpg"
+          alt="Miền Nam tiền tuyến lớn"
+          preview={true}
+          className="hero-image"
+        />
+        <div className="hero-overlay">
+          Miền Nam: Tiền tuyến Lớn Chiến Đấu (1954-1975)
         </div>
-      </div>
+      </div> */}
 
       {/* 4.1 Nghị quyết 15 và Đồng khởi */}
-      <div className="image-grid-layout">
-        <h3 className="section-heading">
-          <span className="section-number">4.1</span>
+      <section className="content-section">
+        <h3 className="section-title">
+          <span className="number">4.1</span>
           Nghị quyết 15 và Phong trào Đồng khởi (1954–1960)
         </h3>
 
-        <div className="story-block">
-          <div className="image-wrapper aspect-4-3">
+        <div className="layout-grid">
+          <div className="image-focus">
             <Image
-              src="https://img.nhandan.vn/Files/Images/2022/08/20/Dong_khoi_-1661004346.jpg"
+              src="https://media.vov.vn/sites/default/files/styles/large/public/2025-01/Dong%20Khoi%202.jpg"
               alt="Phong trào Đồng khởi"
               preview={true}
-              className="story-image"
+              className="main-image"
             />
-            <div className="image-caption">
-              Phong trào Đồng khởi Bến Tre 1960
-            </div>
+            <p className="image-label">Phong trào Đồng khởi Bến Tre 1960</p>
           </div>
 
-          <div className="story-content">
-            <div className="brief-content">
+          <div className="content-wrap">
+            <div className="info-block">
+              <h4>📜 Nghị quyết 15 (1959)</h4>
+              <p>Đường lối bạo lực cách mạng, kết hợp chính trị và vũ trang.</p>
+            </div>
+
+            <div className="info-block">
+              <h4>⚡ Đồng khởi Bến Tre (1960)</h4>
               <p>
-                <strong>Nghị quyết 15 (1/1959)</strong>: Xác định con đường cách
-                mạng miền Nam là{" "}
-                <strong>
-                  sử dụng bạo lực cách mạng, kết hợp đấu tranh chính trị với đấu
-                  tranh vũ trang
-                </strong>
-                , tiến tới khởi nghĩa giành chính quyền.
-              </p>
-              <p>
-                <strong>Đồng khởi Bến Tre (1/1960)</strong> bùng nổ và lan rộng
-                khắp miền Nam, phá vỡ cơ cấu chính quyền địch, chuyển cách mạng
-                từ thế giữ gìn sang <strong>thế tiến công</strong>.
+                Phá vỡ chính quyền địch, chuyển sang thế tiến công. Dẫn đến sự
+                ra đời của Mặt trận Dân tộc Giải phóng miền Nam Việt Nam.
               </p>
             </div>
 
             <Button
-              type="link"
-              className="learn-more-btn"
-              onClick={() => toggleSection("nghiquyet15")}
-              icon={
-                expandedSections["nghiquyet15"] ? (
-                  <UpOutlined />
-                ) : (
-                  <DownOutlined />
+              type="primary"
+              className="detail-btn"
+              onClick={() =>
+                openModal(
+                  "Nghị quyết 15 và Phong trào Đồng khởi (1954–1960)",
+                  <div className="modal-content">
+                    <div className="content-block">
+                      <h4>📜 Bối cảnh lịch sử</h4>
+                      <p>
+                        Sau năm 1954, cách mạng miền Nam chuyển từ đấu tranh vũ
+                        trang sang đấu tranh chính trị. Tuy nhiên, chính quyền
+                        Mỹ-Diệm thi hành chính sách khủng bố dã man, đỉnh điểm
+                        là <strong>Luật 10/59</strong>, sử dụng Tòa án quân sự
+                        đặc biệt đàn áp người yêu nước. Tình thế cách mạng miền
+                        Nam lâm vào thế "hiểm nghèo".
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>⚡ Quyết định chiến lược</h4>
+                      <p>
+                        Đáp lại yêu cầu sinh tồn và sự phát triển của mâu thuẫn
+                        giai cấp, dân tộc,{" "}
+                        <strong>Hội nghị Trung ương lần thứ 15 (1/1959)</strong>{" "}
+                        xác định con đường cách mạng miền Nam là sử dụng bạo
+                        lực, kết hợp đấu tranh chính trị với vũ trang, tiến tới
+                        khởi nghĩa giành chính quyền.
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>🎯 Thắng lợi Đồng khởi</h4>
+                      <p>
+                        Phong trào <strong>Đồng khởi Bến Tre (1/1960)</strong>{" "}
+                        bùng nổ và lan rộng khắp miền Nam, phá vỡ cơ cấu chính
+                        quyền cơ sở của địch, chuyển cách mạng miền Nam từ thế
+                        giữ gìn lực lượng sang thế tiến công.
+                      </p>
+                    </div>
+                  </div>,
+                  [
+                    "https://img.nhandan.vn/Files/Images/2022/08/20/Dong_khoi_-1661004346.jpg",
+                    "https://baoquocte.vn/stores/news_dataimages/dienth/012020/17/11/nhung-buc-anh-lich-su-ve-phong-trao-dong-khoi-1960.jpg",
+                  ]
                 )
               }
+              icon={<InfoCircleOutlined />}
             >
-              {expandedSections["nghiquyet15"] ? "Thu gọn" : "Tìm hiểu thêm"}
+              Xem chi tiết
             </Button>
-
-            {expandedSections["nghiquyet15"] && (
-              <div className="expanded-detail">
-                <h5>Bối cảnh lịch sử</h5>
-                <p>
-                  Sau năm 1954, cách mạng miền Nam chuyển từ đấu tranh vũ trang
-                  sang đấu tranh chính trị. Tuy nhiên, chính quyền Mỹ-Diệm thi
-                  hành chính sách khủng bố dã man, đỉnh điểm là{" "}
-                  <strong>Luật 10/59</strong>, sử dụng Tòa án quân sự đặc biệt
-                  đàn áp người yêu nước. Tình thế cách mạng miền Nam lâm vào thế
-                  "hiểm nghèo".
-                </p>
-                <h5>Quyết định chiến lược</h5>
-                <p>
-                  Đáp lại yêu cầu sinh tồn và sự phát triển của mâu thuẫn giai
-                  cấp, dân tộc,{" "}
-                  <strong>Hội nghị Trung ương lần thứ 15 (1/1959)</strong> xác
-                  định con đường cách mạng miền Nam là sử dụng bạo lực, kết hợp
-                  đấu tranh chính trị với vũ trang, tiến tới khởi nghĩa giành
-                  chính quyền.
-                </p>
-                <h5>Thắng lợi Đồng khởi</h5>
-                <p>
-                  Phong trào <strong>Đồng khởi Bến Tre (1/1960)</strong> bùng nổ
-                  và lan rộng khắp miền Nam, phá vỡ cơ cấu chính quyền cơ sở của
-                  địch, chuyển cách mạng miền Nam từ thế giữ gìn lực lượng sang
-                  thế tiến công. Dẫn đến sự ra đời của{" "}
-                  <strong>
-                    Mặt trận Dân tộc Giải phóng miền Nam Việt Nam (12/1960)
-                  </strong>
-                  .
-                </p>
-              </div>
-            )}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 4.2 Đánh bại Chiến lược Chiến tranh của Mỹ */}
-      <div className="image-grid-layout">
-        <h3 className="section-heading">
-          <span className="section-number">4.2</span>
+      <section className="content-section">
+        <h3 className="section-title">
+          <span className="number">4.2</span>
           Đánh bại các Chiến lược Chiến tranh của Mỹ (1961–1973)
         </h3>
 
         {/* Chiến tranh Đặc biệt */}
-        <div className="story-block">
-          <div className="image-wrapper aspect-16-9">
+        <div className="layout-grid">
+          <div className="image-focus">
             <Image
-              src="https://image.baophapluat.vn/zoom/680_0/Uploaded/2024/ecilozx/2024_01_02/chien-thang-ap-bac-1-2-1963-2-1577.jpg"
+              src="https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg"
               alt="Chiến thắng Ấp Bắc"
               preview={true}
-              className="story-image"
+              className="main-image"
             />
-            <div className="image-caption">Chiến thắng Ấp Bắc 1963</div>
+            <p className="image-label">Chiến thắng Ấp Bắc 1963</p>
           </div>
 
-          <div className="story-content">
-            <div className="brief-content">
-              <h4>A. Đánh bại Chiến tranh Đặc biệt (1961–1965)</h4>
+          <div className="content-wrap">
+            <h4 className="sub-title">A. Chiến tranh Đặc biệt (1961–1965)</h4>
+
+            <div className="info-block">
               <p>
-                <strong>Chiến lược Mỹ</strong>: "Cố vấn, vũ khí Mỹ + Quân chủ
-                lực Việt Nam Cộng hòa", xây dựng 17,000 "ấp chiến lược".
+                <strong>Chiến lược Mỹ:</strong> Cố vấn, vũ khí Mỹ + Quân chủ lực
+                VNCH, xây dựng 17,000 ấp chiến lược.
               </p>
+            </div>
+
+            <div className="info-block">
               <p>
-                <strong>Đáp trả</strong>: Giữ vững thế tiến công, phá Ấp Chiến
-                lược. <strong>Chiến thắng Ấp Bắc (1/1963)</strong> - trận đột
-                phá đầu tiên, khẳng định khả năng đánh thắng quân đội được Mỹ
-                trang bị hiện đại.
+                <strong>Đáp trả:</strong> Giữ thế tiến công, phá Ấp Chiến lược.{" "}
+                <strong>Chiến thắng Ấp Bắc (1963)</strong> khẳng định khả năng
+                đánh thắng quân đội được Mỹ trang bị hiện đại.
               </p>
             </div>
 
             <Button
-              type="link"
-              className="learn-more-btn"
-              onClick={() => toggleSection("ctdb")}
-              icon={
-                expandedSections["ctdb"] ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections["ctdb"] ? "Thu gọn" : "Chi tiết chiến lược"}
-            </Button>
+              type="primary"
+              className="detail-btn"
+              onClick={() =>
+                openModal(
+                  "Đánh bại Chiến tranh Đặc biệt (1961–1965)",
+                  <div className="modal-content">
+                    <div className="content-block">
+                      <h4>🎯 Chiến lược của Mỹ</h4>
+                      <p>
+                        Chiến tranh Đặc biệt với phương châm "Cố vấn, vũ khí Mỹ
+                        + Quân chủ lực Việt Nam Cộng hòa", xây dựng 17,000 "ấp
+                        chiến lược" nhằm cô lập và triệt hạ lực lượng cách mạng.
+                      </p>
+                    </div>
 
-            {expandedSections["ctdb"] && (
-              <div className="expanded-detail">
-                <p>
-                  Đảng chỉ đạo giữ vững thế tiến công, phá Ấp Chiến lược. Sự kết
-                  hợp giữa đấu tranh vũ trang và nổi dậy của quần chúng đã làm
-                  phá sản quốc sách "ấp chiến lược" và chiến lược "Chiến tranh
-                  Đặc biệt" của Mỹ. Chiến thắng Ấp Bắc (1/1963) khẳng định khả
-                  năng đánh thắng quân đội Sài Gòn được trang bị hiện đại của
-                  Mỹ.
-                </p>
-              </div>
-            )}
+                    <div className="content-block highlight">
+                      <h4>⚔️ Đáp trả chiến lược</h4>
+                      <p>
+                        Đảng chỉ đạo giữ vững thế tiến công, phá Ấp Chiến lược.
+                        Sự kết hợp giữa đấu tranh vũ trang và nổi dậy của quần
+                        chúng đã làm phá sản quốc sách "ấp chiến lược".
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>🏆 Chiến thắng Ấp Bắc (2/1/1963)</h4>
+                      <p>
+                        Trận đột phá đầu tiên, khẳng định khả năng đánh thắng
+                        quân đội Sài Gòn được trang bị hiện đại của Mỹ. Đây là
+                        bước ngoặt quan trọng, phá vỡ thần thoại "bất khả chiến
+                        bại".
+                      </p>
+                    </div>
+                  </div>,
+                  [
+                    "https://image.baophapluat.vn/zoom/680_0/Uploaded/2024/ecilozx/2024_01_02/chien-thang-ap-bac-1-2-1963-2-1577.jpg",
+                  ]
+                )
+              }
+              icon={<InfoCircleOutlined />}
+            >
+              Xem chi tiết
+            </Button>
           </div>
         </div>
 
         {/* Chiến tranh Cục bộ */}
-        <div className="story-block">
-          <div className="image-wrapper aspect-4-3">
+        <div className="layout-grid">
+          <div className="image-focus">
             <Image
-              src="https://tintuc.vn/static/vnw/images/vn/default_vn-235x132.png"
+              src="https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg"
               alt="Tổng tiến công Mậu Thân"
               preview={true}
-              className="story-image"
+              className="main-image"
             />
-            <div className="image-caption">Tổng tiến công Mậu Thân 1968</div>
+            <p className="image-label">Tổng tiến công Mậu Thân 1968</p>
           </div>
 
-          <div className="story-content">
-            <div className="brief-content">
-              <h4>B. Đánh bại Chiến tranh Cục bộ (1965–1968)</h4>
+          <div className="content-wrap">
+            <h4 className="sub-title">B. Chiến tranh Cục bộ (1965–1968)</h4>
+
+            <div className="info-block">
               <p>
-                <strong>Chiến lược Mỹ</strong>: Đưa quân chiến đấu trực tiếp vào
-                miền Nam.
+                <strong>Chiến lược Mỹ:</strong> Đưa quân chiến đấu trực tiếp vào
+                miền Nam, đỉnh điểm hơn 500,000 quân.
               </p>
+            </div>
+
+            <div className="info-block">
               <p>
-                <strong>Đáp trả</strong>: Phát động kháng chiến chống Mỹ toàn
-                quốc. <strong>Chiến thắng Vạn Tường (8/1965)</strong> mở đầu cao
-                trào "tìm diệt" Mỹ.
+                <strong>Đáp trả:</strong> Kháng chiến toàn quốc.{" "}
+                <strong>Chiến thắng Vạn Tường (1965)</strong> mở đầu cao trào.
               </p>
+            </div>
+
+            <div className="info-block highlight">
               <p>
-                <strong>Đỉnh cao</strong>:{" "}
-                <strong>Tổng tiến công và Nổi dậy Xuân Mậu Thân (1968)</strong>{" "}
-                - Bước ngoặt chiến lược, buộc Mỹ phải đàm phán tại Paris và chấm
-                dứt chiến tranh phá hoại miền Bắc.
+                <strong>Đỉnh cao:</strong>{" "}
+                <strong>Tổng tiến công Mậu Thân (1968)</strong> - Bước ngoặt
+                chiến lược, buộc Mỹ phải đàm phán tại Paris.
               </p>
             </div>
 
             <Button
-              type="link"
-              className="learn-more-btn"
-              onClick={() => toggleSection("ctcb")}
-              icon={
-                expandedSections["ctcb"] ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections["ctcb"] ? "Thu gọn" : "Chi tiết bước ngoặt"}
-            </Button>
+              type="primary"
+              className="detail-btn"
+              onClick={() =>
+                openModal(
+                  "Đánh bại Chiến tranh Cục bộ (1965–1968)",
+                  <div className="modal-content">
+                    <div className="content-block">
+                      <h4>🎯 Chiến lược Mỹ leo thang</h4>
+                      <p>
+                        Sau thất bại của Chiến tranh Đặc biệt, Mỹ đưa quân chiến
+                        đấu trực tiếp vào miền Nam với quy mô lớn, đỉnh điểm lên
+                        đến hơn 500,000 quân, kết hợp chiến thuật "tìm diệt" và
+                        bom đạn tàn phá.
+                      </p>
+                    </div>
 
-            {expandedSections["ctcb"] && (
-              <div className="expanded-detail">
-                <h5>Bước ngoặt Mậu Thân 1968</h5>
-                <p>
-                  Cuộc tiến công chiến lược đánh thẳng vào các đô thị, căn cứ
-                  đầu não của Mỹ-Ngụy, gây tổn thất lớn và tạo ra bước ngoặt
-                  chiến lược, buộc Mỹ phải chấp nhận đàm phán tại Paris và chấm
-                  dứt chiến tranh phá hoại miền Bắc.
-                </p>
-                <h5>Bài học tự phê bình</h5>
-                <p>
-                  Sau thắng lợi lớn Mậu Thân, Đảng đã "chuyển chậm" và có biểu
-                  hiện chủ quan, tiếp tục mở các đợt tiến công vào đô thị khi
-                  không còn yếu tố bất ngờ, dẫn đến tổn thất. Tuy nhiên, việc
-                  Đảng công khai thừa nhận những sai lầm chiến lược cho thấy{" "}
-                  <strong>bản chất cách mạng, khả năng tự phê bình</strong> và
-                  sửa chữa khuyết điểm.
-                </p>
-              </div>
-            )}
+                    <div className="content-block">
+                      <h4>⚔️ Kháng chiến toàn quốc</h4>
+                      <p>
+                        Phát động kháng chiến chống Mỹ cứu nước toàn quốc.{" "}
+                        <strong>Chiến thắng Vạn Tường (8/1965)</strong> mở đầu
+                        cao trào chiến đấu, đập tan ý chí "tìm diệt" của Mỹ.
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>🔥 Bước ngoặt Mậu Thân 1968</h4>
+                      <p>
+                        Cuộc{" "}
+                        <strong>Tổng tiến công và Nổi dậy Xuân Mậu Thân</strong>{" "}
+                        đánh thẳng vào các đô thị, căn cứ đầu não của Mỹ-Ngụy,
+                        gây chấn động dư luận thế giới. Đây là bước ngoặt chiến
+                        lược, buộc Mỹ phải chấp nhận đàm phán tại Paris.
+                      </p>
+                    </div>
+
+                    <div className="content-block">
+                      <h4>💡 Bài học tự phê bình</h4>
+                      <p>
+                        Sau thắng lợi lớn Mậu Thân, Đảng đã "chuyển chậm" và có
+                        biểu hiện chủ quan, tiếp tục mở các đợt tiến công vào đô
+                        thị khi không còn yếu tố bất ngờ, dẫn đến tổn thất. Việc
+                        Đảng công khai thừa nhận sai lầm cho thấy{" "}
+                        <strong>
+                          bản chất cách mạng, khả năng tự phê bình
+                        </strong>{" "}
+                        và sửa chữa khuyết điểm.
+                      </p>
+                    </div>
+                  </div>,
+                  [
+                    "https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg",
+                    "https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg",
+                  ]
+                )
+              }
+              icon={<InfoCircleOutlined />}
+            >
+              Xem chi tiết
+            </Button>
           </div>
         </div>
 
-        {/* Việt Nam hóa Chiến tranh */}
-        <div className="story-block">
-          <div className="image-wrapper aspect-16-9">
+        {/* Việt Nam hóa */}
+        <div className="layout-grid">
+          <div className="image-focus">
             <Image
-              src="https://media.doisongphapluat.com/files/content/2022/12/27/b52-080116.jpg"
+              src="https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg"
               alt="Điện Biên Phủ trên không"
               preview={true}
-              className="story-image"
+              className="main-image"
             />
-            <div className="image-caption">
-              Chiến thắng Điện Biên Phủ trên không 1972
-            </div>
+            <p className="image-label">Điện Biên Phủ trên không 1972</p>
           </div>
 
-          <div className="story-content">
-            <div className="brief-content">
-              <h4>C. Đánh bại Việt Nam hóa Chiến tranh (1969–1973)</h4>
+          <div className="content-wrap">
+            <h4 className="sub-title">
+              C. Việt Nam hóa Chiến tranh (1969–1973)
+            </h4>
+
+            <div className="info-block">
               <p>
-                <strong>Chiến lược Mỹ</strong>: "Dùng người Việt Nam đánh người
-                Việt Nam", bình định nông thôn.
+                <strong>Chiến lược Mỹ:</strong> "Dùng người Việt Nam đánh người
+                Việt Nam", rút dần quân Mỹ nhưng tăng viện trợ cho Sài Gòn.
               </p>
+            </div>
+
+            <div className="info-block">
               <p>
-                <strong>Đáp trả</strong>: Kiên định khẩu hiệu{" "}
-                <strong>"Đánh cho Mỹ cút, đánh cho Ngụy nhào"</strong>. Các cuộc
-                tấn công chiến lược: Đường 9 - Nam Lào (1971), Chiến dịch
-                Xuân-Hè 1972.
+                <strong>Đáp trả:</strong> "Đánh cho Mỹ cút, đánh cho Ngụy nhào".
+                Các chiến dịch chiến lược: Đường 9 - Nam Lào (1971), Xuân-Hè
+                1972.
               </p>
+            </div>
+
+            <div className="info-block highlight">
               <p>
-                <strong>Thắng lợi lớn</strong>:{" "}
-                <strong>Điện Biên Phủ trên không (12/1972)</strong> và{" "}
-                <strong>Hiệp định Paris (1/1973)</strong> - Mỹ phải rút hết quân
-                viễn chinh và quân chư hầu ra khỏi miền Nam.
+                <strong>Thắng lợi:</strong>{" "}
+                <strong>Điện Biên Phủ trên không (1972)</strong> bắn rơi hàng
+                chục B-52, buộc Mỹ ký <strong>Hiệp định Paris (1973)</strong>.
               </p>
             </div>
 
             <Button
-              type="link"
-              className="learn-more-btn"
-              onClick={() => toggleSection("vnhct")}
-              icon={
-                expandedSections["vnhct"] ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections["vnhct"] ? "Thu gọn" : "Hiệp định Paris"}
-            </Button>
+              type="primary"
+              className="detail-btn"
+              onClick={() =>
+                openModal(
+                  "Đánh bại Việt Nam hóa Chiến tranh (1969–1973)",
+                  <div className="modal-content">
+                    <div className="content-block">
+                      <h4>🎯 Chiến lược "Việt Nam hóa"</h4>
+                      <p>
+                        Chiến lược "Việt Nam hóa chiến tranh" nhằm "dùng người
+                        Việt Nam đánh người Việt Nam", rút dần quân Mỹ nhưng
+                        tăng cường viện trợ quân sự cho chính quyền Sài Gòn.
+                      </p>
+                    </div>
 
-            {expandedSections["vnhct"] && (
-              <div className="expanded-detail">
-                <h5>Chiến lược Việt Nam hóa</h5>
-                <p>
-                  Chiến lược này nhằm "dùng người Việt Nam đánh người Việt Nam"
-                  và tập trung vào bình định nông thôn. Đảng chủ động mở các
-                  cuộc tấn công chiến lược lớn như Chiến thắng Đường 9 - Nam Lào
-                  (1971) và Chiến dịch Xuân-Hè 1972.
-                </p>
-                <h5>Ý nghĩa Hiệp định Paris</h5>
-                <p>
-                  Hiệp định Paris (1/1973) buộc Mỹ phải chấm dứt chiến tranh,
-                  rút hết quân viễn chinh và quân chư hầu ra khỏi miền Nam. Đây
-                  là thắng lợi quan trọng hàng đầu, hoàn thành mục tiêu{" "}
-                  <strong>"đánh cho Mỹ cút"</strong>, mở ra cơ hội chuyển sang
-                  giai đoạn <strong>"đánh cho Ngụy nhào"</strong>.
-                </p>
-              </div>
-            )}
+                    <div className="content-block">
+                      <h4>⚔️ Đáp trả quyết liệt</h4>
+                      <p>
+                        Kiên định khẩu hiệu{" "}
+                        <strong>"Đánh cho Mỹ cút, đánh cho Ngụy nhào"</strong>.
+                        Mở các cuộc tấn công chiến lược: Chiến thắng Đường 9 -
+                        Nam Lào (1971) và Chiến dịch Xuân-Hè 1972.
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>✈️ Điện Biên Phủ trên không (12/1972)</h4>
+                      <p>
+                        Chiến thắng vang dội khi bắn rơi hàng chục máy bay B-52
+                        trong 12 ngày đêm, phá tan chiến dịch ném bom chiến lược
+                        của Mỹ, buộc Mỹ phải quay lại bàn đàm phán.
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>📜 Ý nghĩa Hiệp định Paris (27/1/1973)</h4>
+                      <p>
+                        <strong>Hiệp định Paris</strong> buộc Mỹ phải chấm dứt
+                        chiến tranh, rút hết quân viễn chinh ra khỏi miền Nam.
+                        Hoàn thành mục tiêu <strong>"đánh cho Mỹ cút"</strong>,
+                        mở ra cơ hội chuyển sang giai đoạn{" "}
+                        <strong>"đánh cho Ngụy nhào"</strong>.
+                      </p>
+                    </div>
+                  </div>,
+                  [
+                    "https://media.doisongphapluat.com/files/content/2022/12/27/b52-080116.jpg",
+                    "https://image.thanhnien.vn/768/uploaded/ngocthanh/2022_12_27/1972-b52-2-6606.jpg",
+                  ]
+                )
+              }
+              icon={<InfoCircleOutlined />}
+            >
+              Xem chi tiết
+            </Button>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* 4.3 Tổng tiến công 1975 */}
-      <div className="image-grid-layout">
-        <h3 className="section-heading">
-          <span className="section-number">4.3</span>
+      <section className="content-section">
+        <h3 className="section-title">
+          <span className="number">4.3</span>
           Tổng Tiến công và Nổi dậy Mùa Xuân 1975
         </h3>
 
-        <div className="story-block">
-          <div className="image-wrapper aspect-16-9">
+        <div className="layout-grid">
+          <div className="image-focus">
             <Image
-              src="https://nld.mediacdn.vn/291774122806476800/2021/4/30/3-1619753925903968281421.jpg"
+              src="https://file3.qdnd.vn/data/images/0/2022/04/26/thuyanh/30-4.jpg?dpi=150&quality=100&w=870"
               alt="30 tháng 4 năm 1975"
               preview={true}
-              className="story-image"
+              className="main-image"
             />
-            <div className="image-caption">
+            <p className="image-label">
               30 tháng 4 năm 1975 - Giải phóng hoàn toàn miền Nam
-            </div>
+            </p>
           </div>
 
-          <div className="story-content">
-            <div className="brief-content">
+          <div className="content-wrap">
+            <div className="info-block">
               <p>
-                <strong>Chiến thắng Phước Long (1/1975)</strong>: Đòn thăm dò
-                chiến lược, chứng tỏ khả năng giải phóng hoàn toàn đã chín muồi
-                khi Mỹ không thể can thiệp trở lại.
+                <strong>Chiến thắng Phước Long (1/1975):</strong> Đòn thăm dò
+                chiến lược, chứng tỏ Mỹ không còn khả năng can thiệp.
               </p>
+            </div>
+
+            <div className="info-block highlight">
               <p>
-                <strong>Quyết tâm chiến lược</strong>: Bộ Chính trị chuyển kế
-                hoạch giải phóng trong hai năm thành quyết tâm giải phóng ngay
-                trong năm 1975.
+                <strong>Quyết tâm:</strong> Giải phóng ngay trong năm 1975.
               </p>
+              <p className="command">
+                "Thần tốc, thần tốc hơn nữa, táo bạo, táo bạo hơn nữa"
+              </p>
+            </div>
+
+            <div className="info-block">
               <p>
-                <strong>Mệnh lệnh lịch sử</strong>:{" "}
-                <em>"Thần tốc, thần tốc hơn nữa, táo bạo, táo bạo hơn nữa"</em>
+                <strong>Chuỗi chiến thắng:</strong> Tây Nguyên (3/1975) → Huế-Đà
+                Nẵng (3/1975) → Chiến dịch Hồ Chí Minh (4/1975)
+              </p>
+            </div>
+
+            <div className="info-block victory">
+              <p className="victory-text">
+                🇻🇳 <strong>30/4/1975</strong>: Giải phóng hoàn toàn miền Nam,
+                thống nhất đất nước!
               </p>
             </div>
 
             <Button
-              type="link"
-              className="learn-more-btn"
-              onClick={() => toggleSection("tt1975")}
-              icon={
-                expandedSections["tt1975"] ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections["tt1975"]
-                ? "Thu gọn"
-                : "Chiến dịch Hồ Chí Minh"}
-            </Button>
+              type="primary"
+              className="detail-btn"
+              onClick={() =>
+                openModal(
+                  "Tổng Tiến công và Nổi dậy Mùa Xuân 1975",
+                  <div className="modal-content">
+                    <div className="content-block">
+                      <h4>📍 Bối cảnh sau Hiệp định Paris</h4>
+                      <p>
+                        Sau Hiệp định Paris, Mỹ và chính quyền Nguyễn Văn Thiệu
+                        phá hoại hiệp định, tiếp tục lấn chiếm vùng giải phóng.
+                        Đảng nhận định con đường cách mạng miền Nam vẫn là bạo
+                        lực cách mạng.
+                      </p>
+                    </div>
 
-            {expandedSections["tt1975"] && (
-              <div className="expanded-detail">
-                <h5>Bối cảnh sau Hiệp định Paris</h5>
-                <p>
-                  Sau Hiệp định Paris, Mỹ và chính quyền Nguyễn Văn Thiệu phá
-                  hoại hiệp định, tiếp tục lấn chiếm vùng giải phóng. Đảng nhận
-                  định con đường cách mạng miền Nam vẫn là bạo lực cách mạng,
-                  phải giữ vững thế tiến công chiến lược.
-                </p>
-                <h5>Nghệ thuật nắm bắt thời cơ</h5>
-                <p>
-                  Chiến thắng Phước Long (1/1975) là đòn thăm dò chiến lược quan
-                  trọng, chứng tỏ khả năng giải phóng hoàn toàn đã chín muồi khi
-                  Mỹ không có khả năng can thiệp trở lại. Dựa trên nhận định
-                  này, Bộ Chính trị chuyển kế hoạch giải phóng miền Nam trong
-                  hai năm (1975–1976) thành quyết tâm giải phóng ngay trong năm
-                  1975.
-                </p>
-                <h5>Thắng lợi lịch sử</h5>
-                <p>
-                  Cuộc <strong>Tổng tiến công và Nổi dậy Mùa Xuân 1975</strong>,
-                  mở đầu bằng Chiến dịch Tây Nguyên, tiến đến{" "}
-                  <strong>Chiến dịch Hồ Chí Minh lịch sử</strong>, kết thúc
-                  thắng lợi vào <strong>ngày 30 tháng 4 năm 1975</strong>, giải
-                  phóng hoàn toàn miền Nam, thống nhất đất nước.
-                </p>
-              </div>
-            )}
+                    <div className="content-block highlight">
+                      <h4>🎯 Nghệ thuật nắm bắt thời cơ</h4>
+                      <p>
+                        <strong>Chiến thắng Phước Long (1/1975)</strong> là đòn
+                        thăm dó chiến lược quan trọng, chứng tỏ khả năng giải
+                        phóng hoàn toàn đã chín muồi khi Mỹ không có khả năng
+                        can thiệp trở lại. Bộ Chính trị quyết tâm giải phóng
+                        ngay trong năm 1975.
+                      </p>
+                    </div>
+
+                    <div className="content-block highlight">
+                      <h4>⚡ Mệnh lệnh lịch sử</h4>
+                      <p className="command-text">
+                        "Thần tốc, thần tốc hơn nữa, táo bạo, táo bạo hơn nữa"
+                      </p>
+                    </div>
+
+                    <div className="content-block">
+                      <h4>🏆 Chuỗi chiến thắng liên hoàn</h4>
+                      <ul>
+                        <li>
+                          <strong>Chiến dịch Tây Nguyên (3/1975):</strong> Mở
+                          màn, đập tan tuyến phòng thủ chiến lược cao nguyên
+                        </li>
+                        <li>
+                          <strong>Chiến dịch Huế - Đà Nẵng (3/1975):</strong>{" "}
+                          Giải phóng miền Trung trong 20 ngày
+                        </li>
+                        <li>
+                          <strong>Chiến dịch Hồ Chí Minh (4/1975):</strong>{" "}
+                          Chiến dịch lớn nhất, giải phóng Sài Gòn trong 55 ngày
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="content-block victory-section">
+                      <h4>🇻🇳 Thắng lợi lịch sử - 30/4/1975</h4>
+                      <p>
+                        Cuộc{" "}
+                        <strong>Tổng tiến công và Nổi dậy Mùa Xuân 1975</strong>{" "}
+                        kết thúc thắng lợi vào{" "}
+                        <strong>ngày 30 tháng 4 năm 1975</strong>, giải phóng
+                        hoàn toàn miền Nam, chấm dứt 21 năm chiến tranh, thống
+                        nhất đất nước, mở ra kỷ nguyên mới của dân tộc.
+                      </p>
+                    </div>
+                  </div>,
+                  [
+                    "https://nld.mediacdn.vn/291774122806476800/2021/4/30/3-1619753925903968281421.jpg",
+                    "https://cdnphoto.dantri.com.vn/EahMYsfR-gTloIQgWpwUMWf3u8w=/thumb_w/990/2021/04/27/chien-thang-tay-nguyen-1975-1619512618595.jpeg",
+                    "https://img.nhandan.vn/Files/Images/2022/04/27/Chien_dich_Ho_Chi_Minh-1651033653.jpg",
+                  ]
+                )
+              }
+              icon={<InfoCircleOutlined />}
+            >
+              Xem chi tiết
+            </Button>
           </div>
         </div>
 
-        {/* Image Gallery các sự kiện 1975 */}
+        {/* Gallery */}
         <div className="image-gallery">
           <div className="gallery-item">
-            <div className="image-wrapper aspect-1-1">
-              <Image
-                src="https://cdnphoto.dantri.com.vn/EahMYsfR-gTloIQgWpwUMWf3u8w=/thumb_w/990/2021/04/27/chien-thang-tay-nguyen-1975-1619512618595.jpeg"
-                alt="Chiến dịch Tây Nguyên"
-                preview={true}
-                className="story-image"
-              />
-              <div className="image-caption">Chiến dịch Tây Nguyên 3/1975</div>
-            </div>
+            <Image
+              src="https://cdnphoto.dantri.com.vn/EahMYsfR-gTloIQgWpwUMWf3u8w=/thumb_w/990/2021/04/27/chien-thang-tay-nguyen-1975-1619512618595.jpeg"
+              alt="Chiến dịch Tây Nguyên"
+              preview={true}
+              className="gallery-image"
+            />
+            <p className="image-label">Chiến dịch Tây Nguyên 3/1975</p>
           </div>
           <div className="gallery-item">
-            <div className="image-wrapper aspect-1-1">
-              <Image
-                src="https://image.baophapluat.vn/800x450/Uploaded/2024/qhjtktvoq/2024_04_26/bang-ten-duong-nguyen-hue-thuoc-phuong-hue-thuong-thanh-pho-hue-tinh-thua-thien-hue-0734.JPG"
-                alt="Chiến dịch Huế - Đà Nẵng"
-                preview={true}
-                className="story-image"
-              />
-              <div className="image-caption">
-                Chiến dịch Huế - Đà Nẵng 3/1975
-              </div>
-            </div>
+            <Image
+              src="https://image.baophapluat.vn/800x450/Uploaded/2024/qhjtktvoq/2024_04_26/bang-ten-duong-nguyen-hue-thuoc-phuong-hue-thuong-thanh-pho-hue-tinh-thua-thien-hue-0734.JPG"
+              alt="Chiến dịch Huế - Đà Nẵng"
+              preview={true}
+              className="gallery-image"
+            />
+            <p className="image-label">Chiến dịch Huế - Đà Nẵng 3/1975</p>
           </div>
           <div className="gallery-item">
-            <div className="image-wrapper aspect-1-1">
-              <Image
-                src="https://img.nhandan.vn/Files/Images/2022/04/27/Chien_dich_Ho_Chi_Minh-1651033653.jpg"
-                alt="Chiến dịch Hồ Chí Minh"
-                preview={true}
-                className="story-image"
-              />
-              <div className="image-caption">Chiến dịch Hồ Chí Minh 4/1975</div>
-            </div>
+            <Image
+              src="https://img.nhandan.vn/Files/Images/2022/04/27/Chien_dich_Ho_Chi_Minh-1651033653.jpg"
+              alt="Chiến dịch Hồ Chí Minh"
+              preview={true}
+              className="gallery-image"
+            />
+            <p className="image-label">Chiến dịch Hồ Chí Minh 4/1975</p>
           </div>
         </div>
-      </div>
+      </section>
 
+      {/* Modal */}
       <Modal
-        title={
-          <h3 style={{ color: "var(--lacquer-red)" }}>{modalContent.title}</h3>
-        }
+        title={<h3 className="modal-title">{modalContent.title}</h3>}
         open={modalVisible}
-        onCancel={() => setModalVisible(false)}
+        onCancel={closeModal}
         footer={null}
-        width={700}
+        width={900}
+        className="detail-modal"
+        centered
       >
-        <p style={{ fontSize: "1.1rem", lineHeight: "1.8" }}>
+        <div className="modal-body">
           {modalContent.content}
-        </p>
+
+          {modalContent.images && modalContent.images.length > 0 && (
+            <div className="modal-gallery">
+              <h4 className="gallery-heading">📸 Hình ảnh lịch sử</h4>
+              <div className="modal-gallery-grid">
+                {modalContent.images.map((img, index) => (
+                  <Image
+                    key={index}
+                    src={img}
+                    alt={`Hình ${index + 1}`}
+                    className="modal-gallery-image"
+                    preview={true}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </Modal>
     </div>
   );

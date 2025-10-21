@@ -1,457 +1,628 @@
-/* SouthSection.css - Consistent with Image-Focused Layout */
+/* SouthSection.css - Image-Centric Layout Optimized */
+
+:root {
+  --lacquer-red: #8b1a1a;
+  --lacquer-gold: #d4af37;
+  --jade-green: #5c7a6b;
+  --museum-beige: #f5f1e8;
+  --ink-black: #2c2c2c;
+}
 
 .south-section {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
+  padding: 0 1.5rem;
   font-family: "Fraunces", serif;
 }
 
-/* Specific crisis and card styles for South section */
-.crisis-box {
-  padding: 2rem;
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero-container {
+  position: relative;
+  margin: 1rem 0 2.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(139, 26, 26, 0.2);
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(139, 26, 26, 0.95) 0%,
+    rgba(139, 26, 26, 0.7) 50%,
+    transparent 100%
+  );
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+
+.content-section {
+  margin: 2.5rem 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid var(--lacquer-gold);
+}
+
+.section-title .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 3rem;
+  background: var(--lacquer-red);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   LAYOUT GRID - IMAGE CENTRIC
+   ============================================ */
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+
+/* Image Focus */
+.image-focus {
+  position: sticky;
+  top: 2rem;
+}
+
+.main-image {
+  width: 100%;
+  height: 888px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(139, 26, 26, 0.15);
+  border: 3px solid var(--lacquer-gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(139, 26, 26, 0.25);
+}
+
+.image-label {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--jade-green);
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* Content Wrap */
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 0.8rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--museum-beige);
+}
+
+/* Info Blocks */
+.info-block {
+  padding: 1rem 1.2rem;
   background: linear-gradient(
     135deg,
-    rgba(139, 26, 26, 0.1),
+    rgba(245, 241, 232, 0.5),
     rgba(212, 175, 55, 0.05)
   );
-  border-radius: 12px;
-  border-left: 5px solid var(--lacquer-red);
-  margin: 2rem 0;
-}
-
-.crisis-box h5 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--lacquer-red);
-  margin: 0 0 1rem 0;
-}
-
-.crisis-box p {
-  font-size: 1.1rem;
-  color: var(--ink-black);
-  margin: 0;
-  line-height: 1.8;
-}
-
-.resolution-card,
-.uprising-card {
-  padding: 2rem;
-  border-radius: 12px;
-  border: 3px solid;
-  height: 100%;
-}
-
-.resolution-card {
-  border-color: var(--lacquer-red);
-  background: linear-gradient(
-    135deg,
-    rgba(139, 26, 26, 0.05),
-    rgba(245, 241, 232, 0.8)
-  );
-}
-
-.uprising-card {
-  border-color: var(--jade-green);
-  background: linear-gradient(
-    135deg,
-    rgba(92, 122, 107, 0.05),
-    rgba(245, 241, 232, 0.8)
-  );
-}
-
-.resolution-badge,
-.uprising-badge {
-  display: inline-block;
-  padding: 0.6rem 1.5rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: white;
-  margin-bottom: 1.5rem;
-}
-
-.resolution-badge {
-  background: var(--lacquer-red);
-}
-
-.uprising-badge {
-  background: var(--jade-green);
-}
-
-.resolution-card h5,
-.uprising-card h5 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--lacquer-red);
-  margin: 1rem 0 1.5rem 0;
-}
-
-.war-card {
-  border-left: 5px solid var(--lacquer-gold);
-}
-
-.strategy-description {
-  padding: 1.5rem;
-  background: rgba(212, 175, 55, 0.08);
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-
-.battle-highlight {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 2.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(212, 175, 55, 0.1),
-    rgba(245, 241, 232, 0.8)
-  );
-  border-radius: 16px;
-  border: 3px solid var(--lacquer-gold);
-  margin: 2rem 0;
-}
-
-.battle-icon {
-  flex-shrink: 0;
-}
-
-.battle-content h5 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--lacquer-red);
-  margin: 0 0 1rem 0;
-}
-
-.tactic-box {
-  padding: 1.5rem;
-  text-align: center;
-  background: rgba(245, 241, 232, 0.6);
-  border-radius: 12px;
-  border: 2px solid var(--museum-beige);
-  transition: all 0.3s ease;
-}
-
-.tactic-box:hover {
-  transform: translateY(-5px);
-  border-color: var(--lacquer-gold);
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
-}
-
-.tactic-box h6 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--lacquer-red);
-  margin: 1rem 0 0.5rem 0;
-}
-
-.tactic-box p {
-  font-size: 1rem;
-  color: var(--jade-green);
-  margin: 0;
-}
-
-.battle-timeline .ant-timeline-item-content {
-  font-family: "Fraunces", serif;
-}
-
-.timeline-item h5 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--lacquer-red);
-  margin: 0 0 0.8rem 0;
-}
-
-.timeline-item p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--ink-black);
-}
-
-.vietnamization-card {
-  border: 3px solid var(--lacquer-red);
-}
-
-.strategy-box-inline {
-  padding: 1.5rem;
-  background: rgba(139, 26, 26, 0.05);
-  border-radius: 12px;
-  border-left: 4px solid var(--lacquer-red);
-}
-
-.campaign-card {
-  padding: 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(92, 122, 107, 0.08),
-    rgba(245, 241, 232, 0.8)
-  );
-  border-radius: 12px;
-  border: 2px solid var(--jade-green);
-  transition: all 0.3s ease;
-}
-
-.campaign-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 24px rgba(92, 122, 107, 0.2);
-}
-
-.campaign-card h5 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--lacquer-red);
-  margin: 0 0 1rem 0;
-}
-
-.campaign-card p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--ink-black);
-  margin: 0;
-}
-
-.paris-agreement {
-  margin-top: 3rem;
-  padding: 2.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(212, 175, 55, 0.1),
-    rgba(139, 26, 26, 0.05)
-  );
-  border-radius: 16px;
-  border: 3px solid var(--lacquer-gold);
-}
-
-.agreement-header {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid var(--lacquer-gold);
-}
-
-.agreement-icon {
-  font-size: 4rem;
-  color: var(--lacquer-red);
-}
-
-.agreement-header h5 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--lacquer-red);
-  margin: 0 0 0.5rem 0;
-}
-
-.agreement-subtitle {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: var(--jade-green);
-  margin: 0;
-}
-
-.agreement-point {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.7);
   border-radius: 8px;
+  border-left: 4px solid var(--jade-green);
+  transition: all 0.3s ease;
 }
 
-.agreement-point strong {
-  font-size: 1.5rem;
-  color: var(--lacquer-gold);
-  flex-shrink: 0;
-}
-
-.agreement-point p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--ink-black);
-  margin: 0;
-}
-
-.spring-offensive-card {
-  border: 4px double var(--lacquer-red);
+.info-block:hover {
   background: linear-gradient(
     135deg,
-    rgba(139, 26, 26, 0.03),
-    rgba(212, 175, 55, 0.03)
+    rgba(245, 241, 232, 0.7),
+    rgba(212, 175, 55, 0.1)
   );
+  transform: translateX(5px);
 }
 
-.offensive-intro {
-  padding: 2rem;
-  background: rgba(245, 241, 232, 0.6);
-  border-radius: 12px;
-  border-left: 5px solid var(--lacquer-red);
-}
-
-.spring-timeline .ant-timeline-item-label {
-  font-family: "Fraunces", serif;
-}
-
-.timeline-campaign {
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 12px;
-  border-left: 4px solid var(--jade-green);
-}
-
-.timeline-campaign h5 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--lacquer-red);
-  margin: 0 0 0.8rem 0;
-}
-
-.timeline-campaign p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--ink-black);
-  margin: 0;
-}
-
-.highlight-campaign {
+.info-block.highlight {
   background: linear-gradient(
     135deg,
     rgba(212, 175, 55, 0.15),
-    rgba(245, 241, 232, 0.9)
+    rgba(245, 241, 232, 0.6)
   );
   border-left-color: var(--lacquer-gold);
   border-left-width: 5px;
-  padding: 2rem;
 }
 
-.campaign-subtitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--lacquer-gold);
-  margin: 0.5rem 0 1.5rem 0;
-}
-
-.campaign-details {
-  margin-top: 1.5rem;
-}
-
-.victory-moment {
-  margin-top: 2rem;
-  padding: 2rem;
+.info-block.victory {
   background: linear-gradient(
     135deg,
     rgba(139, 26, 26, 0.1),
     rgba(212, 175, 55, 0.1)
   );
-  border-radius: 12px;
-  border: 3px solid var(--lacquer-red);
+  border-left-color: var(--lacquer-red);
+  border-left-width: 5px;
 }
 
-.victory-date {
-  font-size: 2.5rem;
+.info-block h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 0.5rem 0;
+}
+
+.info-block p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-black);
+  margin: 0.3rem 0;
+}
+
+.info-block strong {
+  color: var(--lacquer-red);
+  font-weight: 700;
+}
+
+/* Command Text */
+.command {
+  font-size: 1.15rem;
+  font-style: italic;
   font-weight: 700;
   color: var(--lacquer-red);
   text-align: center;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
+  padding: 1rem;
+  margin: 0.5rem 0 0 0;
+  background: rgba(139, 26, 26, 0.08);
+  border-radius: 6px;
+  border: 2px dashed var(--lacquer-gold);
 }
 
+/* Victory Text */
 .victory-text {
-  font-size: 1.2rem;
-  line-height: 2;
-  color: var(--ink-black);
-  text-align: center;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  color: var(--lacquer-red) !important;
+}
+
+/* Detail Button */
+.detail-btn {
+  align-self: flex-start;
+  background: var(--lacquer-red) !important;
+  border-color: var(--lacquer-red) !important;
+  color: white !important;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  height: auto;
+  border-radius: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 3px 12px rgba(139, 26, 26, 0.2);
+  transition: all 0.3s ease;
+}
+
+.detail-btn:hover {
+  background: var(--jade-green) !important;
+  border-color: var(--jade-green) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(92, 122, 107, 0.3);
+}
+
+/* ============================================
+   IMAGE GALLERY
+   ============================================ */
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.gallery-item {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 16px rgba(139, 26, 26, 0.15);
+  border: 3px solid var(--lacquer-gold);
+}
+
+/* ============================================
+   MODAL STYLES
+   ============================================ */
+
+.detail-modal .ant-modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.detail-modal .ant-modal-header {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 241, 232, 0.95),
+    rgba(212, 175, 55, 0.1)
+  );
+  border-bottom: 3px solid var(--lacquer-gold);
+  padding: 1.5rem 2rem;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
   margin: 0;
 }
 
-.unification-box {
-  margin-top: 3rem;
-  padding: 3rem;
+.detail-modal .ant-modal-body {
+  padding: 2rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-body {
+  font-family: "Fraunces", serif;
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.content-block {
+  padding: 1.2rem;
+  background: rgba(245, 241, 232, 0.4);
+  border-radius: 10px;
+  border-left: 4px solid var(--jade-green);
+  transition: all 0.3s ease;
+}
+
+.content-block:hover {
+  background: rgba(245, 241, 232, 0.6);
+  transform: translateX(5px);
+}
+
+.content-block.highlight {
   background: linear-gradient(
     135deg,
     rgba(212, 175, 55, 0.15),
-    rgba(139, 26, 26, 0.08)
+    rgba(245, 241, 232, 0.6)
   );
-  border-radius: 20px;
-  border: 4px solid var(--lacquer-gold);
+  border-left-color: var(--lacquer-gold);
+  border-left-width: 5px;
+}
+
+.content-block.victory-section {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 26, 26, 0.1),
+    rgba(212, 175, 55, 0.1)
+  );
+  border: 3px solid var(--lacquer-red);
+  padding: 2rem;
+}
+
+.content-block h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin: 0 0 0.8rem 0;
+}
+
+.content-block p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink-black);
+  margin: 0.5rem 0;
+  text-align: justify;
+}
+
+.content-block ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.content-block li {
+  padding: 0.6rem 0 0.6rem 1.8rem;
+  position: relative;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.content-block li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: var(--lacquer-gold);
+  font-size: 0.9rem;
+}
+
+.content-block strong {
+  color: var(--lacquer-red);
+  font-weight: 700;
+  background: rgba(212, 175, 55, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.command-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background: rgba(139, 26, 26, 0.08);
+  border-radius: 8px;
+  border: 2px dashed var(--lacquer-gold);
+}
+
+/* Modal Gallery */
+.modal-gallery {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--museum-beige);
+}
+
+.gallery-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--lacquer-red);
+  margin-bottom: 1.2rem;
   text-align: center;
 }
 
-.unification-flag {
-  font-size: 5rem;
-  margin-bottom: 1.5rem;
+.modal-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
 }
 
-.unification-content h4 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--lacquer-red);
-  margin: 0 0 1.5rem 0;
+.modal-gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid var(--lacquer-gold);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-.unification-content .lead-text {
-  font-size: 1.3rem;
-  line-height: 2;
+.modal-gallery-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(139, 26, 26, 0.2);
+}
+
+/* Custom Scrollbar */
+.detail-modal .ant-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.detail-modal .ant-modal-body::-webkit-scrollbar-track {
+  background: var(--museum-beige);
+  border-radius: 10px;
+}
+
+.detail-modal .ant-modal-body::-webkit-scrollbar-thumb {
+  background: var(--lacquer-red);
+  border-radius: 10px;
+}
+
+.detail-modal .ant-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--jade-green);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .layout-grid {
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
 }
 
 @media (max-width: 1024px) {
-  .battle-highlight {
-    flex-direction: column;
-    text-align: center;
+  .layout-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .agreement-header {
-    flex-direction: column;
-    text-align: center;
+  .image-focus {
+    position: static;
+  }
+
+  .image-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .battle-content h5 {
+  .south-section {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .section-title .number {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-overlay {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .layout-grid {
+    gap: 1.2rem;
+  }
+
+  .sub-title {
+    font-size: 1.3rem;
+  }
+
+  .info-block {
+    padding: 1rem;
+  }
+
+  .info-block p {
+    font-size: 0.98rem;
+  }
+
+  .detail-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .image-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .modal-title {
     font-size: 1.5rem;
   }
 
-  .victory-date {
-    font-size: 2rem;
+  .content-block {
+    padding: 1rem;
   }
 
-  .unification-flag {
-    font-size: 4rem;
+  .content-block h4 {
+    font-size: 1.2rem;
   }
 
-  .unification-content h4 {
-    font-size: 2rem;
+  .content-block p {
+    font-size: 1rem;
+  }
+
+  .modal-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-modal .ant-modal-body {
+    padding: 1.5rem;
   }
 }
 
-/* Hình ảnh chính */
-.section-image-container {
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-}
+@media (max-width: 480px) {
+  .south-section {
+    padding: 0 0.8rem;
+  }
 
-.section-main-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 16px;
-  border: 4px solid var(--lacquer-gold);
-  box-shadow: 0 8px 24px rgba(139, 26, 26, 0.15);
-  margin-bottom: 1rem;
-}
+  .section-title {
+    font-size: 1.3rem;
+  }
 
-.section-image-caption {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--lacquer-red);
-  font-family: "Fraunces", serif;
-  cursor: pointer;
-  text-decoration: underline;
-  opacity: 0.9;
-}
+  .section-title .number {
+    min-width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
 
-.section-image-caption:hover {
-  opacity: 1;
+  .hero-overlay {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+
+  .sub-title {
+    font-size: 1.2rem;
+  }
+
+  .info-block p {
+    font-size: 0.95rem;
+  }
+
+  .command {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .content-block h4 {
+    font-size: 1.1rem;
+  }
+
+  .content-block p {
+    font-size: 0.95rem;
+  }
+
+  .command-text {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .detail-modal .ant-modal-body {
+    padding: 1rem;
+  }
 }

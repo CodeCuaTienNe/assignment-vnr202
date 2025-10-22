@@ -135,7 +135,7 @@ export default function SouthSection() {
         <div className="layout-grid">
           <div className="image-focus">
             <Image
-              src="https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg"
+              src="https://img.cand.com.vn/resize/800x800/NewFiles/Images/2022/12/15/ap_bac-1671096270810.jpg"
               alt="Chiến thắng Ấp Bắc"
               preview={true}
               className="main-image"
@@ -197,7 +197,7 @@ export default function SouthSection() {
                     </div>
                   </div>,
                   [
-                    "https://image.baophapluat.vn/zoom/680_0/Uploaded/2024/ecilozx/2024_01_02/chien-thang-ap-bac-1-2-1963-2-1577.jpg",
+                    "https://img.cand.com.vn/resize/800x800/NewFiles/Images/2022/12/15/ap_bac-1671096270810.jpg",
                   ]
                 )
               }
@@ -212,7 +212,7 @@ export default function SouthSection() {
         <div className="layout-grid">
           <div className="image-focus">
             <Image
-              src="https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg"
+              src="https://images.hcmcpv.org.vn/res/news/2017/12/30-12-2017-tong-tien-cong-va-noi-day-xuan-mau-than-1968-ban-linh-va-tri-tue-viet-nam-thoi-dai-ho-chi-minh-EA5EF8D3.jpg"
               alt="Tổng tiến công Mậu Thân"
               preview={true}
               className="main-image"
@@ -313,7 +313,7 @@ export default function SouthSection() {
         <div className="layout-grid">
           <div className="image-focus">
             <Image
-              src="https://imgnvsk.vnanet.vn/MediaUpload/Content/2025/04/16/116-15-33-31.jpg"
+              src="https://hdll.vn/FileUpload/Images/sddefault.jpg"
               alt="Điện Biên Phủ trên không"
               preview={true}
               className="main-image"

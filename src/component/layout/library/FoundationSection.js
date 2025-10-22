@@ -248,15 +248,6 @@ export default function FoundationSection() {
               Tìm hiểu thêm
             </Button>
           </div>
-
-          <div className="image-wrapper aspect-circle">
-            <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_Vietnam.svg"
-              alt="Quốc kỳ Việt Nam"
-              preview={true}
-            />
-            <div className="image-caption-overlay">Lá cờ Độc lập</div>
-          </div>
         </div>
       </div>
 
@@ -270,16 +261,16 @@ export default function FoundationSection() {
         </div>
 
         <div className="image-grid-layout">
-          <div className="aspect-4-3">
+          {/* <div className="aspect-4-3">
             <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+              src="https://baolaichau.vn/uploaded/post/2024/12/06/11122019huyen10_1733451937894.jpg"
               alt="Kháng chiến chống Pháp"
               preview={true}
             />
             <div className="image-caption-overlay">
               Kháng chiến Toàn dân, Toàn diện
             </div>
-          </div>
+          </div> */}
 
           <div className="brief-content">
             <h4 className="content-title">Đường lối Kháng chiến</h4>
@@ -319,18 +310,8 @@ export default function FoundationSection() {
               </div>
             )}
           </div>
-
-          <div className="image-wrapper aspect-16-9 featured">
-            <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
-              alt="Chiến thắng Điện Biên Phủ"
-              preview={true}
-            />
-            <div className="image-caption-overlay">
-              Điện Biên Phủ 5/1954 - "Lừng lẫy Năm Châu, Chấn động Địa Cầu"
-            </div>
-          </div>
-
+        </div>
+        <div className="image-grid-layout">
           <div className="brief-content highlight-box">
             <h4 className="content-title">Điện Biên Phủ (5/1954)</h4>
             <p className="key-summary">
@@ -363,6 +344,11 @@ export default function FoundationSection() {
               </div>
             )}
           </div>
+          <Image
+            src="https://lh4.googleusercontent.com/proxy/2Ifji3EanEYs_nlwwFLCA-4f8CH5HzQJK5_abZxFXfpT6YDrY5AsmxYQTzy-DPYQz9kCY4sWhqkuDFfYtKe9lvnbGmSyIsJM9x7kG1RQdQ5hZigkzasaT7gVwoyQyCUk78Z3k3qE"
+            alt="Chiến thắng Điện Biên Phủ"
+            preview={true}
+          />
         </div>
       </div>
 
@@ -373,62 +359,54 @@ export default function FoundationSection() {
           <h3 className="subsection-title">Thách thức Mới: Can thiệp của Mỹ</h3>
         </div>
 
-        <div className="image-grid-layout">
-          <div className="image-wrapper aspect-16-9 featured">
-            <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
-              alt="Đế quốc Mỹ can thiệp"
-              preview={true}
-            />
-            <div className="image-caption-overlay">
-              Mỹ thay thế Pháp - Chia cắt Đất nước (1954)
+        <div className="brief-content">
+          <h4 className="content-title">Đế quốc Mỹ Can thiệp</h4>
+          <p className="key-summary">
+            Ngay sau Hiệp định Giơnevơ, Mỹ thay Pháp, áp đặt{" "}
+            <span className="highlight-text">chủ nghĩa thực dân mới</span>, chia
+            cắt đất nước tại vĩ tuyến 17, lập chính quyền tay sai Ngô Đình Diệm.
+          </p>
+          <Button
+            type="primary"
+            className="learn-more-btn"
+            icon={
+              expandedSections.usintervention ? (
+                <UpOutlined />
+              ) : (
+                <DownOutlined />
+              )
+            }
+            onClick={() => toggleSection("usintervention")}
+          >
+            {expandedSections.usintervention ? "Thu gọn" : "Tìm hiểu thêm"}
+          </Button>
+          {expandedSections.usintervention && (
+            <div className="expanded-detail">
+              <p>
+                <strong>Âm mưu của Mỹ:</strong> Chia cắt lâu dài Việt Nam, biến
+                miền Nam thành tiền đồn chống Cộng sản và căn cứ quân sự.
+              </p>
+              <p>
+                <strong>Hậu quả:</strong> Gián đoạn tiến trình thống nhất, đặt
+                đất nước trước cuộc đối đầu mới phức tạp và khốc liệt hơn nhiều.
+              </p>
             </div>
-          </div>
+          )}
+        </div>
 
-          <div className="brief-content">
-            <h4 className="content-title">Đế quốc Mỹ Can thiệp</h4>
-            <p className="key-summary">
-              Ngay sau Hiệp định Giơnevơ, Mỹ thay Pháp, áp đặt{" "}
-              <span className="highlight-text">chủ nghĩa thực dân mới</span>,
-              chia cắt đất nước tại vĩ tuyến 17, lập chính quyền tay sai Ngô
-              Đình Diệm.
-            </p>
-            <Button
-              type="primary"
-              className="learn-more-btn"
-              icon={
-                expandedSections.usintervention ? (
-                  <UpOutlined />
-                ) : (
-                  <DownOutlined />
-                )
-              }
-              onClick={() => toggleSection("usintervention")}
-            >
-              {expandedSections.usintervention ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.usintervention && (
-              <div className="expanded-detail">
-                <p>
-                  <strong>Âm mưu của Mỹ:</strong> Chia cắt lâu dài Việt Nam,
-                  biến miền Nam thành tiền đồn chống Cộng sản và căn cứ quân sự.
-                </p>
-                <p>
-                  <strong>Hậu quả:</strong> Gián đoạn tiến trình thống nhất, đặt
-                  đất nước trước cuộc đối đầu mới phức tạp và khốc liệt hơn
-                  nhiều.
-                </p>
-              </div>
-            )}
-          </div>
+        <div className="image-grid-layout">
+          <Image
+            src="https://nguonluc.com.vn/uploads/images/2023/07/03/chien-tranh-dac-biet-la-gi-so-sanh-chien-tranh-dac-biet-va-cuc-bo-2-1688379195.jpg"
+            alt="Đế quốc Mỹ can thiệp"
+            preview={true}
+          />
 
-          <div className="image-wrapper aspect-circle">
+          <div>
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_Vietnam.svg"
+              src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
               alt="Chia cắt đất nước"
               preview={true}
             />
-            <div className="image-caption-overlay">Đất nước bị chia cắt</div>
           </div>
         </div>
       </div>

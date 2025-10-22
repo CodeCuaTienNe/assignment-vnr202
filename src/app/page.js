@@ -65,8 +65,9 @@ export default function HomePage() {
         {/* PHẦN I: DẪN NHẬP VÀ NỀN TẢNG (1920-1954) */}
         <section id="foundation" className="museum-section foundation-section">
           <div className="section-header">
-            <div className="section-roman">I.</div>
-            <h2 className="section-title">Dẫn nhập và Nền tảng Chiến lược</h2>
+            <div className="section-roman">
+              I. Dẫn nhập và Nền tảng Chiến lược
+            </div>
             <div className="section-years">1920 – 1954</div>
           </div>
           <FoundationSection />
@@ -81,8 +82,9 @@ export default function HomePage() {
         {/* PHẦN II: ĐƯỜNG LỐI CHIẾN LƯỢC ĐỒNG THỜI */}
         <section id="strategy" className="museum-section strategy-section">
           <div className="section-header">
-            <div className="section-roman">II.</div>
-            <h2 className="section-title">Đường lối Chiến lược Đồng thời</h2>
+            <div className="section-roman">
+              II. Đường lối Chiến lược Đồng thời
+            </div>
             <div className="section-years">1954 – 1975</div>
             <div className="section-subtitle">
               Mối quan hệ Biện chứng giữa Hai Miền
@@ -100,8 +102,9 @@ export default function HomePage() {
         {/* PHẦN III: MIỀN BẮC - HẬU PHƯƠNG CHIẾN LƯỢC */}
         <section id="north" className="museum-section north-section">
           <div className="section-header">
-            <div className="section-roman">III.</div>
-            <h2 className="section-title">Miền Bắc: Hậu phương Chiến lược</h2>
+            <div className="section-roman">
+              III. Miền Bắc: Hậu phương Chiến lược
+            </div>
             <div className="section-years">1954 – 1975</div>
             <div className="section-subtitle">
               Củng cố Nền tảng Xã hội Chủ nghĩa
@@ -119,8 +122,7 @@ export default function HomePage() {
         {/* PHẦN IV: MIỀN NAM - TIỀN TUYẾN LỚN */}
         <section id="south" className="museum-section south-section">
           <div className="section-header">
-            <div className="section-roman">IV.</div>
-            <h2 className="section-title">Miền Nam: Tiền tuyến Lớn</h2>
+            <div className="section-roman">IV. Miền Nam: Tiền tuyến Lớn</div>
             <div className="section-years">1954 – 1975</div>
             <div className="section-subtitle">
               Chuyển hóa Chiến lược, Đánh bại Chủ nghĩa Thực dân Mới
@@ -138,10 +140,9 @@ export default function HomePage() {
         {/* PHẦN V: Ý NGHĨA LỊCH SỬ VÀ BÀI HỌC */}
         <section id="victory" className="museum-section victory-section">
           <div className="section-header">
-            <div className="section-roman">V.</div>
-            <h2 className="section-title">
-              Ý Nghĩa Lịch sử và Bài học Lãnh đạo
-            </h2>
+            <div className="section-roman">
+              V. Ý Nghĩa Lịch sử và Bài học Lãnh đạo
+            </div>
             <div className="section-years">1975</div>
             <div className="section-subtitle">
               Thắng lợi Vĩ đại - Di sản Trường tồn
@@ -162,8 +163,9 @@ export default function HomePage() {
           className="museum-section orientation-section"
         >
           <div className="section-header">
-            <div className="section-roman">VI.</div>
-            <h2 className="section-title">Định hướng Lý tưởng cho Sinh viên</h2>
+            <div className="section-roman">
+              VI. Định hướng Lý tưởng cho Sinh viên
+            </div>
             <div className="section-subtitle">Thế hệ Trẻ - Tiếp nối Lửa Đỏ</div>
           </div>
           <OrientationSection />

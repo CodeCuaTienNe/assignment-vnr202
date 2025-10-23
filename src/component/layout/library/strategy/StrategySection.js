@@ -27,16 +27,14 @@ export default function StrategySection() {
       {/* Section 2.1: Bối cảnh */}
       <div className="subsection-header">
         <div className="subsection-number">2.1</div>
-        <h3 className="subsection-title">
-          Bối cảnh và Xác định Nhiệm vụ Mới
-        </h3>
+        <h3 className="subsection-title">Bối cảnh và Xác định Nhiệm vụ Mới</h3>
       </div>
 
       <div className="image-story-container">
         <div className="story-block">
-          <div className="story-image-wrapper aspect-16-9">
+          <div className="story-image-wrapper aspect-9-16">
             <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+              src="https://i.redd.it/6klzdarshpwd1.jpeg"
               alt="Đất nước bị chia cắt"
               preview={false}
             />
@@ -85,9 +83,10 @@ export default function StrategySection() {
         <div className="story-block reverse">
           <div className="story-image-wrapper aspect-4-3">
             <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+              src="https://file3.qdnd.vn/data/images/0/2024/10/18/upload_2094/dai-hoi-iii.jpg"
               alt="Đại hội III"
               preview={false}
+              style={{ image: "cover" }}
             />
             <div className="story-image-caption">
               Đại hội Đại biểu Toàn quốc lần thứ III (9/1960)
@@ -143,7 +142,7 @@ export default function StrategySection() {
           }
         >
           <Image
-            src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+            src="https://file3.qdnd.vn/data/images/0/2024/10/14/upload_2094/duong-truong-son.jpg?dpi=150&quality=100&w=870"
             alt="Miền Bắc"
             preview={false}
           />
@@ -165,7 +164,7 @@ export default function StrategySection() {
           }
         >
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_Vietnam.svg"
+            src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/rBMwPsNgEe/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_ca_nuoc_truc_tiep_chien_dau_chong_de_quoc_my_xam_luoc_1965_-_1973__151902709_stand-665x463.jpg"
             alt="Miền Nam"
             preview={false}
           />
@@ -207,13 +206,14 @@ export default function StrategySection() {
       </div>
 
       <div className="story-block full-width">
-        <div className="story-content-brief" style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <div
+          className="story-content-brief"
+          style={{ maxWidth: "900px", margin: "0 auto" }}
+        >
           <h4>🔥 Bản lĩnh Độc lập, Tự chủ</h4>
           <p style={{ fontSize: "1.2rem", textAlign: "center" }}>
             Đảng giương cao ngọn cờ{" "}
-            <span className="key-point">
-              Độc lập Dân tộc gắn liền với CNXH
-            </span>
+            <span className="key-point">Độc lập Dân tộc gắn liền với CNXH</span>
             , vận dụng sáng tạo Mác-Lênin vào thực tiễn, tìm ra "quy luật riêng
             của cách mạng Việt Nam".
           </p>
@@ -241,9 +241,7 @@ export default function StrategySection() {
 
       <Modal
         title={
-          <h3 style={{ color: "var(--lacquer-red)" }}>
-            {modalContent.title}
-          </h3>
+          <h3 style={{ color: "var(--lacquer-red)" }}>{modalContent.title}</h3>
         }
         open={modalVisible}
         onCancel={() => setModalVisible(false)}

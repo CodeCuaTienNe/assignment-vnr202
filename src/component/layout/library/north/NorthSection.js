@@ -36,7 +36,7 @@ export default function NorthSection() {
         <div className="story-block">
           <div className="story-image-wrapper aspect-16-9">
             <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+              src="https://vnanet.vn/Data/Articles/2020/01/09/4363002/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_xay_dung_cnxh_o_mien_bac_va_dau_tranh_chong_my_-_nguy_o_mien_nam_1954_%E2%80%93_1965___151553289_stand.jpg"
               alt="Khôi phục miền Bắc"
               preview={false}
             />
@@ -66,8 +66,8 @@ export default function NorthSection() {
               <div className="expanded-content">
                 <p>
                   <strong>Trọng tâm:</strong> Lấy khôi phục và phát triển sản
-                  xuất nông nghiệp làm trọng tâm, kết hợp với Cải cách Ruộng
-                  đất để giải phóng sức sản xuất nông thôn.
+                  xuất nông nghiệp làm trọng tâm, kết hợp với Cải cách Ruộng đất
+                  để giải phóng sức sản xuất nông thôn.
                 </p>
               </div>
             )}
@@ -77,7 +77,7 @@ export default function NorthSection() {
         <div className="story-block reverse">
           <div className="story-image-wrapper aspect-4-3">
             <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+              src="https://vnanet.vn/Data/Articles/2020/01/16/4384296/vna_potal_90_nam_dcs_viet_nam_cai_cach_ruong_dat_%E2%80%93_nang_cao_trach_nhiem_truoc_dan_thu_tieu_che_do_chiem_huu_ruong_dat_cua_dia_chu_phong_kien_stand.jpg"
               alt="Cải cách ruộng đất"
               preview={false}
             />
@@ -110,6 +110,11 @@ export default function NorthSection() {
                   ương 10, 9/1956), thể hiện bản chất cách mạng và trách nhiệm
                   với nhân dân.
                 </p>
+                <Image
+                  src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/2e2d/live/0803fd10-6374-11ef-8c32-f3c2bc7494c6.jpg.webp"
+                  alt="Cải cách ruộng đất"
+                  preview={false}
+                />
               </div>
             )}
           </div>
@@ -135,8 +140,9 @@ export default function NorthSection() {
           }
         >
           <Image
-            src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+            src="https://imgcdn.tapchicongthuong.vn/thumb/w_1000/tcct-media/23/6/2/det-8-3.jpg"
             alt="Công nghiệp hóa"
+            style={{ objectFit: "cover" }}
             preview={false}
           />
           <div className="gallery-overlay">
@@ -157,15 +163,13 @@ export default function NorthSection() {
           }
         >
           <Image
-            src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+            src="https://thinhvuongvietnam.com/Content/UploadFiles/Thumb/2023/Quy4/redsvn-ha-noi-sau-1954-12-9251-155626924527102023101530.jpg"
             alt="Hợp tác xã"
             preview={false}
           />
           <div className="gallery-overlay">
             <div className="gallery-title">Hợp tác xã hóa</div>
-            <div className="gallery-description">
-              Cải tạo quan hệ sản xuất
-            </div>
+            <div className="gallery-description">Cải tạo quan hệ sản xuất</div>
           </div>
         </div>
 
@@ -179,15 +183,13 @@ export default function NorthSection() {
           }
         >
           <Image
-            src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+            src="https://ordi.vn/wp-content/uploads/2024/05/images1787458_anhssss_220230217100911.jpg"
             alt="Cách mạng văn hóa"
             preview={false}
           />
           <div className="gallery-overlay">
             <div className="gallery-title">Cách mạng Văn hóa</div>
-            <div className="gallery-description">
-              Xóa mù, nâng cao dân trí
-            </div>
+            <div className="gallery-description">Xóa mù, nâng cao dân trí</div>
           </div>
         </div>
       </div>
@@ -204,7 +206,7 @@ export default function NorthSection() {
         <div className="story-block">
           <div className="story-image-wrapper aspect-16-9">
             <Image
-              src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
+              src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/11F09/production/_97218437_gettyimages-151430010.jpg.webp"
               alt="Chiến tranh phá hoại"
               preview={false}
             />
@@ -245,9 +247,9 @@ export default function NorthSection() {
         </div>
 
         <div className="story-block reverse">
-          <div className="story-image-wrapper aspect-square">
+          <div className="story-image-wrapper aspect-4-3">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_Vietnam.svg"
+              src="https://media.loveitopcdn.com/1005/2018/06/10/560-tenlua.jpg"
               alt="Điện Biên Phủ trên không"
               preview={false}
             />
@@ -265,9 +267,7 @@ export default function NorthSection() {
             <Button
               className="expand-button"
               onClick={() => toggleSection("dbpair")}
-              icon={
-                expandedSections.dbpair ? <UpOutlined /> : <DownOutlined />
-              }
+              icon={expandedSections.dbpair ? <UpOutlined /> : <DownOutlined />}
             >
               {expandedSections.dbpair ? "Thu gọn" : "Tìm hiểu thêm"}
             </Button>
@@ -291,7 +291,10 @@ export default function NorthSection() {
       </div>
 
       <div className="story-block full-width">
-        <div className="story-content-brief" style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <div
+          className="story-content-brief"
+          style={{ maxWidth: "900px", margin: "0 auto" }}
+        >
           <h4>🏆 Hậu phương Vững mạnh - Tiền tuyến Thắng lợi</h4>
           <p style={{ fontSize: "1.2rem", textAlign: "center" }}>
             Miền Bắc giữ vai trò{" "}
@@ -302,9 +305,7 @@ export default function NorthSection() {
           <Button
             className="expand-button"
             onClick={() => toggleSection("rearbase")}
-            icon={
-              expandedSections.rearbase ? <UpOutlined /> : <DownOutlined />
-            }
+            icon={expandedSections.rearbase ? <UpOutlined /> : <DownOutlined />}
           >
             {expandedSections.rearbase ? "Thu gọn" : "Tìm hiểu thêm"}
           </Button>
@@ -324,9 +325,7 @@ export default function NorthSection() {
 
       <Modal
         title={
-          <h3 style={{ color: "var(--lacquer-red)" }}>
-            {modalContent.title}
-          </h3>
+          <h3 style={{ color: "var(--lacquer-red)" }}>{modalContent.title}</h3>
         }
         open={modalVisible}
         onCancel={() => setModalVisible(false)}

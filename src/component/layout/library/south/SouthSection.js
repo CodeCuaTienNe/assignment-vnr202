@@ -393,6 +393,22 @@ export default function SouthSection() {
                         mở ra cơ hội chuyển sang giai đoạn{" "}
                         <strong>"đánh cho Ngụy nhào"</strong>.
                       </p>
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="w-1/2">
+                          <Image
+                            src="https://tulieuvankien.dangcongsan.vn/Uploads/2018/8/5/3/hiep-dinh%20Pari%201973.jpg"
+                            alt="Hiệp định Paris 1973"
+                            preview={true}
+                          />
+                        </div>
+                        <div className="w-1/2">
+                          <Image
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE7lzivbrPi1hRhpluTnzSSK1_BIXO-cjhAg&s"
+                            alt="Hiệp định Paris 1973"
+                            preview={true}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>,
                   [
@@ -543,7 +559,7 @@ export default function SouthSection() {
         <div className="image-gallery">
           <div className="gallery-item">
             <Image
-              src="https://cdnphoto.dantri.com.vn/EahMYsfR-gTloIQgWpwUMWf3u8w=/thumb_w/990/2021/04/27/chien-thang-tay-nguyen-1975-1619512618595.jpeg"
+              src="https://file3.qdnd.vn/data/images/0/2022/03/01/vancuong/tay%20nguyen%2002.jpg?dpi=150&quality=100&w=870"
               alt="Chiến dịch Tây Nguyên"
               preview={true}
               className="gallery-image"
@@ -552,21 +568,21 @@ export default function SouthSection() {
           </div>
           <div className="gallery-item">
             <Image
-              src="https://image.baophapluat.vn/800x450/Uploaded/2024/qhjtktvoq/2024_04_26/bang-ten-duong-nguyen-hue-thuoc-phuong-hue-thuong-thanh-pho-hue-tinh-thua-thien-hue-0734.JPG"
+              src="https://mediabcb.mediatech.vn/upload/image/201504/medium/75583_IMG%20-%200765.jpg"
               alt="Chiến dịch Huế - Đà Nẵng"
               preview={true}
               className="gallery-image"
             />
             <p className="image-label">Chiến dịch Huế - Đà Nẵng 3/1975</p>
           </div>
-          <div className="gallery-item">
+          <div className="gallery-item aspect-4-3">
             <Image
-              src="https://img.nhandan.vn/Files/Images/2022/04/27/Chien_dich_Ho_Chi_Minh-1651033653.jpg"
+              src="https://bandothegioikholon.com/wp-content/uploads/2018/08/b%E1%BA%A3n-%C4%91%E1%BB%93-chi%E1%BA%BFn-d%E1%BB%8Bch-HCM.jpg"
               alt="Chiến dịch Hồ Chí Minh"
               preview={true}
               className="gallery-image"
             />
-            <p className="image-label">Chiến dịch Hồ Chí Minh 4/1975</p>
+            <h1 className="image-label">Chiến dịch Hồ Chí Minh 4/1975</h1>
           </div>
         </div>
       </section>
@@ -584,22 +600,22 @@ export default function SouthSection() {
         <div className="modal-body">
           {modalContent.content}
 
-          {modalContent.images && modalContent.images.length > 0 && (
-            <div className="modal-gallery">
-              <h4 className="gallery-heading">📸 Hình ảnh lịch sử</h4>
-              <div className="modal-gallery-grid">
-                {modalContent.images.map((img, index) => (
-                  <Image
-                    key={index}
-                    src={img}
-                    alt={`Hình ${index + 1}`}
-                    className="modal-gallery-image"
-                    preview={true}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          {/* {modalContent.images && modalContent.images.length > 0 && (
+            // <div className="modal-gallery">
+            //   <h4 className="gallery-heading">📸 Hình ảnh lịch sử</h4>
+            //   <div className="modal-gallery-grid">
+            //     {modalContent.images.map((img, index) => (
+            //       <Image
+            //         key={index}
+            //         src={img}
+            //         alt={`Hình ${index + 1}`}
+            //         className="modal-gallery-image"
+            //         preview={true}
+            //       />
+            //     ))}
+            //   </div>
+            // </div>
+          )} */}
         </div>
       </Modal>
     </div>

@@ -35,7 +35,8 @@ const contentData = {
       "Thắng lợi là biểu tượng sáng ngời cho bản lĩnh chính trị và trí tuệ Việt Nam",
     ],
     image_placeholder: "geneva_accord_1954_map",
-    imageUrl: "",
+    imageUrl:
+      "https://media.vov.vn/sites/default/files/styles/large/public/2024-05/1_121.jpg",
   },
 
   chapters: [

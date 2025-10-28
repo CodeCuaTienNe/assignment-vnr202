@@ -33,28 +33,6 @@ export default function FoundationSection() {
           <h4 className="context-title">
             <span className="title-marker">✦</span>
             Bối cảnh Quốc tế
-            <Button
-              type="text"
-              size="small"
-              icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
-              onClick={() =>
-                openModal(
-                  "Bối cảnh Quốc tế - Chi tiết",
-                  <div>
-                    <h4>Thuận lợi:</h4>
-                    <p>{section11?.content.international_context.favorable}</p>
-                    <h4>Thách thức:</h4>
-                    <ul>
-                      {section11?.content.international_context.challenges.map(
-                        (ch, i) => (
-                          <li key={i}>{ch}</li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                )
-              }
-            />
           </h4>
 
           <div className="split-content">
@@ -72,7 +50,196 @@ export default function FoundationSection() {
                   {section11?.content.international_context.challenges.map(
                     (ch, i) => (
                       <li key={i} className="challenge-item">
-                        {ch}
+                        {ch.includes("Chiến tranh Lạnh") ? (
+                          <>
+                            {ch.replace("Chiến tranh Lạnh", "")}
+                            <strong> Chiến tranh Lạnh</strong>
+                            <Button
+                              type="text"
+                              size="small"
+                              icon={
+                                <InfoCircleOutlined
+                                  style={{ color: "#1890ff" }}
+                                />
+                              }
+                              onClick={() =>
+                                openModal(
+                                  "Chiến tranh Lạnh là gì?",
+                                  <div>
+                                    <p>
+                                      Chiến tranh Lạnh là một thời kỳ căng thẳng
+                                      chính trị, quân sự và kinh tế giữa hai
+                                      siêu cường: Liên Xô và Hoa Kỳ, kéo dài từ
+                                      cuối Thế chiến II (1947) đến cuối thập
+                                      niên 1980 - đầu thập niên 1990.
+                                    </p>
+                                    <p>
+                                      Không có xung đột quân sự trực tiếp giữa
+                                      hai bên, nhưng biểu hiện qua cuộc chạy đua
+                                      vũ trang, cạnh tranh ý thức hệ, và các
+                                      cuộc chiến tranh ủy nhiệm trên toàn cầu.
+                                    </p>
+                                    <div
+                                      style={{
+                                        display: "grid",
+                                        gridTemplateColumns: "repeat(2, 1fr)",
+                                        gap: "1rem",
+                                        marginTop: "1rem",
+                                      }}
+                                    >
+                                      <div style={{ textAlign: "center" }}>
+                                        <Image
+                                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_Soviet_Union.svg/320px-Flag_of_the_Soviet_Union.svg.png"
+                                          alt="Cờ Liên Xô"
+                                          style={{
+                                            width: "180px",
+                                            height: "auto",
+                                          }}
+                                        />
+                                        <p
+                                          style={{
+                                            fontSize: "0.8rem",
+                                            marginTop: "0.5rem",
+                                          }}
+                                        >
+                                          Liên Xô
+                                        </p>
+                                      </div>
+                                      <div style={{ textAlign: "center" }}>
+                                        <Image
+                                          src="https://vnn-imgs-f.vgcloud.vn/2019/08/22/14/nhung-su-kien-chan-dong-the-gioi-thoi-chien-tranh-lanh-ii.JPEG?width=260&s=paboKCHJ-YzjOcHRRQDpAw"
+                                          alt="Chạy đua hạt nhân"
+                                          style={{
+                                            width: "180px",
+                                            height: "auto",
+                                          }}
+                                        />
+                                        <p
+                                          style={{
+                                            fontSize: "0.8rem",
+                                            marginTop: "0.5rem",
+                                          }}
+                                        >
+                                          Chạy đua hạt nhân
+                                        </p>
+                                      </div>
+
+                                      <div style={{ textAlign: "center" }}>
+                                        <Image
+                                          src="https://cdn.tienphong.vn/images/a6bf4f60924201126af6849ca45a39804ce9c20823a423d9d62936bf1a639dd684183658392618b47a55314b1f39c5676275734378306ae4aa7471d6f05e5f6891c395aaa9493e5cdaf349cad3d4a15e/a3be75b0f3c22afc47c64a90d9c48a7c.jpg"
+                                          alt="Chạy đua không gian"
+                                          style={{
+                                            width: "180px",
+                                            height: "auto",
+                                          }}
+                                        />
+                                        <p
+                                          style={{
+                                            fontSize: "0.8rem",
+                                            marginTop: "0.5rem",
+                                          }}
+                                        >
+                                          Chạy đua không gian
+                                        </p>
+                                      </div>
+                                      <div style={{ textAlign: "center" }}>
+                                        <Image
+                                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png"
+                                          alt="Cờ Hoa Kỳ"
+                                          style={{
+                                            width: "180px",
+                                            height: "auto",
+                                          }}
+                                        />
+                                        <p
+                                          style={{
+                                            fontSize: "0.8rem",
+                                            marginTop: "0.5rem",
+                                          }}
+                                        >
+                                          Hoa Kỳ
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )
+                              }
+                            />
+                          </>
+                        ) : ch.includes("thuộc địa kiểu mới") ? (
+                          <>
+                            Mỹ xây dựng miền Nam thành{" "}
+                            <strong>thuộc địa kiểu mới</strong> và căn cứ quân
+                            sự
+                            <Button
+                              type="text"
+                              size="small"
+                              icon={
+                                <InfoCircleOutlined
+                                  style={{ color: "#1890ff" }}
+                                />
+                              }
+                              onClick={() =>
+                                openModal(
+                                  "Thuộc địa kiểu mới là gì?",
+                                  <div>
+                                    <p>
+                                      Thuộc địa kiểu mới là hình thức thống trị
+                                      gián tiếp của các nước đế quốc đối với các
+                                      nước kém phát triển, không chiếm đóng trực
+                                      tiếp mà thông qua các chính phủ bù nhìn,
+                                      viện trợ kinh tế, quân sự để kiểm soát
+                                      chính trị, kinh tế và văn hóa.
+                                    </p>
+                                    <p>
+                                      Ở miền Nam Việt Nam, Mỹ dựng lên chính
+                                      quyền Ngô Đình Diệm như một chính phủ bù
+                                      nhìn, duy trì sự thống trị thông qua viện
+                                      trợ và can thiệp quân sự.
+                                    </p>
+                                  </div>
+                                )
+                              }
+                            />
+                          </>
+                        ) : ch.includes("Mỹ thay chân Pháp") ? (
+                          <>
+                            <strong>Đế quốc Mỹ thay chân Pháp</strong>, trở
+                            thành kẻ thù trực tiếp
+                            <Button
+                              type="text"
+                              size="small"
+                              icon={
+                                <InfoCircleOutlined
+                                  style={{ color: "#1890ff" }}
+                                />
+                              }
+                              onClick={() =>
+                                openModal(
+                                  "Ngữ cảnh lịch sử sau Chiến dịch Điện Biên Phủ và Hiệp định Geneve",
+                                  <div>
+                                    <p>
+                                      Sau thất bại của Pháp tại Chiến dịch Điện
+                                      Biên Phủ (5/1954), đế quốc Mỹ đã thay chân
+                                      Pháp để can thiệp vào Việt Nam nhằm duy
+                                      trì ảnh hưởng ở Đông Nam Á trong bối cảnh
+                                      Chiến tranh Lạnh.
+                                    </p>
+                                    <p>
+                                      Hiệp định Geneve (7/1954) đã chấm dứt
+                                      chiến tranh ở Đông Dương, nhưng Mỹ từ chối
+                                      tham gia ký kết và không công nhận hiệp
+                                      định, dẫn đến việc Mỹ trở thành kẻ thù
+                                      trực tiếp của nhân dân Việt Nam.
+                                    </p>
+                                  </div>
+                                )
+                              }
+                            />
+                          </>
+                        ) : (
+                          ch
+                        )}
                       </li>
                     )
                   )}
@@ -82,15 +249,12 @@ export default function FoundationSection() {
 
             <div className="image-content">
               <Image
-                src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/N4sXSdLc8e/vna_potal_90_nam_dcs_viet_nam_chu_tich_ho_chi_minh_va_phai_doan_viet_nam_tai_hoi_nghi_giơnevơ_ve_dong_duong_7_-_1954__151896551_stand-665x459.jpg"
+                src="https://media.vov.vn/sites/default/files/styles/large/public/2024-05/1_121.jpg"
                 alt="Hội nghị Giơnevơ 1954"
                 preview={true}
                 style={{ width: "100%", borderRadius: "8px" }}
               />
-              <p className="image-caption">
-                Chủ tịch Hồ Chí Minh và phái đoàn Việt Nam tại Hội nghị Giơnevơ
-                (7/1954)
-              </p>
+              <p className="image-caption">Hội nghị Giơnevơ (7/1954)</p>
             </div>
           </div>
         </div>
@@ -106,12 +270,13 @@ export default function FoundationSection() {
             <div className="image-content">
               <Image
                 src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
-                alt="Vĩ tuyến 17 - Chia cắt đất nước"
+                alt="Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Chia cắt đất nước"
                 preview={true}
                 style={{ width: "100%", borderRadius: "8px" }}
               />
               <p className="image-caption">
-                Vĩ tuyến 17 - Nỗi đau chia cắt đất nước
+                Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Nỗi đau chia cắt
+                đất nước
               </p>
             </div>
 
@@ -131,7 +296,51 @@ export default function FoundationSection() {
                 </p>
                 <p className="region-text">
                   <strong>Vi phạm:</strong>{" "}
-                  {section11?.content.domestic_context.south.violations}
+                  {section11?.content.domestic_context.south.violations.includes(
+                    "tổng tuyển cử"
+                  ) ? (
+                    <>
+                      Phá hoại Hiệp định Giơnevơ, cự tuyệt{" "}
+                      <strong>tổng tuyển cử</strong>
+                      <Button
+                        type="text"
+                        size="small"
+                        icon={
+                          <InfoCircleOutlined style={{ color: "#1890ff" }} />
+                        }
+                        onClick={() =>
+                          openModal(
+                            "Tổng tuyển cử là gì?",
+                            <div>
+                              <p>
+                                Tổng tuyển cử là cuộc bầu cử toàn dân để thống
+                                nhất đất nước Việt Nam sau chiến tranh, theo quy
+                                định của Hiệp định Geneve (1954).
+                              </p>
+                              <Image
+                                src="https://media.vov.vn/sites/default/files/styles/large/public/2024-05/1_121.jpg"
+                                alt="Hội nghị Giơnevơ 1954"
+                                preview={true}
+                                style={{ width: "100%", borderRadius: "8px" }}
+                              />
+                              <p>
+                                Vai trò: Để thực hiện quyền tự quyết của nhân
+                                dân Việt Nam, thống nhất hai miền Nam - Bắc.
+                              </p>
+                              <p>
+                                Từ 2 năm (1954 - 1956) chính quyền miền Nam do
+                                Mỹ hậu thuẫn từ chối tổ chức tổng tuyển cử, dẫn
+                                đến đất nước bị chia cắt đến năm 1975 tức 21
+                                năm.
+                              </p>
+                            </div>
+                          )
+                        }
+                      />
+                    </>
+                  ) : (
+                    section11?.content.domestic_context.south.violations
+                  )}
                 </p>
                 <div className="terror-warning">
                   <strong>⚠ Khủng bố:</strong>{" "}
@@ -145,35 +354,55 @@ export default function FoundationSection() {
                         "Luật 10/59 - Chính sách Khủng bố",
                         <div>
                           <p>
-                            <strong>Mô tả:</strong>{" "}
-                            {
-                              section11?.content.domestic_context.south
-                                .terror_policy.law_1059.description
-                            }
+                            Trong bối cảnh Mỹ thay chân Pháp sau thất bại tại
+                            Điện Biên Phủ, chính quyền Ngô Đình Diệm ở miền Nam
+                            Việt Nam đã ban hành Luật 10/59 vào ngày 6/1/1956,
+                            thiết lập Tòa án quân sự đặc biệt để đàn áp phong
+                            trào cách mạng và những người yêu nước.
                           </p>
                           <p>
-                            <strong>Thời gian đỉnh điểm:</strong>{" "}
-                            {
-                              section11?.content.domestic_context.south
-                                .terror_policy.law_1059.period
-                            }
+                            Luật này cho phép xét xử nhanh chóng mà không cần
+                            bằng chứng, dẫn đến hàng loạt vụ bắt bớ, tra tấn và
+                            hành quyết. Hàng trăm nghìn người đã trở thành nạn
+                            nhân của chính sách khủng bố này, góp phần leo thang
+                            xung đột và củng cố sự thống trị của Mỹ ở miền Nam.
                           </p>
-                          <p>
-                            <strong>Nạn nhân:</strong>{" "}
-                            {
-                              section11?.content.domestic_context.south
-                                .terror_policy.law_1059.victims
-                            }
-                          </p>
-                          <Image
-                            src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/Zp9YKWdFBf/vna_potal_90_nam_dcs_viet_nam_tham_du_hoi_nghi_thanh_lap_mat_tran_thong_nhat_giai_phong_mien_nam_viet_nam_12_-_1960__151892826_stand-665x398.jpg"
-                            alt="Mặt trận Dân tộc Giải phóng miền Nam"
+                          <div
                             style={{
-                              width: "100%",
+                              display: "flex",
+                              gap: "1rem",
                               marginTop: "1rem",
-                              borderRadius: "8px",
+                              flexWrap: "wrap",
                             }}
-                          />
+                          >
+                            <Image
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Law_10-59_ROV.pdf/page1-927px-Law_10-59_ROV.pdf.jpg"
+                              alt="Luật 10/59"
+                              style={{
+                                width: "200px",
+                                height: "auto",
+                                borderRadius: "8px",
+                              }}
+                            />
+                            <Image
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9IQ-n0egU9-6bXeoYhZlgXF1Rb3iIk4kYBg&s"
+                              alt="Máy chém Ngô Đình Diệm"
+                              style={{
+                                width: "200px",
+                                height: "auto",
+                                borderRadius: "8px",
+                              }}
+                            />
+                            <Image
+                              src="https://live.staticflickr.com/3847/14455934624_b9338abd6c.jpg"
+                              alt="Nhân dân miền Nam phản đối luật 10/59"
+                              style={{
+                                width: "200px",
+                                height: "auto",
+                                borderRadius: "8px",
+                              }}
+                            />
+                          </div>
                         </div>
                       )
                     }

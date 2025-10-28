@@ -1,6 +1,7 @@
 "use client";
 
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import contentData from "@/content/contentData";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
 import "./NorthSection.css";
@@ -8,333 +9,284 @@ import "./NorthSection.css";
 export default function NorthSection() {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({ title: "", content: "" });
-  const [expandedSections, setExpandedSections] = useState({});
 
   const openModal = (title, content) => {
     setModalContent({ title, content });
     setModalVisible(true);
   };
 
-  const toggleSection = (section) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
-  };
+  const chapter = contentData.chapters.find((ch) => ch.chapter_number === 3);
+  const section31 = chapter.sections.find((s) => s.section_id === "3.1");
+  const section32 = chapter.sections.find((s) => s.section_id === "3.2");
 
   return (
     <div className="north-section">
-      {/* Section 3.1: Khôi phục và Cải tạo */}
-      <div className="subsection-header">
-        <div className="subsection-number">3.1</div>
-        <h3 className="subsection-title">
-          Khôi phục và Cải tạo XHCN (1954–1960)
-        </h3>
-      </div>
-
-      <div className="image-story-container">
-        <div className="story-block">
-          <div className="story-image-wrapper aspect-16-9">
-            <Image
-              src="https://vnanet.vn/Data/Articles/2020/01/09/4363002/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_xay_dung_cnxh_o_mien_bac_va_dau_tranh_chong_my_-_nguy_o_mien_nam_1954_%E2%80%93_1965___151553289_stand.jpg"
-              alt="Khôi phục miền Bắc"
-              preview={false}
-            />
-            <div className="story-image-caption">
-              Khôi phục kinh tế sau chiến tranh
-            </div>
-          </div>
-          <div className="story-content-brief">
-            <h4>Hàn gắn Vết thương Chiến tranh</h4>
-            <p>
-              Nhiệm vụ trọng tâm:{" "}
-              <span className="key-point">
-                Khôi phục kinh tế, ổn định xã hội
-              </span>
-              , chuẩn bị đưa miền Bắc quá độ lên CNXH.
-            </p>
-            <Button
-              className="expand-button"
-              onClick={() => toggleSection("recovery")}
-              icon={
-                expandedSections.recovery ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections.recovery ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.recovery && (
-              <div className="expanded-content">
-                <p>
-                  <strong>Trọng tâm:</strong> Lấy khôi phục và phát triển sản
-                  xuất nông nghiệp làm trọng tâm, kết hợp với Cải cách Ruộng đất
-                  để giải phóng sức sản xuất nông thôn.
-                </p>
-              </div>
-            )}
-          </div>
+      {/* Section 3.1: Xây dựng CNXH và Vai trò Hậu phương */}
+      <div className="construction-block">
+        <div className="subsection-header">
+          <div className="subsection-number">3.1</div>
+          <h3 className="subsection-title">{section31.title}</h3>
         </div>
 
-        <div className="story-block reverse">
-          <div className="story-image-wrapper aspect-4-3">
-            <Image
-              src="https://vnanet.vn/Data/Articles/2020/01/16/4384296/vna_potal_90_nam_dcs_viet_nam_cai_cach_ruong_dat_%E2%80%93_nang_cao_trach_nhiem_truoc_dan_thu_tieu_che_do_chiem_huu_ruong_dat_cua_dia_chu_phong_kien_stand.jpg"
-              alt="Cải cách ruộng đất"
-              preview={false}
-            />
-            <div className="story-image-caption">
-              Cải cách Ruộng đất - Nông dân được chia đất
-            </div>
-          </div>
-          <div className="story-content-brief">
-            <h4>Cải cách Ruộng đất</h4>
-            <p>
-              Xóa bỏ chế độ phong kiến, chia{" "}
-              <span className="key-point">810,000 ha ruộng đất</span> cho hơn 9
-              triệu nông dân lao động.
-            </p>
-            <Button
-              className="expand-button"
-              onClick={() => toggleSection("landreform")}
-              icon={
-                expandedSections.landreform ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections.landreform ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.landreform && (
-              <div className="expanded-content">
-                <p>
-                  <strong>Sai lầm và Sửa chữa:</strong> Cải cách ruộng đất mắc
-                  phải sai lầm nghiêm trọng do giáo điều, chủ quan. Đảng đã
-                  nghiêm khắc tự phê bình và sửa sai kịp thời (Hội nghị Trung
-                  ương 10, 9/1956), thể hiện bản chất cách mạng và trách nhiệm
-                  với nhân dân.
-                </p>
-                <Image
-                  src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/2e2d/live/0803fd10-6374-11ef-8c32-f3c2bc7494c6.jpg.webp"
-                  alt="Cải cách ruộng đất"
-                  preview={false}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Section 3.2: Xây dựng CNXH */}
-      <div className="subsection-header">
-        <div className="subsection-number">3.2</div>
-        <h3 className="subsection-title">
-          Xây dựng Chủ nghĩa Xã hội (1960–1965)
-        </h3>
-      </div>
-
-      <div className="image-gallery">
-        <div
-          className="gallery-item"
-          onClick={() =>
-            openModal(
-              "Công nghiệp hóa",
-              "Xây dựng cơ sở vật chất - kỹ thuật của CNXH, phát triển công nghiệp nặng, tạo nền tảng kinh tế độc lập tự chủ."
-            )
-          }
-        >
-          <Image
-            src="https://imgcdn.tapchicongthuong.vn/thumb/w_1000/tcct-media/23/6/2/det-8-3.jpg"
-            alt="Công nghiệp hóa"
-            style={{ objectFit: "cover" }}
-            preview={false}
-          />
-          <div className="gallery-overlay">
-            <div className="gallery-title">Công nghiệp hóa</div>
-            <div className="gallery-description">
-              Xây dựng cơ sở vật chất CNXH
-            </div>
-          </div>
+        <div className="strategic-role-highlight">
+          <p className="role-text">{section31.content.strategic_role}</p>
         </div>
 
-        <div
-          className="gallery-item"
-          onClick={() =>
-            openModal(
-              "Hợp tác xã hóa",
-              "Cải tạo quan hệ sản xuất nông nghiệp và tiểu thủ công nghiệp, xây dựng hợp tác xã, giải phóng sức sản xuất."
-            )
-          }
-        >
-          <Image
-            src="https://thinhvuongvietnam.com/Content/UploadFiles/Thumb/2023/Quy4/redsvn-ha-noi-sau-1954-12-9251-155626924527102023101530.jpg"
-            alt="Hợp tác xã"
-            preview={false}
-          />
-          <div className="gallery-overlay">
-            <div className="gallery-title">Hợp tác xã hóa</div>
-            <div className="gallery-description">Cải tạo quan hệ sản xuất</div>
-          </div>
-        </div>
-
-        <div
-          className="gallery-item"
-          onClick={() =>
-            openModal(
-              "Cách mạng văn hóa",
-              "Xây dựng nền văn hóa mới, xóa mù chữ, phát triển giáo dục, y tế, nâng cao dân trí và đời sống văn hóa tinh thần."
-            )
-          }
-        >
-          <Image
-            src="https://ordi.vn/wp-content/uploads/2024/05/images1787458_anhssss_220230217100911.jpg"
-            alt="Cách mạng văn hóa"
-            preview={false}
-          />
-          <div className="gallery-overlay">
-            <div className="gallery-title">Cách mạng Văn hóa</div>
-            <div className="gallery-description">Xóa mù, nâng cao dân trí</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Section 3.3: Chiến tranh Phá hoại */}
-      <div className="subsection-header">
-        <div className="subsection-number">3.3</div>
-        <h3 className="subsection-title">
-          Đương đầu Chiến tranh Phá hoại (1965–1973)
-        </h3>
-      </div>
-
-      <div className="image-story-container">
-        <div className="story-block">
-          <div className="story-image-wrapper aspect-16-9">
-            <Image
-              src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/11F09/production/_97218437_gettyimages-151430010.jpg.webp"
-              alt="Chiến tranh phá hoại"
-              preview={false}
-            />
-            <div className="story-image-caption">
-              Chiến tranh phá hoại của Mỹ ở miền Bắc
-            </div>
-          </div>
-          <div className="story-content-brief">
-            <h4>⚔️ Chiến tranh Phá hoại Mỹ</h4>
-            <p>
-              Từ 2/1965, Mỹ leo thang chiến tranh, ném bom dữ dội lên miền Bắc,
-              âm mưu{" "}
-              <span className="key-point">
-                phá hoại hậu phương, cắt đứt sự chi viện cho miền Nam
-              </span>
-              .
-            </p>
-            <Button
-              className="expand-button"
-              onClick={() => toggleSection("bombing")}
-              icon={
-                expandedSections.bombing ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections.bombing ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.bombing && (
-              <div className="expanded-content">
-                <p>
-                  <strong>Quyết tâm:</strong> "Vừa sản xuất, vừa chiến đấu".
-                  Nhân dân miền Bắc kiên cường đương đầu, bảo vệ bầu trời, duy
-                  trì sản xuất, chi viện cho miền Nam. Chiến tranh không làm
-                  miền Bắc khuất phục.
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="story-block reverse">
-          <div className="story-image-wrapper aspect-4-3">
-            <Image
-              src="https://media.loveitopcdn.com/1005/2018/06/10/560-tenlua.jpg"
-              alt="Điện Biên Phủ trên không"
-              preview={false}
-            />
-            <div className="story-image-caption">
-              Chiến thắng "Điện Biên Phủ trên không" (12/1972)
-            </div>
-          </div>
-          <div className="story-content-brief">
-            <h4>Điện Biên Phủ trên không (12/1972)</h4>
-            <p>
-              Đánh bại cuộc tập kích bằng{" "}
-              <span className="key-point">máy bay B-52</span>, buộc Mỹ phải ký
-              Hiệp định Paris (1/1973).
-            </p>
-            <Button
-              className="expand-button"
-              onClick={() => toggleSection("dbpair")}
-              icon={expandedSections.dbpair ? <UpOutlined /> : <DownOutlined />}
-            >
-              {expandedSections.dbpair ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.dbpair && (
-              <div className="expanded-content">
-                <p>
-                  <strong>Ý nghĩa:</strong> Thắng lợi chấn động thế giới, chứng
-                  minh ý chí bất khuất của dân tộc. Mỹ phải chấp nhận đàm phán,
-                  ký Hiệp định Paris, rút quân khỏi Việt Nam.
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Section 3.4: Vai trò Hậu phương */}
-      <div className="subsection-header">
-        <div className="subsection-number">3.4</div>
-        <h3 className="subsection-title">Vai trò Hậu phương Quyết định</h3>
-      </div>
-
-      <div className="story-block full-width">
-        <div
-          className="story-content-brief"
-          style={{ maxWidth: "900px", margin: "0 auto" }}
-        >
-          <h4>🏆 Hậu phương Vững mạnh - Tiền tuyến Thắng lợi</h4>
-          <p style={{ fontSize: "1.2rem", textAlign: "center" }}>
-            Miền Bắc giữ vai trò{" "}
-            <span className="key-point">quyết định nhất</span> đối với sự phát
-            triển của toàn bộ cách mạng. Cung cấp nguồn lực vật chất, tinh thần,
-            nhân lực cho chiến trường miền Nam.
+        {/* Five Year Plan */}
+        <div className="five-year-plan">
+          <h4 className="plan-title">
+            Kế hoạch 5 năm lần thứ nhất (
+            {section31.content.first_five_year_plan.period})
+          </h4>
+          <p className="plan-goal">
+            {section31.content.first_five_year_plan.goal}
           </p>
-          <Button
-            className="expand-button"
-            onClick={() => toggleSection("rearbase")}
-            icon={expandedSections.rearbase ? <UpOutlined /> : <DownOutlined />}
-          >
-            {expandedSections.rearbase ? "Thu gọn" : "Tìm hiểu thêm"}
-          </Button>
-          {expandedSections.rearbase && (
-            <div className="expanded-content">
+        </div>
+
+        {/* Wartime Adjustment */}
+        <div className="wartime-section">
+          <div className="adjustment-header">
+            <h4>Điều chỉnh Chiến lược trong Chiến tranh</h4>
+            <Button
+              type="text"
+              icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+              onClick={() =>
+                openModal(
+                  "Điều chỉnh Chiến lược",
+                  <div>
+                    <p>
+                      <strong>Khởi đầu:</strong>{" "}
+                      {section31.content.wartime_adjustment.trigger}
+                    </p>
+                    <p>
+                      <strong>Đáp ứng:</strong>{" "}
+                      {section31.content.wartime_adjustment.response}
+                    </p>
+                    <p>
+                      <strong>Chiến lược:</strong>{" "}
+                      {section31.content.wartime_adjustment.strategy}
+                    </p>
+                    <p>
+                      <strong>Tinh thần:</strong>{" "}
+                      <em>"{section31.content.wartime_adjustment.spirit}"</em>
+                    </p>
+                  </div>
+                )
+              }
+            />
+          </div>
+
+          <div className="adjustment-content">
+            <p>
+              <strong>Khởi đầu:</strong>{" "}
+              {section31.content.wartime_adjustment.trigger}
+            </p>
+            <p>
+              <strong>Chiến lược:</strong>{" "}
+              {section31.content.wartime_adjustment.strategy}
+            </p>
+            <div className="spirit-quote">
+              "{section31.content.wartime_adjustment.spirit}"
+            </div>
+          </div>
+        </div>
+
+        {/* Emulation Movements */}
+        <div className="emulation-movements">
+          <h4 className="movements-title">Phong trào Thi đua Yêu nước</h4>
+          <div className="movements-grid">
+            {section31.content.emulation_movements.map((movement, idx) => (
+              <div key={idx} className="movement-card">
+                <div className="movement-name">{movement.name}</div>
+                <div className="movement-target">
+                  Đối tượng: {movement.target}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Section 3.2: Đường Hồ Chí Minh */}
+      <div className="trail-block">
+        <div className="subsection-header">
+          <div className="subsection-number">3.2</div>
+          <h3 className="subsection-title">{section32.title}</h3>
+        </div>
+
+        <div className="trail-hero">
+          <Image
+            src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/j4_8gXMUyT/vna_potal_90_nam_dcs_viet_nam_doan_567_xuyen_nui_thong_duong_truong_son_10_-_1973__151900697_stand-998x665.jpg"
+            alt="Đường Hồ Chí Minh"
+            preview={true}
+            style={{ width: "100%", borderRadius: "8px" }}
+          />
+          <p className="image-caption">
+            Đoàn 567 xuyên núi thông Đường Trường Sơn (10/1973)
+          </p>
+        </div>
+
+        <div className="trail-info-grid">
+          <div className="trail-founding">
+            <h4>Thành lập</h4>
+            <p>
+              <strong>Ngày:</strong> {section32.content.founding.date}
+            </p>
+            <p>
+              <strong>Tên gọi:</strong> {section32.content.founding.name}
+            </p>
+            <p>
+              <strong>Ý nghĩa:</strong>{" "}
+              {section32.content.founding.significance}
+            </p>
+            <p>
+              <strong>Chức năng:</strong> {section32.content.founding.function}
+            </p>
+          </div>
+
+          <div className="trail-thinking">
+            <h4>Tư tưởng Chiến lược</h4>
+            <div className="thinking-quote">
+              "{section32.content.strategic_thinking}"
+            </div>
+          </div>
+        </div>
+
+        {/* Specifications */}
+        <div className="specifications-section">
+          <h4 className="spec-title">Quy mô và Thông số Kỹ thuật</h4>
+          <div className="spec-grid">
+            <div className="spec-item">
+              <div className="spec-icon">⏱</div>
+              <div className="spec-label">Thời gian hoạt động</div>
+              <div className="spec-value">
+                {section32.content.specifications.duration}
+              </div>
+            </div>
+            <div className="spec-item">
+              <div className="spec-icon">🛣</div>
+              <div className="spec-label">Đường bộ</div>
+              <div className="spec-value">
+                {section32.content.specifications.road_length}
+              </div>
+            </div>
+            <div className="spec-item">
+              <div className="spec-icon">🛢</div>
+              <div className="spec-label">Đường ống</div>
+              <div className="spec-value">
+                {section32.content.specifications.pipeline_length}
+              </div>
+            </div>
+            <div className="spec-item">
+              <div className="spec-icon">📡</div>
+              <div className="spec-label">Thông tin liên lạc</div>
+              <div className="spec-value">
+                {section32.content.specifications.communication_lines}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Challenges */}
+        <div className="challenges-section">
+          <h4>Thử thách và Khó khăn</h4>
+          <div className="challenge-box">
+            <p>
+              <strong>Bom đạn địch:</strong>{" "}
+              {section32.content.challenges.enemy_bombing}
+            </p>
+            <p>
+              <strong>Chiến tranh hóa học:</strong>{" "}
+              {section32.content.challenges.chemical_warfare}
+            </p>
+          </div>
+        </div>
+
+        {/* Support Results */}
+        <div className="support-results">
+          <h4 className="results-title">Kết quả Chi viện</h4>
+
+          <div className="overall-support">
+            <h5>Tổng thể (1959-1975)</h5>
+            <div className="support-stats">
+              <div className="stat-item">
+                <div className="stat-value">
+                  {section32.content.support_results.overall.troops}
+                </div>
+                <div className="stat-label">Bộ đội chủ lực</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-value">
+                  {section32.content.support_results.overall.weapons_food}
+                </div>
+                <div className="stat-label">Vũ khí & Lương thực</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="campaign-1975">
+            <h5>Chiến dịch Mùa Xuân 1975</h5>
+            <div className="campaign-stats">
               <p>
-                <strong>Sự chi viện to lớn:</strong> Không có hậu phương miền
-                Bắc vững mạnh, không thể có thắng lợi ở miền Nam. Miền Bắc đã
-                cung cấp hàng triệu tấn lương thực, vũ khí, trang bị, cùng hàng
-                trăm nghìn chiến sĩ chi viện cho chiến trường. Đây là minh chứng
-                cho sức mạnh của khối đại đoàn kết toàn dân tộc.
+                <strong>Thời gian:</strong>{" "}
+                {section32.content.support_results["1975_campaign"].period}
+              </p>
+              <p>
+                <strong>Quân số:</strong>{" "}
+                {
+                  section32.content.support_results["1975_campaign"]
+                    .troops_transported
+                }
+              </p>
+              <p>
+                <strong>Hàng hóa:</strong>{" "}
+                {
+                  section32.content.support_results["1975_campaign"]
+                    .supplies_transported
+                }
+              </p>
+              <p>
+                <strong>Điểm đến:</strong>{" "}
+                {section32.content.support_results["1975_campaign"].destination}
               </p>
             </div>
-          )}
+          </div>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="comparison-table-wrapper">
+          <h4 className="table-title">
+            {section32.content.comparison_table.title}
+          </h4>
+          <table className="trail-table">
+            <thead>
+              <tr>
+                <th>Đặc điểm</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              {section32.content.comparison_table.data.map((row, idx) => (
+                <tr key={idx}>
+                  <td className="characteristic-cell">{row.characteristic}</td>
+                  <td>{row.detail}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
       <Modal
-        title={
-          <h3 style={{ color: "var(--lacquer-red)" }}>{modalContent.title}</h3>
-        }
+        title={modalContent.title}
         open={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={null}
         width={700}
       >
-        <p style={{ fontSize: "1.1rem", lineHeight: "1.8" }}>
+        <div style={{ fontSize: "1rem", lineHeight: "1.8" }}>
           {modalContent.content}
-        </p>
+        </div>
       </Modal>
     </div>
   );

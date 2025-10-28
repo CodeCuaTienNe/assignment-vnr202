@@ -34,3 +34,19 @@ export const scrollToSection = (sectionId) => {
     window.scrollTo({ top: y, behavior: "smooth" });
   }
 };
+
+export const useModal = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalContent, setModalContent] = useState({ title: "", content: "" });
+
+  const openModal = (title, content) => {
+    setModalContent({ title, content });
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  return { modalVisible, modalContent, openModal, closeModal };
+};

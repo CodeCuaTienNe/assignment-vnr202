@@ -1,6 +1,7 @@
 "use client";
 
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import contentData from "@/content/contentData";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
 import "./StrategySection.css";
@@ -8,249 +9,262 @@ import "./StrategySection.css";
 export default function StrategySection() {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({ title: "", content: "" });
-  const [expandedSections, setExpandedSections] = useState({});
 
   const openModal = (title, content) => {
     setModalContent({ title, content });
     setModalVisible(true);
   };
 
-  const toggleSection = (section) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
-  };
+  const chapter = contentData.chapters.find((ch) => ch.chapter_number === 2);
+  const section21 = chapter.sections.find((s) => s.section_id === "2.1");
+  const section22 = chapter.sections.find((s) => s.section_id === "2.2");
 
   return (
     <div className="strategy-section">
-      {/* Section 2.1: Bối cảnh */}
-      <div className="subsection-header">
-        <div className="subsection-number">2.1</div>
-        <h3 className="subsection-title">Bối cảnh và Xác định Nhiệm vụ Mới</h3>
-      </div>
-
-      <div className="image-story-container">
-        <div className="story-block">
-          <div className="story-image-wrapper aspect-9-16">
-            <Image
-              src="https://i.redd.it/6klzdarshpwd1.jpeg"
-              alt="Đất nước bị chia cắt"
-              preview={false}
-            />
-            <div className="story-image-caption">
-              Đất nước bị chia cắt làm hai miền (1954)
-            </div>
-          </div>
-          <div className="story-content-brief">
-            <h4>Đất nước Chia cắt</h4>
-            <p>
-              Sau 1954, đất nước bị chia cắt làm hai miền:{" "}
-              <span className="key-point">Miền Bắc được giải phóng</span>, xây
-              dựng CNXH. <span className="key-point">Miền Nam</span> dưới sự
-              kiểm soát của Mỹ-Diệm, chủ nghĩa thực dân mới.
-            </p>
-            <Button
-              className="expand-button"
-              onClick={() => toggleSection("divided")}
-              icon={
-                expandedSections.divided ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections.divided ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.divided && (
-              <div className="expanded-content">
-                <p>
-                  <strong>Âm mưu của Mỹ:</strong> Chia cắt lâu dài Việt Nam,
-                  biến miền Nam thành tiền đồn chống Cộng sản. Tình thế đòi hỏi
-                  Đảng phải vạch ra đường lối chiến lược mới, phù hợp với đặc
-                  điểm quốc gia bị chia cắt nhưng có chung mục tiêu thống nhất.
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Section 2.2: Đại hội III */}
-      <div className="subsection-header">
-        <div className="subsection-number">2.2</div>
-        <h3 className="subsection-title">Đại hội III (9/1960)</h3>
-      </div>
-
-      <div className="image-story-container">
-        <div className="story-block reverse">
-          <div className="story-image-wrapper aspect-4-3">
-            <Image
-              src="https://file3.qdnd.vn/data/images/0/2024/10/18/upload_2094/dai-hoi-iii.jpg"
-              alt="Đại hội III"
-              preview={false}
-              style={{ image: "cover" }}
-            />
-            <div className="story-image-caption">
-              Đại hội Đại biểu Toàn quốc lần thứ III (9/1960)
-            </div>
-          </div>
-          <div className="story-content-brief">
-            <h4>Đường lối Chiến lược Đồng thời</h4>
-            <p>
-              Đại hội III xác định:{" "}
-              <span className="key-point">
-                Tiến hành đồng thời hai chiến lược cách mạng
-              </span>{" "}
-              - XHCN ở miền Bắc và DTDCND ở miền Nam, cùng hướng tới thống nhất
-              đất nước.
-            </p>
-            <Button
-              className="expand-button"
-              onClick={() => toggleSection("congress3")}
-              icon={
-                expandedSections.congress3 ? <UpOutlined /> : <DownOutlined />
-              }
-            >
-              {expandedSections.congress3 ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.congress3 && (
-              <div className="expanded-content">
-                <p>
-                  <strong>Chủ đề Đại hội:</strong> "Đại hội xây dựng chủ nghĩa
-                  xã hội ở miền Bắc và đấu tranh hòa bình thống nhất nước nhà".
-                  Đây là thành công chiến lược to lớn, cân bằng giữa nhiệm vụ
-                  xây dựng và chiến đấu.
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Mối quan hệ Biện chứng - Gallery */}
-      <div className="subsection-header">
-        <div className="subsection-number">2.3</div>
-        <h3 className="subsection-title">Mối quan hệ Biện chứng Hai Miền</h3>
-      </div>
-
-      <div className="image-gallery">
-        <div
-          className="gallery-item"
-          onClick={() =>
-            openModal(
-              "Miền Bắc - Hậu phương Lớn",
-              "Tiến hành Cách mạng XHCN, xây dựng tiềm lực và bảo vệ căn cứ địa của cả nước. Vai trò quyết định nhất đối với sự phát triển của toàn bộ cách mạng Việt Nam."
-            )
-          }
-        >
-          <Image
-            src="https://file3.qdnd.vn/data/images/0/2024/10/14/upload_2094/duong-truong-son.jpg?dpi=150&quality=100&w=870"
-            alt="Miền Bắc"
-            preview={false}
-          />
-          <div className="gallery-overlay">
-            <div className="gallery-title">Miền Bắc - Hậu phương Lớn</div>
-            <div className="gallery-description">
-              Xây dựng CNXH, cung cấp nguồn lực
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="gallery-item"
-          onClick={() =>
-            openModal(
-              "Miền Nam - Tiền tuyến Lớn",
-              "Tiến hành Cách mạng DTDCND, vai trò quyết định trực tiếp đối với việc giải phóng miền Nam, thực hiện thống nhất đất nước. Chiến trường trực tiếp, nơi các chiến thắng diễn ra."
-            )
-          }
-        >
-          <Image
-            src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/rBMwPsNgEe/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_ca_nuoc_truc_tiep_chien_dau_chong_de_quoc_my_xam_luoc_1965_-_1973__151902709_stand-665x463.jpg"
-            alt="Miền Nam"
-            preview={false}
-          />
-          <div className="gallery-overlay">
-            <div className="gallery-title">Miền Nam - Tiền tuyến Lớn</div>
-            <div className="gallery-description">
-              Giải phóng, thống nhất đất nước
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="gallery-item"
-          onClick={() =>
-            openModal(
-              "Sự Kết hợp Sức mạnh",
-              "Kết hợp sức mạnh hậu phương và tiền tuyến, tranh thủ tối đa nguồn lực dân tộc và sự ủng hộ quốc tế. Nếu miền Bắc không vững mạnh, không thể có sự chi viện cho Miền Nam."
-            )
-          }
-        >
-          <Image
-            src="https://file3.qdnd.vn/data/images/0/2025/04/03/upload_2049/lo-go.jpg"
-            alt="Kết hợp sức mạnh"
-            preview={false}
-          />
-          <div className="gallery-overlay">
-            <div className="gallery-title">Kết hợp Toàn diện</div>
-            <div className="gallery-description">
-              Hậu phương vững, tiền tuyến thắng
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Section 2.4: Độc lập Tự chủ */}
-      <div className="subsection-header">
-        <div className="subsection-number">2.4</div>
-        <h3 className="subsection-title">Tính Độc lập, Tự chủ và Sáng tạo</h3>
-      </div>
-
-      <div className="story-block full-width">
-        <div
-          className="story-content-brief"
-          style={{ maxWidth: "900px", margin: "0 auto" }}
-        >
-          <h4>🔥 Bản lĩnh Độc lập, Tự chủ</h4>
-          <p style={{ fontSize: "1.2rem", textAlign: "center" }}>
-            Đảng giương cao ngọn cờ{" "}
-            <span className="key-point">Độc lập Dân tộc gắn liền với CNXH</span>
-            , vận dụng sáng tạo Mác-Lênin vào thực tiễn, tìm ra "quy luật riêng
-            của cách mạng Việt Nam".
-          </p>
+      {/* Section 2.1: Nghị quyết 15 */}
+      <div className="resolution-block">
+        <div className="subsection-header">
+          <div className="subsection-number">2.1</div>
+          <h3 className="subsection-title">{section21.title}</h3>
           <Button
-            className="expand-button"
-            onClick={() => toggleSection("independence")}
-            icon={
-              expandedSections.independence ? <UpOutlined /> : <DownOutlined />
+            type="text"
+            icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+            onClick={() =>
+              openModal(
+                "Nghị quyết 15 - Bối cảnh",
+                <div>
+                  <p>
+                    <strong>Bối cảnh:</strong> {section21.content.context}
+                  </p>
+                  <p>
+                    <strong>Hội nghị:</strong>{" "}
+                    {section21.content.conference.name}
+                  </p>
+                  <p>
+                    <strong>Thời gian:</strong>{" "}
+                    {section21.content.conference.date}
+                  </p>
+                  <p>
+                    <strong>Ý nghĩa:</strong>{" "}
+                    {section21.content.conference.significance}
+                  </p>
+                </div>
+              )
             }
-          >
-            {expandedSections.independence ? "Thu gọn" : "Tìm hiểu thêm"}
-          </Button>
-          {expandedSections.independence && (
-            <div className="expanded-content">
-              <p>
-                <strong>Trong bối cảnh quốc tế phân hóa:</strong> Việt Nam giữ
-                vững thế chủ động, tranh thủ sự ủng hộ từ cả Liên Xô và Trung
-                Quốc, duy trì nguồn viện trợ chiến lược. Sự lãnh đạo đúng đắn và
-                sáng tạo này là nhân tố hàng đầu quyết định thắng lợi.
+          />
+        </div>
+
+        <div className="resolution-content">
+          <div className="context-warning">
+            <strong>⚠ Tình hình:</strong> {section21.content.context}
+          </div>
+
+          <div className="key-decisions-grid">
+            <div className="decision-card">
+              <div className="decision-header">Nhiệm vụ cơ bản</div>
+              <p>{section21.content.key_decisions.basic_mission}</p>
+            </div>
+
+            <div className="decision-card highlight">
+              <div className="decision-header">Con đường phát triển</div>
+              <p>{section21.content.key_decisions.development_path}</p>
+            </div>
+
+            <div className="decision-card">
+              <div className="decision-header">Phương thức</div>
+              <p>{section21.content.key_decisions.method}</p>
+            </div>
+
+            <div className="decision-card success">
+              <div className="decision-header">Tác động</div>
+              <p>{section21.content.key_decisions.impact}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 2.2: Đồng Khởi và Chiến tranh Đặc biệt */}
+      <div className="dongkhoi-block">
+        <div className="subsection-header">
+          <div className="subsection-number">2.2</div>
+          <h3 className="subsection-title">{section22.title}</h3>
+        </div>
+
+        {/* Phong trào Đồng Khởi */}
+        <div className="dongkhoi-content">
+          <h4 className="content-subtitle">Phong trào Đồng Khởi (1960)</h4>
+
+          <div className="split-image-content">
+            <div className="content-side">
+              <div className="info-item">
+                <strong>Khởi đầu:</strong>{" "}
+                {section22.content.dong_khoi_uprising.start_location} (
+                {section22.content.dong_khoi_uprising.start_date})
+              </div>
+              <div className="info-item">
+                <strong>Lan tỏa:</strong>{" "}
+                {section22.content.dong_khoi_uprising.spread}
+              </div>
+              <div className="achievement-box">
+                <strong>
+                  Thành tựu (
+                  {section22.content.dong_khoi_uprising.achievements.end_period}
+                  ):
+                </strong>
+                <ul>
+                  <li>
+                    {section22.content.dong_khoi_uprising.achievements.impact}
+                  </li>
+                  <li>
+                    <strong>Chuyển đổi chiến lược:</strong>{" "}
+                    {
+                      section22.content.dong_khoi_uprising.achievements
+                        .strategic_shift
+                    }
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="image-side">
+              <Image
+                src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/SFfTTOy0Fe/vna_potal_90_nam_dcs_viet_nam_dong_khoi_ben_tre_17_-_1_-_1960__151893050_stand-665x395.jpg"
+                alt="Đồng Khởi Bến Tre"
+                preview={true}
+                style={{ width: "100%", borderRadius: "8px" }}
+              />
+              <p className="image-caption">
+                Phong trào Đồng Khởi tại Bến Tre (1/1960)
               </p>
             </div>
-          )}
+          </div>
+        </div>
+
+        {/* Chiến tranh Đặc biệt */}
+        <div className="special-war-content">
+          <h4 className="content-subtitle">
+            Chiến lược "Chiến tranh Đặc biệt" (1961-1965)
+            <Button
+              type="text"
+              size="small"
+              icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+              onClick={() =>
+                openModal(
+                  "Chiến tranh Đặc biệt",
+                  <div>
+                    <p>
+                      <strong>Thời kỳ:</strong>{" "}
+                      {section22.content.special_war_strategy.period}
+                    </p>
+                    <p>
+                      <strong>Tổng thống Mỹ:</strong>{" "}
+                      {
+                        section22.content.special_war_strategy.us_strategy
+                          .president
+                      }
+                    </p>
+                    <p>
+                      <strong>Phương thức:</strong>{" "}
+                      {
+                        section22.content.special_war_strategy.us_strategy
+                          .method
+                      }
+                    </p>
+                    <p>
+                      <strong>Mục tiêu:</strong>{" "}
+                      {section22.content.special_war_strategy.us_strategy.goal}
+                    </p>
+                  </div>
+                )
+              }
+            />
+          </h4>
+
+          <div className="war-response-grid">
+            <div className="response-card us-strategy">
+              <h5>Chiến lược của Mỹ</h5>
+              <p>
+                <strong>Tên:</strong>{" "}
+                {section22.content.special_war_strategy.us_strategy.name}
+              </p>
+              <p>
+                <strong>Phương thức:</strong>{" "}
+                {section22.content.special_war_strategy.us_strategy.method}
+              </p>
+              <p>
+                <strong>Mục tiêu:</strong>{" "}
+                {section22.content.special_war_strategy.us_strategy.goal}
+              </p>
+            </div>
+
+            <div className="response-card party-response">
+              <h5>Đáp trả của Đảng</h5>
+              <p>
+                <strong>Chiến lược:</strong>{" "}
+                {section22.content.special_war_strategy.party_response.strategy}
+              </p>
+              <p>
+                <strong>Chuyển đổi:</strong>{" "}
+                {
+                  section22.content.special_war_strategy.party_response
+                    .transition
+                }
+              </p>
+              <p>
+                <strong>Chiến thuật:</strong>{" "}
+                {section22.content.special_war_strategy.party_response.tactics}
+              </p>
+            </div>
+          </div>
+
+          {/* Chiến thắng quyết định */}
+          <div className="victories-section">
+            <h5 className="victories-title">Chiến thắng Quyết định</h5>
+            <div className="victories-grid">
+              {section22.content.special_war_strategy.decisive_victories.map(
+                (victory, idx) => (
+                  <div key={idx} className="victory-card">
+                    <div className="victory-name">{victory.name}</div>
+                    <div className="victory-date">{victory.date || ""}</div>
+                    <p className="victory-significance">
+                      {victory.significance || victory.result}
+                    </p>
+                  </div>
+                )
+              )}
+            </div>
+
+            <div className="final-outcome">
+              <strong>
+                Kết quả cuối cùng (
+                {section22.content.special_war_strategy.final_outcome.date}):
+              </strong>
+              <p>
+                {section22.content.special_war_strategy.final_outcome.result}
+              </p>
+              <p>
+                <em>
+                  {
+                    section22.content.special_war_strategy.final_outcome
+                      .consequence
+                  }
+                </em>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       <Modal
-        title={
-          <h3 style={{ color: "var(--lacquer-red)" }}>{modalContent.title}</h3>
-        }
+        title={modalContent.title}
         open={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={null}
         width={700}
       >
-        <p style={{ fontSize: "1.1rem", lineHeight: "1.8" }}>
+        <div style={{ fontSize: "1rem", lineHeight: "1.8" }}>
           {modalContent.content}
-        </p>
+        </div>
       </Modal>
     </div>
   );

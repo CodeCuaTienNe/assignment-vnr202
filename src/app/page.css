@@ -17,6 +17,114 @@ html {
   background: var(--museum-cream);
 }
 
+/* Magazine-style article wrapper */
+.museum-article {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.85)
+  );
+  /* additional subtle paper texture can be added later */
+}
+
+/* Per-section background themes (text will overlay images) */
+.magazine-section {
+  position: relative;
+  color: var(--ink-black);
+  overflow: visible;
+}
+
+.magazine-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.08;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.2) contrast(0.9);
+}
+
+.magazine-section .section-header,
+.magazine-section .section-subtitle,
+.magazine-section .section-years,
+.magazine-section .section-roman,
+.magazine-section > * {
+  position: relative;
+  z-index: 2; /* ensure text sits above background */
+}
+
+/* Example background images for each major section - replace URLs as desired */
+.bg-foundation::before {
+  background-image: url("/images/foundation-bg.svg");
+}
+.bg-strategy::before {
+  background-image: url("/images/strategy-bg.svg");
+}
+.bg-north::before {
+  background-image: url("/images/north-bg.svg");
+}
+.bg-south::before {
+  background-image: url("/images/south-bg.svg");
+}
+.bg-victory::before {
+  background-image: url("/images/victory-bg.svg");
+}
+.bg-orientation::before {
+  background-image: url("/images/orientation-bg.svg");
+}
+
+/* Remove card backgrounds — text will appear directly on the section background */
+.content-card,
+.highlight-box,
+.quote-box,
+.mosaic-section,
+.story-content-brief,
+.image-story-container .expanded-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Improve text contrast when placed directly on decorative backgrounds */
+.magazine-section {
+  color: var(--ink-black);
+}
+.magazine-section .content-title,
+.magazine-section .section-title,
+.magazine-section .subsection-title {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Headings with magazine typography */
+.section-title,
+.subsection-title {
+  font-family: "Fraunces", serif;
+  letter-spacing: 0.02em;
+}
+
+/* Make images feel embedded into the paper */
+.image-wrapper img,
+.mosaic-img,
+.gallery-item img {
+  mix-blend-mode: multiply;
+}
+
+/* Responsive tweaks specifically for magazine look */
+@media (max-width: 768px) {
+  .magazine-section::before {
+    opacity: 0.06;
+    background-position: center top;
+  }
+  .content-card,
+  .highlight-box {
+    background: rgba(255, 255, 255, 0.96);
+  }
+}
+
 /* Section Styling */
 .museum-section {
   max-width: 1400px;

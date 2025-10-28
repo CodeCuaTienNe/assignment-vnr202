@@ -1,10 +1,7 @@
 "use client";
 
-import {
-  DownOutlined,
-  InfoCircleOutlined,
-  UpOutlined,
-} from "@ant-design/icons";
+import contentData from "@/content/contentData";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
 import "./FoundationSection.css";
@@ -12,402 +9,284 @@ import "./FoundationSection.css";
 export default function FoundationSection() {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({ title: "", content: "" });
-  const [expandedSections, setExpandedSections] = useState({});
 
   const openModal = (title, content) => {
     setModalContent({ title, content });
     setModalVisible(true);
   };
 
-  const toggleSection = (sectionKey) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [sectionKey]: !prev[sectionKey],
-    }));
-  };
+  const chapter1 = contentData.chapters.find((ch) => ch.chapter_number === 1);
+  const section11 = chapter1?.sections[0];
+  const section12 = chapter1?.sections[1];
 
   return (
     <div className="foundation-section">
-      {/* 1.1 Tính Tất yếu */}
-      <div className="image-focus-block">
+      {/* Section 1.1: Bối cảnh Quốc tế và Trong nước */}
+      <div className="section-block">
         <div className="subsection-header">
           <div className="subsection-number">1.1</div>
-          <h3 className="subsection-title">
-            Tính Tất yếu của Sự Lựa chọn Lịch sử
-          </h3>
+          <h3 className="subsection-title">{section11?.title}</h3>
         </div>
 
-        <div className="section-content">
-          <div className="inline-pair">
-            <div className="image-wrapper aspect-16-9">
-              <Image
-                src="https://www.tapchicongsan.org.vn/documents/20182/115688290/HCM.jpg/921a222c-8cf4-424f-bf6b-13ab7d741184?t=1622793973647"
-                alt="Khủng hoảng đường lối cứu nước đầu thế kỷ XX"
-                preview={true}
-              />
-              {/* <div className="image-caption-overlay">
-                Khủng hoảng đường lối cứu nước đầu thế kỷ XX
-              </div> */}
-            </div>
-
-            <div className="brief-content">
-              <h4 className="content-title">Khủng hoảng Đường lối Cứu nước</h4>
-              <p className="key-summary">
-                Các phong trào yêu nước từ phong kiến (Cần Vương) đến tư sản,
-                tiểu tư sản (Việt Nam Quốc dân Đảng) đều thất bại. Đất nước{" "}
-                <span className="highlight-text">
-                  "đen tối như không có đường ra"
-                </span>
-                .
-              </p>
-              <Button
-                type="primary"
-                className="learn-more-btn"
-                icon={
-                  expandedSections.crisis ? <UpOutlined /> : <DownOutlined />
-                }
-                onClick={() => toggleSection("crisis")}
-              >
-                {expandedSections.crisis ? "Thu gọn" : "Tìm hiểu thêm"}
-              </Button>
-              {expandedSections.crisis && (
-                <div className="expanded-detail">
-                  <p>
-                    <strong>Nguyên nhân thất bại:</strong> Thiếu đường lối chính
-                    trị đủ khả năng giải quyết triệt để mâu thuẫn cơ bản của xã
-                    hội thuộc địa. Các phong trào chỉ dựa vào hệ tư tưởng lạc
-                    hậu hoặc thiếu sự lãnh đạo của giai cấp công nhân.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="inline-pair">
-            <div className="brief-content">
-              <h4 className="content-title">Bước ngoặt: Chủ nghĩa Mác-Lênin</h4>
-              <p className="key-summary">
-                Nguyễn Ái Quốc tìm đường cứu nước, tiếp cận và vận dụng{" "}
-                <span className="highlight-text">Chủ nghĩa Mác-Lênin</span> vào
-                thực tiễn Việt Nam - bước ngoặt quyết định.
-              </p>
-              <Button
-                type="primary"
-                className="learn-more-btn"
-                icon={
-                  expandedSections.turning ? <UpOutlined /> : <DownOutlined />
-                }
-                onClick={() => toggleSection("turning")}
-              >
-                {expandedSections.turning ? "Thu gọn" : "Tìm hiểu thêm"}
-              </Button>
-              {expandedSections.turning && (
-                <div className="expanded-detail">
-                  <p>
-                    Người đã tìm ra con đường cứu nước duy nhất: kết hợp vận
-                    động giải phóng dân tộc với cách mạng vô sản. Chủ nghĩa
-                    Mác-Lênin cung cấp nền tảng lý luận khoa học và phương pháp
-                    cách mạng đúng đắn.
-                  </p>
-                </div>
-              )}
-            </div>
-            <Image
-              src="https://imgcdn.tapchicongthuong.vn/tcct-media/20/1/24/nguyen-ai-quoc.jpg"
-              alt="Nguyễn Ái Quốc - Hồ Chí Minh"
-              preview={true}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-
-          <div className="inline-pair">
-            <Image
-              src="https://cdn-images.vtv.vn/zoom/700_438/2020/6/8/photo-1-15916299088202067720891.jpg"
-              alt="Ra đời Đảng Cộng sản Việt Nam"
-              preview={true}
-            />
-
-            <div className="brief-content highlight-box">
-              <h4 className="content-title">Ra đời Đảng Cộng sản (2/1930)</h4>
-              <p className="key-summary">
-                Sản phẩm tất yếu của sự kết hợp:{" "}
-                <strong>
-                  Chủ nghĩa Mác-Lênin + Phong trào Công nhân + Phong trào Yêu
-                  nước
-                </strong>
-              </p>
-              <Button
-                type="primary"
-                className="learn-more-btn"
-                icon={
-                  expandedSections.party ? <UpOutlined /> : <DownOutlined />
-                }
-                onClick={() => toggleSection("party")}
-              >
-                {expandedSections.party ? "Thu gọn" : "Tìm hiểu thêm"}
-              </Button>
-              {expandedSections.party && (
-                <div className="expanded-detail">
-                  <p>
-                    Đảng ra đời với Cương lĩnh chính trị đầu tiên đúng đắn, mở
-                    ra thời kỳ phát triển mới cho cách mạng và dân tộc. Đảng
-                    khẳng định vai trò tiên phong của giai cấp công nhân và đại
-                    diện trung thành lợi ích của toàn thể nhân dân lao động.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 1.2 Cách mạng Tháng Tám */}
-      <div className="image-focus-block">
-        <div className="subsection-header">
-          <div className="subsection-number">1.2</div>
-          <h3 className="subsection-title">
-            Cách mạng Tháng Tám 1945: Đỉnh cao Lãnh đạo
-          </h3>
-        </div>
-
-        <div className="image-grid-layout">
-          <div className="image-wrapper aspect-16-9 featured">
-            <Image
-              src="https://tonghop.kiengiang.dcs.vn/uploads/news/2023_08/anh-3.jpg"
-              alt="Cách mạng Tháng Tám 1945"
-              preview={true}
-            />
-            <div className="image-caption-overlay">
-              Cách mạng Tháng Tám 1945 - Thắng lợi Vĩ đại
-            </div>
-          </div>
-
-          <div className="brief-content">
-            <h4 className="content-title">Thắng lợi Vĩ đại 8/1945</h4>
-            <p className="key-summary">
-              Đỉnh cao lãnh đạo của Đảng: Tổng khởi nghĩa thành công, thành lập{" "}
-              <span className="highlight-text">
-                nước Việt Nam Dân chủ Cộng hòa
-              </span>{" "}
-              - Kỷ nguyên mới lịch sử dân tộc.
-            </p>
+        {/* Bối cảnh Quốc tế */}
+        <div className="context-section international">
+          <h4 className="context-title">
+            <span className="title-marker">✦</span>
+            Bối cảnh Quốc tế
             <Button
-              type="primary"
-              className="learn-more-btn"
-              icon={<InfoCircleOutlined />}
+              type="text"
+              size="small"
+              icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
               onClick={() =>
                 openModal(
-                  <span
-                    style={{
-                      color: "#1890ff",
-                      fontSize: "18px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Cách mạng Tháng Tám 1945
-                  </span>,
-                  <div
-                    style={{
-                      padding: "20px",
-                      backgroundColor: "#f9f9f9",
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <p style={{ marginBottom: "15px" }}>
-                      <strong style={{ color: "#d32f2f" }}>
-                        Tháng 8/1945:
-                      </strong>{" "}
-                      Tổng khởi nghĩa giành chính quyền trên toàn quốc.
-                    </p>
-                    <Image
-                      src="https://tonghop.kiengiang.dcs.vn/uploads/news/2023_08/anh-3.jpg"
-                      alt="Cách mạng Tháng Tám 1945"
-                      preview={true}
-                      style={{ marginBottom: "15px", borderRadius: "8px" }}
-                    />
-                    <p style={{ marginBottom: "15px" }}>
-                      <strong style={{ color: "#d32f2f" }}>2/9/1945:</strong>{" "}
-                      Tuyên ngôn Độc lập - "Nước Việt Nam có quyền hưởng tự do
-                      và độc lập, và sự thật đã trở thành một nước tự do độc
-                      lập."
-                    </p>
-                    <Image
-                      src="https://file3.qdnd.vn/data/images/0/2025/08/05/upload_2126/3.jpg?dpi=150&quality=100&w=870"
-                      alt="Tuyên ngôn độc lập 1945"
-                      preview={true}
-                      style={{ marginBottom: "15px", borderRadius: "8px" }}
-                    />
-                    <p style={{ marginBottom: "15px" }}>
-                      Đây là bước ngoặt vĩ đại, chứng minh sự lãnh đạo đúng đắn
-                      của Đảng trong thực tiễn cách mạng.
-                    </p>
+                  "Bối cảnh Quốc tế - Chi tiết",
+                  <div>
+                    <h4>Thuận lợi:</h4>
+                    <p>{section11?.content.international_context.favorable}</p>
+                    <h4>Thách thức:</h4>
+                    <ul>
+                      {section11?.content.international_context.challenges.map(
+                        (ch, i) => (
+                          <li key={i}>{ch}</li>
+                        )
+                      )}
+                    </ul>
                   </div>
                 )
               }
-            >
-              Tìm hiểu thêm
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* 1.3 Kháng chiến Chống Pháp */}
-      <div className="image-focus-block">
-        <div className="subsection-header">
-          <div className="subsection-number">1.3</div>
-          <h3 className="subsection-title">
-            Kháng chiến Chống Pháp (1945–1954)
-          </h3>
-        </div>
-
-        <div className="image-grid-layout">
-          {/* <div className="aspect-4-3">
-            <Image
-              src="https://baolaichau.vn/uploaded/post/2024/12/06/11122019huyen10_1733451937894.jpg"
-              alt="Kháng chiến chống Pháp"
-              preview={true}
             />
-            <div className="image-caption-overlay">
-              Kháng chiến Toàn dân, Toàn diện
-            </div>
-          </div> */}
+          </h4>
 
-          <div className="brief-content">
-            <h4 className="content-title">Đường lối Kháng chiến</h4>
-            <p className="key-summary">
-              Đảng cầm quyền đối mặt tình thế{" "}
-              <span className="highlight-text">"ngàn cân treo sợi tóc"</span>.
-              Đề ra đường lối: <strong>Toàn dân, Toàn diện, Lâu dài</strong>.
-            </p>
-            <Button
-              type="primary"
-              className="learn-more-btn"
-              icon={
-                expandedSections.resistance ? <UpOutlined /> : <DownOutlined />
-              }
-              onClick={() => toggleSection("resistance")}
-            >
-              {expandedSections.resistance ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.resistance && (
-              <div className="expanded-detail">
-                <ul>
-                  <li>
-                    <strong>Toàn dân:</strong> Động viên toàn thể nhân dân
-                  </li>
-                  <li>
-                    <strong>Toàn diện:</strong> Đánh trên mọi mặt trận - quân
-                    sự, chính trị, ngoại giao
-                  </li>
-                  <li>
-                    <strong>Lâu dài:</strong> Chuẩn bị tinh thần và vật chất
-                  </li>
-                  <li>
-                    <strong>Dựa vào sức mình là chính:</strong> Tự lực cánh
-                    sinh, độc lập tự chủ
-                  </li>
+          <div className="split-content">
+            <div className="text-content">
+              <div className="favorable-block">
+                <strong className="block-label favorable">Thuận lợi:</strong>
+                <p className="context-text">
+                  {section11?.content.international_context.favorable}
+                </p>
+              </div>
+
+              <div className="challenges-block">
+                <strong className="block-label challenges">Thách thức:</strong>
+                <ul className="challenges-list">
+                  {section11?.content.international_context.challenges.map(
+                    (ch, i) => (
+                      <li key={i} className="challenge-item">
+                        {ch}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
-            )}
+            </div>
+
+            <div className="image-content">
+              <Image
+                src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/N4sXSdLc8e/vna_potal_90_nam_dcs_viet_nam_chu_tich_ho_chi_minh_va_phai_doan_viet_nam_tai_hoi_nghi_giơnevơ_ve_dong_duong_7_-_1954__151896551_stand-665x459.jpg"
+                alt="Hội nghị Giơnevơ 1954"
+                preview={true}
+                style={{ width: "100%", borderRadius: "8px" }}
+              />
+              <p className="image-caption">
+                Chủ tịch Hồ Chí Minh và phái đoàn Việt Nam tại Hội nghị Giơnevơ
+                (7/1954)
+              </p>
+            </div>
           </div>
         </div>
-        <div className="image-grid-layout">
-          <div className="brief-content highlight-box">
-            <h4 className="content-title">Điện Biên Phủ (5/1954)</h4>
-            <p className="key-summary">
-              Chiến thắng lịch sử buộc Pháp ký{" "}
-              <span className="highlight-text">Hiệp định Giơnevơ</span> (7/1954)
-              - Công nhận độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ
-              Việt Nam.
-            </p>
-            <Button
-              type="primary"
-              className="learn-more-btn"
-              icon={expandedSections.dbp ? <UpOutlined /> : <DownOutlined />}
-              onClick={() => toggleSection("dbp")}
-            >
-              {expandedSections.dbp ? "Thu gọn" : "Tìm hiểu thêm"}
-            </Button>
-            {expandedSections.dbp && (
-              <div className="expanded-detail">
-                <p>
-                  <strong>Chiến dịch Điện Biên Phủ</strong> là đỉnh cao nghệ
-                  thuật quân sự Việt Nam, kết hợp sức mạnh quân sự và chính trị.
-                  Thắng lợi này không chỉ đánh bại thực dân Pháp mà còn lay
-                  chuyển hệ thống thuộc địa trên toàn thế giới.
-                </p>
-                <p>
-                  <strong>Hiệp định Giơnevơ 7/1954:</strong> Công nhận độc lập,
-                  chủ quyền, thống nhất và toàn vẹn lãnh thổ của Việt Nam, Lào,
-                  và Campuchia.
+
+        {/* Bối cảnh Trong nước */}
+        <div className="context-section domestic">
+          <h4 className="context-title">
+            <span className="title-marker">✦</span>
+            Bối cảnh Trong nước
+          </h4>
+
+          <div className="split-content reverse">
+            <div className="image-content">
+              <Image
+                src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
+                alt="Vĩ tuyến 17 - Chia cắt đất nước"
+                preview={true}
+                style={{ width: "100%", borderRadius: "8px" }}
+              />
+              <p className="image-caption">
+                Vĩ tuyến 17 - Nỗi đau chia cắt đất nước
+              </p>
+            </div>
+
+            <div className="text-content">
+              <div className="region-info north">
+                <h5 className="region-label">Miền Bắc</h5>
+                <p className="region-text">
+                  {section11?.content.domestic_context.north}
                 </p>
               </div>
-            )}
+
+              <div className="region-info south">
+                <h5 className="region-label">Miền Nam</h5>
+                <p className="region-text">
+                  <strong>Lãnh đạo:</strong>{" "}
+                  {section11?.content.domestic_context.south.leadership}
+                </p>
+                <p className="region-text">
+                  <strong>Vi phạm:</strong>{" "}
+                  {section11?.content.domestic_context.south.violations}
+                </p>
+                <div className="terror-warning">
+                  <strong>⚠ Khủng bố:</strong>{" "}
+                  {section11?.content.domestic_context.south.terror_policy.name}
+                  <Button
+                    type="text"
+                    size="small"
+                    icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+                    onClick={() =>
+                      openModal(
+                        "Luật 10/59 - Chính sách Khủng bố",
+                        <div>
+                          <p>
+                            <strong>Mô tả:</strong>{" "}
+                            {
+                              section11?.content.domestic_context.south
+                                .terror_policy.law_1059.description
+                            }
+                          </p>
+                          <p>
+                            <strong>Thời gian đỉnh điểm:</strong>{" "}
+                            {
+                              section11?.content.domestic_context.south
+                                .terror_policy.law_1059.period
+                            }
+                          </p>
+                          <p>
+                            <strong>Nạn nhân:</strong>{" "}
+                            {
+                              section11?.content.domestic_context.south
+                                .terror_policy.law_1059.victims
+                            }
+                          </p>
+                          <Image
+                            src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/Zp9YKWdFBf/vna_potal_90_nam_dcs_viet_nam_tham_du_hoi_nghi_thanh_lap_mat_tran_thong_nhat_giai_phong_mien_nam_viet_nam_12_-_1960__151892826_stand-665x398.jpg"
+                            alt="Mặt trận Dân tộc Giải phóng miền Nam"
+                            style={{
+                              width: "100%",
+                              marginTop: "1rem",
+                              borderRadius: "8px",
+                            }}
+                          />
+                        </div>
+                      )
+                    }
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <Image
-            src="https://lh4.googleusercontent.com/proxy/2Ifji3EanEYs_nlwwFLCA-4f8CH5HzQJK5_abZxFXfpT6YDrY5AsmxYQTzy-DPYQz9kCY4sWhqkuDFfYtKe9lvnbGmSyIsJM9x7kG1RQdQ5hZigkzasaT7gVwoyQyCUk78Z3k3qE"
-            alt="Chiến thắng Điện Biên Phủ"
-            preview={true}
-          />
         </div>
       </div>
 
-      {/* 1.4 Thách thức Mới */}
-      <div className="image-focus-block">
+      {/* Section 1.2: Đường lối Chiến lược Hai nhiệm vụ */}
+      <div className="section-block">
         <div className="subsection-header">
-          <div className="subsection-number">1.4</div>
-          <h3 className="subsection-title">Thách thức Mới: Can thiệp của Mỹ</h3>
-        </div>
-
-        <div className="brief-content">
-          <h4 className="content-title">Đế quốc Mỹ Can thiệp</h4>
-          <p className="key-summary">
-            Ngay sau Hiệp định Giơnevơ, Mỹ thay Pháp, áp đặt{" "}
-            <span className="highlight-text">chủ nghĩa thực dân mới</span>, chia
-            cắt đất nước tại vĩ tuyến 17, lập chính quyền tay sai Ngô Đình Diệm.
-          </p>
+          <div className="subsection-number">1.2</div>
+          <h3 className="subsection-title">{section12?.title}</h3>
           <Button
-            type="primary"
-            className="learn-more-btn"
-            icon={
-              expandedSections.usintervention ? (
-                <UpOutlined />
-              ) : (
-                <DownOutlined />
+            type="text"
+            icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+            onClick={() =>
+              openModal(
+                "Đại hội III (9/1960)",
+                <div>
+                  <p>
+                    <strong>Tên chính thức:</strong>{" "}
+                    {section12?.content.congress_info.name}
+                  </p>
+                  <p>
+                    <strong>Thời gian:</strong>{" "}
+                    {section12?.content.congress_info.date}
+                  </p>
+                  <p>
+                    <strong>Địa điểm:</strong>{" "}
+                    {section12?.content.congress_info.location}
+                  </p>
+                  <p>
+                    <strong>Ý nghĩa:</strong>{" "}
+                    {section12?.content.congress_info.significance}
+                  </p>
+                  <Image
+                    src="https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/rBMwPsNgEe/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_ca_nuoc_truc_tiep_chien_dau_chong_de_quoc_my_xam_luoc_1965_-_1973__151902709_stand-665x463.jpg"
+                    alt="Đại hội III"
+                    style={{
+                      width: "100%",
+                      marginTop: "1rem",
+                      borderRadius: "8px",
+                    }}
+                  />
+                </div>
               )
             }
-            onClick={() => toggleSection("usintervention")}
-          >
-            {expandedSections.usintervention ? "Thu gọn" : "Tìm hiểu thêm"}
-          </Button>
-          {expandedSections.usintervention && (
-            <div className="expanded-detail">
-              <p>
-                <strong>Âm mưu của Mỹ:</strong> Chia cắt lâu dài Việt Nam, biến
-                miền Nam thành tiền đồn chống Cộng sản và căn cứ quân sự.
-              </p>
-              <p>
-                <strong>Hậu quả:</strong> Gián đoạn tiến trình thống nhất, đặt
-                đất nước trước cuộc đối đầu mới phức tạp và khốc liệt hơn nhiều.
-              </p>
-            </div>
-          )}
+          />
         </div>
 
-        <div className="image-grid-layout">
-          <Image
-            src="https://nguonluc.com.vn/uploads/images/2023/07/03/chien-tranh-dac-biet-la-gi-so-sanh-chien-tranh-dac-biet-va-cuc-bo-2-1688379195.jpg"
-            alt="Đế quốc Mỹ can thiệp"
-            preview={true}
-          />
+        {/* Dual Strategy Introduction */}
+        <div className="strategy-intro">
+          <p className="intro-text">
+            {section12?.content.dual_strategy.description}
+          </p>
+          <p className="common-goal">
+            <strong>Mục tiêu chung:</strong>{" "}
+            {section12?.content.dual_strategy.common_goal}
+          </p>
+        </div>
 
-          <div>
-            <Image
-              src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
-              alt="Chia cắt đất nước"
-              preview={true}
-            />
-          </div>
+        {/* Two Strategies Grid */}
+        <div className="strategies-comparison">
+          {section12?.content.dual_strategy.strategies.map((strategy, idx) => (
+            <div
+              key={idx}
+              className={`strategy-block ${
+                strategy.region === "Miền Bắc" ? "north" : "south"
+              }`}
+            >
+              <h4 className="strategy-region">{strategy.region}</h4>
+              <div className="strategy-type">{strategy.type}</div>
+              <div className="strategy-details">
+                <p>
+                  <strong>Nhiệm vụ:</strong> {strategy.mission}
+                </p>
+                <p className="role-highlight">
+                  <strong>Vai trò:</strong> {strategy.role}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Comparison Table */}
+        <div className="table-wrapper">
+          <h4 className="table-title">
+            {section12?.content.comparison_table.title}
+          </h4>
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th>Miền</th>
+                <th>Nhiệm vụ Chiến lược</th>
+                <th>Vai trò</th>
+                <th>Hình thức Đấu tranh</th>
+              </tr>
+            </thead>
+            <tbody>
+              {section12?.content.comparison_table.data.map((row, i) => (
+                <tr key={i}>
+                  <td className="region-cell">{row.region}</td>
+                  <td>{row.strategic_mission}</td>
+                  <td className="role-cell">{row.role}</td>
+                  <td>{row.struggle_form}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -416,9 +295,11 @@ export default function FoundationSection() {
         open={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={null}
-        width={700}
+        width={800}
       >
-        <div style={{ lineHeight: 1.8 }}>{modalContent.content}</div>
+        <div style={{ fontSize: "1rem", lineHeight: "1.8" }}>
+          {modalContent.content}
+        </div>
       </Modal>
     </div>
   );

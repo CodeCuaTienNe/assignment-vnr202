@@ -20,8 +20,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata = {
-  title: "Gia đình trong thời kỳ quá độ lên chủ nghĩa xã hội",
-  description: "Từ lý luận kinh điển Mác-Lênin đến thực tiễn Việt Nam - MLN131",
+  title: "Lịch sử Đảng Cộng sản Việt Nam",
+  description:
+    "SỰ LÃNH ĐẠO SÁNG TẠO CỦA ĐẢNG CỘNG SẢN VIỆT NAM TRONG CUỘC KHÁNG CHIẾN CHỐNG ĐẾ QUỐC MỸ XÂM LƯỢC (1954–1975)",
 };
 
 export default function RootLayout({ children }) {

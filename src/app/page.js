@@ -1,13 +1,13 @@
 "use client";
 
+import FoundationSection from "@/component/layout/library/chuong_1/FoundationSection";
+import StrategySection from "@/component/layout/library/chuong_2/StrategySection";
 import MuseumFooter from "@/component/layout/library/footer/MuseumFooter";
-import FoundationSection from "@/component/layout/library/foundation/FoundationSection";
 import MuseumHeader from "@/component/layout/library/header/MuseumHeader";
 import MuseumHero from "@/component/layout/library/hero/MuseumHero";
 import NorthSection from "@/component/layout/library/north/NorthSection";
 import OrientationSection from "@/component/layout/library/orientation/OrientationSection";
 import SouthSection from "@/component/layout/library/south/SouthSection";
-import StrategySection from "@/component/layout/library/strategy/StrategySection";
 import VictorySection from "@/component/layout/library/victory/VictorySection";
 import { Layout } from "antd";
 import { useEffect, useState } from "react";

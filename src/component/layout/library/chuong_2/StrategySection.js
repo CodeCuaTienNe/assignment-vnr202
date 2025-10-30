@@ -367,6 +367,60 @@ export default function StrategySection() {
                         Tre.
                       </p>
                     </div>
+                    <div style={{ marginBottom: "1rem" }}>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns:
+                            "repeat(auto-fit, minmax(200px, 1fr))",
+                          gap: "1rem",
+                          marginTop: "0.5rem",
+                        }}
+                      >
+                        <div style={{ textAlign: "center" }}>
+                          <Image
+                            src="https://vnanet.vn/Data/Articles/2020/01/16/4384796/vna_potal_ky_niem_60_nam_phong_trao_dong_khoi_1711960_-_1712020_huyen_thoai_%E2%80%9Cdoi_quan_toc_dai_ben_tre%E2%80%9D_102406468_stand.jpg"
+                            alt="Đồng Khởi Bến Tre"
+                            preview={true}
+                            style={{
+                              width: "100%",
+                              maxWidth: "500px",
+                              borderRadius: "2px",
+                            }}
+                          />
+                          <p
+                            style={{
+                              fontSize: "0.8rem",
+                              marginTop: "0.5rem",
+                              color: "#666",
+                            }}
+                          >
+                            Đồng Khởi tại Bến Tre (1960)
+                          </p>
+                        </div>
+                        <div style={{ textAlign: "center" }}>
+                          <Image
+                            src="https://vnanet.vn/Data/Articles/2025/01/17/7811551/vna_potal_65_nam_phong_trao_ben_tre_dong_khoi_1711960-1712025_phong_trao_dau_tranh_chinh_tri_lau_dai_quyet_liet_cua_quan_chung_nhan_dan_stand.jpg"
+                            alt="Phong trào Đồng Khởi"
+                            preview={true}
+                            style={{
+                              width: "90%",
+                              maxWidth: "300px",
+                              borderRadius: "2px",
+                            }}
+                          />
+                          <p
+                            style={{
+                              fontSize: "0.8rem",
+                              marginTop: "0.5rem",
+                              color: "#666",
+                            }}
+                          >
+                            Nhân dân tham gia Đồng Khởi
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
                     <div style={{ marginBottom: "1rem" }}>
                       <h5 style={{ color: "#1890ff", marginBottom: "0.5rem" }}>
@@ -434,64 +488,6 @@ export default function StrategySection() {
                           đắn của Đảng
                         </li>
                       </ul>
-                    </div>
-
-                    <div style={{ marginBottom: "1rem" }}>
-                      <h5 style={{ color: "#1890ff", marginBottom: "0.5rem" }}>
-                        Hình ảnh lịch sử:
-                      </h5>
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns:
-                            "repeat(auto-fit, minmax(200px, 1fr))",
-                          gap: "1rem",
-                          marginTop: "0.5rem",
-                        }}
-                      >
-                        <div style={{ textAlign: "center" }}>
-                          <Image
-                            src="https://vnanet.vn/Data/Articles/2020/01/16/4384796/vna_potal_ky_niem_60_nam_phong_trao_dong_khoi_1711960_-_1712020_huyen_thoai_%E2%80%9Cdoi_quan_toc_dai_ben_tre%E2%80%9D_102406468_stand.jpg"
-                            alt="Đồng Khởi Bến Tre"
-                            preview={true}
-                            style={{
-                              width: "100%",
-                              maxWidth: "500px",
-                              borderRadius: "2px",
-                            }}
-                          />
-                          <p
-                            style={{
-                              fontSize: "0.8rem",
-                              marginTop: "0.5rem",
-                              color: "#666",
-                            }}
-                          >
-                            Đồng Khởi tại Bến Tre (1960)
-                          </p>
-                        </div>
-                        <div style={{ textAlign: "center" }}>
-                          <Image
-                            src="https://vnanet.vn/Data/Articles/2025/01/17/7811551/vna_potal_65_nam_phong_trao_ben_tre_dong_khoi_1711960-1712025_phong_trao_dau_tranh_chinh_tri_lau_dai_quyet_liet_cua_quan_chung_nhan_dan_stand.jpg"
-                            alt="Phong trào Đồng Khởi"
-                            preview={true}
-                            style={{
-                              width: "90%",
-                              maxWidth: "300px",
-                              borderRadius: "2px",
-                            }}
-                          />
-                          <p
-                            style={{
-                              fontSize: "0.8rem",
-                              marginTop: "0.5rem",
-                              color: "#666",
-                            }}
-                          >
-                            Nhân dân tham gia Đồng Khởi
-                          </p>
-                        </div>
-                      </div>
                     </div>
 
                     <div
@@ -591,30 +587,145 @@ export default function StrategySection() {
               icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
               onClick={() =>
                 openModal(
-                  "Chiến tranh Đặc biệt",
+                  "Chiến lược 'Chiến tranh Đặc biệt' (1961-1965)",
                   <div>
-                    <p>
-                      <strong>Thời kỳ:</strong>{" "}
-                      {section22.content.special_war_strategy.period}
-                    </p>
-                    <p>
-                      <strong>Tổng thống Mỹ:</strong>{" "}
-                      {
-                        section22.content.special_war_strategy.us_strategy
-                          .president
-                      }
-                    </p>
-                    <p>
-                      <strong>Phương thức:</strong>{" "}
-                      {
-                        section22.content.special_war_strategy.us_strategy
-                          .method
-                      }
-                    </p>
-                    <p>
-                      <strong>Mục tiêu:</strong>{" "}
-                      {section22.content.special_war_strategy.us_strategy.goal}
-                    </p>
+                    <div style={{ marginBottom: "1rem" }}>
+                      <p>
+                        <strong>Chiến lược "Chiến tranh Đặc biệt"</strong> là
+                        chiến lược quân sự của Mỹ nhằm đàn áp phong trào cách
+                        mạng ở miền Nam Việt Nam, được triển khai từ năm 1961
+                        đến 1965 dưới thời Tổng thống John F. Kennedy và Lyndon
+                        B. Johnson.
+                      </p>
+                    </div>
+                    <div style={{ marginBottom: "1rem" }}>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns:
+                            "repeat(auto-fit, minmax(200px, 1fr))",
+                          gap: "1rem",
+                          marginTop: "0.5rem",
+                        }}
+                      >
+                        <div style={{ textAlign: "center" }}>
+                          <Image
+                            src="https://nghiavuquansu.vn/wp-content/uploads/2024/12/tom-tat-chien-luoc-chien-tranh-dac-biet.jpg"
+                            alt="Chiến tranh Đặc biệt"
+                            preview={true}
+                            style={{
+                              width: "100%",
+                              maxWidth: "500px",
+                              borderRadius: "2px",
+                            }}
+                          />
+                        </div>
+                        <div style={{ textAlign: "center" }}>
+                          <Image
+                            src="https://file.qdnd.vn/data/images/5/2020/12/23/phucthang/11.jpg?dpi=150&quality=100&w=575"
+                            alt="Chien tranh Đặc biệt - Nhân dân tham gia"
+                            preview={true}
+                            style={{
+                              width: "100%",
+                              maxWidth: "300px",
+                              borderRadius: "2px",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ marginBottom: "1rem" }}>
+                      <h5 style={{ color: "#1890ff", marginBottom: "0.5rem" }}>
+                        Bối cảnh lịch sử:
+                      </h5>
+                      <ul>
+                        <li>
+                          Sau thất bại của phong trào Đồng Khởi (1960), Mỹ nhận
+                          ra cần leo thang can thiệp trực tiếp hơn ở miền Nam
+                          Việt Nam.
+                        </li>
+                        <li>
+                          Sự kiện Vịnh Con Lợn (1961) làm Mỹ thất bại ở Cuba,
+                          thúc đẩy chuyển hướng chiến lược sang Việt Nam.
+                        </li>
+                        <li>
+                          Chính quyền Kennedy coi Việt Nam là "trận tuyến đầu"
+                          trong cuộc Chiến tranh Lạnh chống chủ nghĩa xã hội.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div style={{ marginBottom: "1rem" }}>
+                      <h5 style={{ color: "#1890ff", marginBottom: "0.5rem" }}>
+                        Thuật ngữ và nội dung chiến lược:
+                      </h5>
+                      <ul>
+                        <li>
+                          <strong>Chiến tranh Đặc biệt:</strong> Là dạng chiến
+                          tranh hạn chế, sử dụng lực lượng đặc biệt, cố vấn quân
+                          sự, không kích và chiến tranh tâm lý, tránh xung đột
+                          trực tiếp với quân đội lớn.
+                        </li>
+                        <li>
+                          <strong>Lực lượng đặc biệt:</strong> Đội Green Berets
+                          của Mỹ, huấn luyện và chỉ huy quân đội Sài Gòn.
+                        </li>
+                        <li>
+                          <strong>Chiến tranh tâm lý:</strong> Tuyên truyền, đốt
+                          phá làng mạc, di dân cưỡng bức để cô lập cách mạng.
+                        </li>
+                        <li>
+                          <strong>Mục tiêu:</strong> Tiêu diệt lực lượng cách
+                          mạng, ổn định chế độ Ngô Đình Diệm, ngăn chặn ảnh
+                          hưởng của chủ nghĩa xã hội.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div style={{ marginBottom: "1rem" }}>
+                      <h5 style={{ color: "#1890ff", marginBottom: "0.5rem" }}>
+                        Đáp trả của Đảng và nhân dân Việt Nam:
+                      </h5>
+                      <ul>
+                        <li>
+                          Đảng Lao động Việt Nam chỉ đạo chuyển sang chiến tranh
+                          nhân dân, kết hợp đấu tranh chính trị và vũ trang.
+                        </li>
+                        <li>
+                          Thành lập Mặt trận Dân tộc Giải phóng miền Nam (1960),
+                          mở rộng mặt trận thống nhất.
+                        </li>
+                        <li>
+                          Phát triển lực lượng vũ trang nhân dân, xây dựng căn
+                          cứ địa và du kích chiến.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div style={{ marginBottom: "1rem" }}>
+                      <h5 style={{ color: "#1890ff", marginBottom: "0.5rem" }}>
+                        Ý nghĩa lịch sử:
+                      </h5>
+                      <ul>
+                        <li>
+                          Đánh dấu sự leo thang trực tiếp của Mỹ vào chiến tranh
+                          Việt Nam, chuyển từ viện trợ sang can thiệp quân sự.
+                        </li>
+                        <li>
+                          Thất bại của chiến lược này dẫn đến chiến tranh toàn
+                          diện, với sự tham gia của hàng trăm nghìn lính Mỹ.
+                        </li>
+                        <li>
+                          Khẳng định sức mạnh của chiến tranh nhân dân và ý chí
+                          kiên cường của nhân dân Việt Nam.
+                        </li>
+                        <li>
+                          Góp phần làm thất bại chiến lược toàn cầu của Mỹ trong
+                          Chiến tranh Lạnh.
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 )
               }
@@ -639,7 +750,7 @@ export default function StrategySection() {
             </div>
 
             <div className="response-card party-response">
-              <h5>Đáp trả của Đảng</h5>
+              <h5>Phản ứng của Đảng</h5>
               <p>
                 <strong>Chiến lược:</strong>{" "}
                 {section22.content.special_war_strategy.party_response.strategy}

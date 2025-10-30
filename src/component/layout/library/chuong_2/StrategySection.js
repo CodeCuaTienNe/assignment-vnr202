@@ -772,6 +772,42 @@ export default function StrategySection() {
           {/* Chiến thắng quyết định */}
           <div className="victories-section">
             <h5 className="victories-title">Chiến thắng Quyết định</h5>
+            <div className="victories-intro">
+              <p>
+                Các chiến thắng quyết định trong giai đoạn 1961-1965 là minh
+                chứng sống động cho sự thất bại hoàn toàn của chiến lược "Chiến
+                tranh Đặc biệt" của Mỹ. Những thắng lợi này không chỉ bẻ gãy các
+                chiến thuật quân sự hiện đại mà còn khẳng định sức mạnh của
+                chiến tranh nhân dân, góp phần thúc đẩy Mỹ phải leo thang chiến
+                tranh toàn diện (Chiến tranh cục bộ).
+              </p>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)",
+                  gap: "1rem",
+                  marginTop: "1rem",
+                }}
+              >
+                <div style={{ textAlign: "center" }}>
+                  <Image
+                    src="https://nghiavuquansu.vn/wp-content/uploads/2024/12/tom-tat-chien-luoc-chien-tranh-dac-biet.jpg"
+                    alt="Chiến tranh Đặc biệt"
+                    preview={true}
+                    style={{ width: "86%", borderRadius: "2px" }}
+                  />
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <Image
+                    src="https://file.qdnd.vn/data/images/5/2020/12/23/phucthang/11.jpg?dpi=150&quality=100&w=575"
+                    alt="Nhân dân tham gia Chiến tranh Đặc biệt"
+                    preview={true}
+                    style={{ width: "100%", borderRadius: "2px" }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="p-4"></div>
             <div className="victories-grid">
               {section22.content.special_war_strategy.decisive_victories.map(
                 (victory, idx) => (
@@ -779,14 +815,350 @@ export default function StrategySection() {
                     <div className="victory-name">{victory.name}</div>
                     <div className="victory-date">{victory.date || ""}</div>
                     <p className="victory-significance">
-                      {victory.significance || victory.result}
+                      {victory.name === "Chiến thắng Ấp Bắc" ? (
+                        <>
+                          <ul
+                            style={{
+                              paddingLeft: "1.2rem",
+                              margin: "0.5rem 0",
+                            }}
+                          >
+                            <li>
+                              Bẻ gãy chiến thuật{" "}
+                              <strong>"trực thăng vận"</strong> và{" "}
+                              <strong>"thiết xa vận"</strong> của Mỹ
+                            </li>
+                            <li>
+                              Hàng trăm tên địch bị tiêu diệt, nhiều phương tiện
+                              bị phá hủy
+                            </li>
+                            <li>
+                              Khẳng định sức mạnh chiến tranh nhân dân chống
+                              chiến tranh công nghệ cao
+                            </li>
+                            <li>
+                              Làm lung lay niềm tin của Mỹ vào chiến lược "Chiến
+                              tranh Đặc biệt"
+                            </li>
+                          </ul>
+                          <Button
+                            type="text"
+                            size="small"
+                            icon={
+                              <InfoCircleOutlined
+                                style={{ color: "#1890ff" }}
+                              />
+                            }
+                            onClick={() =>
+                              openModal(
+                                "Chi tiết Chiến thắng Ấp Bắc",
+                                <div>
+                                  <div style={{ marginBottom: "1rem" }}>
+                                    <h5
+                                      style={{
+                                        color: "#1890ff",
+                                        marginBottom: "0.5rem",
+                                      }}
+                                    >
+                                      Hoàn cảnh:
+                                    </h5>
+                                    <p>
+                                      Chiến thắng Ấp Bắc (1/1963) diễn ra trong
+                                      giai đoạn đầu của chiến lược "Chiến tranh
+                                      Đặc biệt". Quân đội Sài Gòn, được Mỹ trang
+                                      bị hiện đại, sử dụng trực thăng đổ bộ và
+                                      xe thiết giáp tấn công nhưng bị phục kích
+                                      bởi lực lượng du kích địa phương.
+                                    </p>
+                                  </div>
+
+                                  <div style={{ marginBottom: "1rem" }}>
+                                    <h5
+                                      style={{
+                                        color: "#1890ff",
+                                        marginBottom: "0.5rem",
+                                      }}
+                                    >
+                                      Ý nghĩa:
+                                    </h5>
+                                    <ul>
+                                      <li>
+                                        Đánh dấu bước ngoặt trong chiến lược
+                                        "Chiến tranh Đặc biệt"
+                                      </li>
+                                      <li>
+                                        Chứng minh chiến tranh nhân dân có thể
+                                        đánh bại chiến tranh công nghệ cao
+                                      </li>
+                                      <li>
+                                        Thúc đẩy quá trình leo thang chiến tranh
+                                        của Mỹ
+                                      </li>
+                                      <li>
+                                        Nâng cao tinh thần đấu tranh của nhân
+                                        dân miền Nam
+                                      </li>
+                                    </ul>
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      textAlign: "center",
+                                      marginBottom: "1rem",
+                                    }}
+                                  >
+                                    <Image
+                                      src="https://cand.com.vn/Files/Image/linhchi/2016/12/19/8cd4b77c-8401-43f7-9157-2be317424430.jpg"
+                                      alt="Chiến thắng Ấp Bắc"
+                                      preview={true}
+                                      style={{
+                                        width: "100%",
+                                        maxWidth: "400px",
+                                        borderRadius: "4px",
+                                      }}
+                                    />
+                                    <p
+                                      style={{
+                                        fontSize: "0.8rem",
+                                        marginTop: "0.5rem",
+                                        color: "#666",
+                                      }}
+                                    >
+                                      Trực thăng vận trong Chiến thắng Ấp Bắc
+                                    </p>
+                                  </div>
+
+                                  <div style={{ marginBottom: "1rem" }}>
+                                    <h5
+                                      style={{
+                                        color: "#1890ff",
+                                        marginBottom: "0.5rem",
+                                      }}
+                                    >
+                                      Chiến thuật "Trực thăng vận":
+                                    </h5>
+                                    <p>
+                                      Sử dụng trực thăng vận chuyển nhanh lực
+                                      lượng đặc biệt đến mục tiêu, nhằm bất ngờ
+                                      tấn công. Tại Ấp Bắc, chiến thuật này bị
+                                      bẻ gãy bởi du kích Việt Nam.
+                                    </p>
+                                    <div
+                                      style={{
+                                        textAlign: "center",
+                                        marginTop: "1rem",
+                                      }}
+                                    >
+                                      <Image
+                                        src="https://cand.com.vn/Files/Image/linhchi/2016/12/19/8cd4b77c-8401-43f7-9157-2be317424430.jpg"
+                                        alt="Trực thăng vận"
+                                        preview={true}
+                                        style={{
+                                          width: "100%",
+                                          maxWidth: "400px",
+                                          borderRadius: "4px",
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <div style={{ marginBottom: "1rem" }}>
+                                    <h5
+                                      style={{
+                                        color: "#1890ff",
+                                        marginBottom: "0.5rem",
+                                      }}
+                                    >
+                                      Chiến thuật "Thiết xa vận":
+                                    </h5>
+                                    <p>
+                                      Sử dụng xe thiết giáp vận chuyển và bảo vệ
+                                      bộ binh, tạo đội hình tấn công mạnh. Tại
+                                      Ấp Bắc thất bại trước chiến thuật phục
+                                      kích của Việt Nam.
+                                    </p>
+                                    <div
+                                      style={{
+                                        display: "grid",
+                                        gridTemplateColumns: "repeat(2, 1fr)",
+                                        gap: "1rem",
+                                        marginTop: "1rem",
+                                      }}
+                                    >
+                                      <div style={{ textAlign: "center" }}>
+                                        <Image
+                                          src="http://file1.qdnd.vn/data/old_img/tvphamquynh/2015/9/30/35085707327.jpg"
+                                          alt="M.113 bị bắn cháy"
+                                          preview={true}
+                                          style={{
+                                            width: "100%",
+                                            borderRadius: "4px",
+                                          }}
+                                        />
+                                        <p
+                                          style={{
+                                            fontSize: "0.8rem",
+                                            marginTop: "0.5rem",
+                                            color: "#666",
+                                          }}
+                                        >
+                                          M.113 bị bắn cháy
+                                        </p>
+                                      </div>
+                                      <div style={{ textAlign: "center" }}>
+                                        <Image
+                                          src="http://file1.qdnd.vn/data/old_img/tvphamquynh/2015/9/30/36085313130.jpg"
+                                          alt="Địa hình phức tạp"
+                                          preview={true}
+                                          style={{
+                                            width: "100%",
+                                            borderRadius: "4px",
+                                          }}
+                                        />
+                                        <p
+                                          style={{
+                                            fontSize: "0.8rem",
+                                            marginTop: "0.5rem",
+                                            color: "#666",
+                                          }}
+                                        >
+                                          Địa hình phức tạp miền Nam
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              )
+                            }
+                          >
+                            Chi tiết
+                          </Button>
+                        </>
+                      ) : victory.name === "Phá 'ấp chiến lược'" ? (
+                        <>
+                          <ul
+                            style={{
+                              paddingLeft: "1.2rem",
+                              margin: "0.5rem 0",
+                            }}
+                          >
+                            <li>
+                              Phá vỡ hệ thống "ấp chiến lược" do Mỹ-Diệm thiết
+                              lập
+                            </li>
+                            <li>
+                              Hàng triệu người tham gia, phá hủy hàng nghìn ấp
+                            </li>
+                            <li>
+                              Giải phóng hàng trăm nghìn dân khỏi sự kiểm soát
+                            </li>
+                            <li>
+                              Chứng minh thất bại của chiến lược cô lập cách
+                              mạng
+                            </li>
+                          </ul>
+                          <Button
+                            type="text"
+                            size="small"
+                            icon={
+                              <InfoCircleOutlined
+                                style={{ color: "#1890ff" }}
+                              />
+                            }
+                            onClick={() =>
+                              openModal(
+                                "Chi tiết Phá 'Ấp chiến lược'",
+                                <div>
+                                  <div style={{ marginBottom: "1rem" }}>
+                                    <h5
+                                      style={{
+                                        color: "#1890ff",
+                                        marginBottom: "0.5rem",
+                                      }}
+                                    >
+                                      Hoàn cảnh:
+                                    </h5>
+                                    <p>
+                                      "Ấp chiến lược" là mô hình làng chiến lược
+                                      được Mỹ-Diệm thiết lập từ năm 1962, bao
+                                      quanh bằng hàng rào kẽm gai, hào sâu, nhằm
+                                      cô lập cách mạng khỏi quần chúng. Phong
+                                      trào phá ấp phát triển mạnh mẽ từ năm
+                                      1963.
+                                    </p>
+                                  </div>
+
+                                  <div style={{ marginBottom: "1rem" }}>
+                                    <h5
+                                      style={{
+                                        color: "#1890ff",
+                                        marginBottom: "0.5rem",
+                                      }}
+                                    >
+                                      Ý nghĩa:
+                                    </h5>
+                                    <ul>
+                                      <li>
+                                        Thắng lợi lớn về chính trị và quân sự
+                                      </li>
+                                      <li>
+                                        Chứng minh sự thất bại của chiến lược
+                                        tách rời cách mạng khỏi nhân dân
+                                      </li>
+                                      <li>
+                                        Củng cố mặt trận dân tộc thống nhất
+                                        chống Mỹ
+                                      </li>
+                                      <li>
+                                        Tạo điều kiện mở rộng căn cứ địa và lực
+                                        lượng cách mạng
+                                      </li>
+                                    </ul>
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      textAlign: "center",
+                                      marginTop: "1rem",
+                                    }}
+                                  >
+                                    <Image
+                                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNaXf15LZ6defGd-VAQ4XKAnr8zlHyZ7BEkg&s"
+                                      alt="Ấp chiến lược"
+                                      preview={true}
+                                      style={{
+                                        width: "100%",
+                                        maxWidth: "400px",
+                                        borderRadius: "4px",
+                                      }}
+                                    />
+                                    <p
+                                      style={{
+                                        fontSize: "0.8rem",
+                                        marginTop: "0.5rem",
+                                        color: "#666",
+                                      }}
+                                    >
+                                      Hình ảnh ấp chiến lược bị phá hủy
+                                    </p>
+                                  </div>
+                                </div>
+                              )
+                            }
+                          >
+                            Chi tiết
+                          </Button>
+                        </>
+                      ) : (
+                        victory.significance || victory.result
+                      )}
                     </p>
                   </div>
                 )
               )}
             </div>
 
-            <div className="final-outcome">
+            {/* <div className="final-outcome">
               <strong>
                 Kết quả cuối cùng (
                 {section22.content.special_war_strategy.final_outcome.date}):
@@ -802,7 +1174,7 @@ export default function StrategySection() {
                   }
                 </em>
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

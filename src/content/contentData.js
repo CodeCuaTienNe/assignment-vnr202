@@ -103,7 +103,7 @@ const contentData = {
               strategies: [
                 {
                   region: "Miền Bắc",
-                  type: "Cách mạng XHCN",
+                  type: "Cách mạng Xã hội chủ nghĩa (XHCN)",
                   mission: "Xây dựng tiềm lực và bảo vệ căn cứ địa của cả nước",
                   role: "Quyết định nhất đối với sự phát triển của toàn bộ cách mạng Việt Nam",
                   image_placeholder: "north_socialist_construction",
@@ -128,16 +128,18 @@ const contentData = {
                 {
                   region: "Miền Bắc",
                   strategic_mission:
-                    "Xây dựng CNXH, củng cố hậu phương vững chắc",
-                  role: "Quyết định nhất",
-                  struggle_form: "Sản xuất, chiến đấu bảo vệ và chi viện",
+                    "Xây dựng chủ nghĩa xã hội, củng cố hậu phương vững chắc để tạo nền tảng vững mạnh cho cuộc đấu tranh thống nhất đất nước, tập trung vào công nghiệp hóa và hiện đại hóa",
+                  role: "Vai trò quyết định nhất trong việc tạo nền tảng vững chắc cho cách mạng toàn quốc, cung cấp nguồn lực và hậu cần cho miền Nam",
+                  struggle_form:
+                    "Kết hợp sản xuất, chiến đấu bảo vệ biên giới và chi viện cho miền Nam thông qua viện trợ vật chất và nhân lực",
                 },
                 {
                   region: "Miền Nam",
                   strategic_mission:
-                    "Hoàn thành cách mạng Dân tộc Dân chủ Nhân dân",
-                  role: "Quyết định trực tiếp",
-                  struggle_form: "Chính trị kết hợp Vũ trang, Ba mũi giáp công",
+                    "Hoàn thành cách mạng Dân tộc Dân chủ Nhân dân, lật đổ chế độ thực dân kiểu mới và thống nhất đất nước, giải phóng dân tộc khỏi ách thống trị của Mỹ và tay sai",
+                  role: "Vai trò quyết định trực tiếp trong việc giải phóng miền Nam và thống nhất đất nước, nơi diễn ra cuộc chiến tranh chống Mỹ cứu nước",
+                  struggle_form:
+                    "Kết hợp đấu tranh chính trị với vũ trang, triển khai ba mũi giáp công (quân sự, chính trị, ngoại giao) để đánh bại kẻ thù và giành thắng lợi",
                 },
               ],
               image_placeholder: "two_strategies_comparison_chart",

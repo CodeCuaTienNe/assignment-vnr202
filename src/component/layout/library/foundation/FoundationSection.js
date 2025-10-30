@@ -471,7 +471,59 @@ export default function FoundationSection() {
         <div className="congress-intro">
           <div className="split-content">
             <div className="text-content">
-              <h4 className="intro-title">Đại hội III của Đảng (9/1960)</h4>
+              <h4 className="intro-title">
+                Đại hội III của Đảng (9/1960)
+                <Button
+                  type="text"
+                  size="small"
+                  icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+                  onClick={() =>
+                    openModal(
+                      "Đại hội đại biểu toàn quốc lần thứ III của Đảng Cộng sản Việt Nam (9/1960)",
+                      <div>
+                        <p>
+                          Đại hội đại biểu toàn quốc lần thứ III của Đảng Cộng
+                          sản Việt Nam được tổ chức từ{" "}
+                          <strong>ngày 5 đến 10 tháng 9 năm 1960</strong> tại{" "}
+                          <strong>Hà Nội</strong>. Đây là{" "}
+                          <strong>
+                            Đại hội đầu tiên sau khi đất nước bị chia cắt
+                          </strong>{" "}
+                          bởi Hiệp định Geneve 1954, đánh dấu bước ngoặt quan
+                          trọng trong lịch sử cách mạng Việt Nam.
+                        </p>
+                        <p>
+                          Đại hội đã thông qua nhiều nghị quyết quan trọng,
+                          trong đó nổi bật là{" "}
+                          <strong>
+                            đường lối chiến lược "Hai nhiệm vụ chiến lược"
+                          </strong>
+                          : Xây dựng chủ nghĩa xã hội ở miền Bắc và đấu tranh
+                          thống nhất nước nhà ở miền Nam. Đây là biểu hiện của
+                          bản lĩnh chính trị vững vàng và tầm nhìn chiến lược xa
+                          rộng của Đảng.
+                        </p>
+                        <p>
+                          Đại hội cũng bầu{" "}
+                          <strong>Ban Chấp hành Trung ương mới</strong>, với{" "}
+                          <strong>Hồ Chí Minh</strong> tiếp tục được bầu làm{" "}
+                          <strong>Chủ tịch Đảng</strong>, khẳng định sự đoàn kết
+                          và lãnh đạo của Đảng trong giai đoạn mới của cách
+                          mạng.
+                        </p>
+                        <div
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(3, 1fr)",
+                            gap: "1rem",
+                            marginTop: "1rem",
+                          }}
+                        ></div>
+                      </div>
+                    )
+                  }
+                />
+              </h4>
               <h3>
                 Đại hội đại biểu toàn quốc lần thứ III của Đảng Cộng sản Việt
                 Nam (9/1960) là Đại hội đầu tiên sau khi đất nước bị chia cắt,
@@ -524,7 +576,7 @@ export default function FoundationSection() {
                 /> */}
               </div>
               <p className="image-caption">
-                Đại hội III của Đảng (9/1960) và Hà Nội thời kỳ đó
+                Đại hội III của Đảng (9/1960) và Hà Nội
               </p>
             </div>
           </div>

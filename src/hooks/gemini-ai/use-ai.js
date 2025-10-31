@@ -4,20 +4,24 @@ import { GoogleGenAI } from "@google/genai";
 import { useState } from "react";
 
 const SYSTEM_PROMPT = `
-Nhiệm vụ chính: Giải đáp các thắc mắc về chính trị, lý luận và thực tiễn Việt Nam cho sinh viên.
+Nhiệm vụ chính: Giải đáp các thắc mắc về Sự Lãnh đạo của Đảng Cộng sản Việt Nam trong Cuộc Kháng chiến chống Đế quốc Mỹ Xâm lược (1954–1975) cho sinh viên.
 
-Nguyên tắc nội dung:
-- Diễn giải nội dung một cách minh bạch, dễ hiểu và đầy đủ
-- Trả lời ngắn gọn, súc tích, không lan man  
-- Tuyệt đối trung thực và khách quan, không bịa đặt hay thiên vị bất kỳ phe phái nào
-- Đảm bảo chính xác tuyệt đối và đầy đủ các chi tiết quan trọng
+Phạm vi nội dung chuyên môn:
+- Giai đoạn 1954-1975: Từ Hiệp định Giơnevơ đến thống nhất đất nước
+- Hai nhiệm vụ chiến lược: Xây dựng CNXH ở miền Bắc và cách mạng DTDN ở miền Nam
+- Nghị quyết 15 (1959) và phong trào Đồng Khởi (1960)
+- Đường Hồ Chí Minh và vai trò hậu phương chiến lược
+- Chiến tranh cục bộ, Việt Nam hóa và Tổng tiến công Mùa Xuân 1975
+- Ý nghĩa lịch sử và kinh nghiệm lãnh đạo của Đảng
 
-Nguyên tắc văn phong:
-- Sử dụng ngôn ngữ gần gũi, tôn trọng và lịch sự
-- Tránh mọi ngôn từ thô tục hay xúc phạm
-- KHÔNG đề cập hay tự nhận vai trò, trình độ hay danh xưng cá nhân
+Nguyên tắc giải đáp:
+- Diễn giải dễ hiểu, súc tích, dựa trên tư liệu lịch sử chính thống
+- Liên hệ với CLO2: Phân tích sự lãnh đạo trong hai cuộc kháng chiến (1945-1975)
+- Liên hệ với CLO4: Củng cố niềm tin vào sự lãnh đạo của Đảng
+- Sử dụng ngôn ngữ gần gũi, tránh thuật ngữ khô khan
+- Đảm bảo tính chính xác lịch sử và khách quan khoa học
 
-Sử dụng kiến thức nền tảng vững chắc, lý luận chặt chẽ, gắn liền với thực tiễn. Tập trung vào việc lắng nghe và trả lời câu hỏi của người dùng một cách hiệu quả nhất.
+Tập trung vào việc giúp sinh viên hiểu sâu sắc về tính độc lập, tự chủ và sáng tạo trong đường lối lãnh đạo của Đảng trong giai đoạn 1954-1975.
 `;
 
 export function useAI() {
@@ -34,62 +38,85 @@ export function useAI() {
     const availableKeys = keys.filter((k) => k.key);
 
     if (availableKeys.length === 0) {
-      setError("No API keys available");
+      setError("Không có API key khả dụng");
       return null;
     }
 
-    try {
-      setLoading(true);
-      setError(null);
+    setLoading(true);
+    setError(null);
 
-      // Chọn ngẫu nhiên một key
-      const selected =
-        availableKeys[Math.floor(Math.random() * availableKeys.length)];
-      console.log(`Using ${selected.version}`);
+    // Thử tất cả các key có sẵn
+    const failedKeys = [];
 
-      const genAI = new GoogleGenAI({
-        apiKey: selected.key,
-      });
-
-      // Using generateContent with Gemini 2.5 Flash model
-      const response = await genAI.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: SYSTEM_PROMPT + "\n\n" + userInput,
-      });
-
-      return response.text;
-    } catch (err) {
-      console.error(`Error with ${selected.version}:`, err);
-
-      // Thử key còn lại nếu có
-      const remaining = availableKeys.filter((k) => k !== selected);
-      if (remaining.length > 0) {
-        const fallback = remaining[0];
-        console.log(`Falling back to ${fallback.version}`);
-
-        try {
-          const genAI = new GoogleGenAI({
-            apiKey: fallback.key,
-          });
-
-          const response = await genAI.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: SYSTEM_PROMPT + "\n\n" + userInput,
-          });
-
-          return response.text;
-        } catch (fallbackErr) {
-          console.error(`Error with ${fallback.version}:`, fallbackErr);
-          setError("Both API keys failed");
-          return null;
-        }
-      } else {
-        setError("API key failed");
-        return null;
+    for (const keyToTry of availableKeys) {
+      // Bỏ qua key đã lỗi trước đó
+      if (failedKeys.includes(keyToTry.version)) {
+        continue;
       }
-    } finally {
-      setLoading(false);
+
+      try {
+        console.log(`Đang thử sử dụng API key ${keyToTry.version}...`);
+
+        const genAI = new GoogleGenAI({
+          apiKey: keyToTry.key,
+        });
+
+        const response = await genAI.models.generateContent({
+          model: "gemini-2.5-flash",
+          contents: SYSTEM_PROMPT + "\n\n" + userInput,
+        });
+
+        console.log(`✅ Thành công với API key ${keyToTry.version}`);
+        setLoading(false);
+        return response.text;
+      } catch (err) {
+        console.error(`❌ Lỗi với API key ${keyToTry.version}:`, err);
+        failedKeys.push(keyToTry.version);
+
+        // Kiểm tra nếu là lỗi 503 Service Unavailable
+        const isServiceUnavailable =
+          err.message?.includes("503") ||
+          err.status === 503 ||
+          err.message?.includes("Service Unavailable");
+
+        if (isServiceUnavailable) {
+          console.log(
+            `🔄 API key ${keyToTry.version} gặp lỗi 503, chuyển sang key khác...`
+          );
+
+          // Kiểm tra xem còn key nào khả dụng không
+          const remainingKeys = availableKeys.filter(
+            (k) => !failedKeys.includes(k.version)
+          );
+          if (remainingKeys.length > 0) {
+            setError(
+              `Dịch vụ tạm thời không khả dụng với ${keyToTry.version}. Đang thử key khác...`
+            );
+            continue; // Thử key tiếp theo
+          }
+        }
+
+        // Nếu là key cuối cùng hoặc không phải lỗi 503
+        const remainingKeys = availableKeys.filter(
+          (k) => !failedKeys.includes(k.version)
+        );
+        if (remainingKeys.length === 0) {
+          break; // Đã thử hết tất cả key
+        }
+      }
     }
+
+    // Nếu đã thử hết tất cả key
+    setLoading(false);
+    const errorMessage =
+      failedKeys.length > 1
+        ? `Tất cả API key đều gặp sự cố. Vui lòng thử lại sau vài phút. (Đã thử: ${failedKeys.join(
+            ", "
+          )})`
+        : `Dịch vụ tạm thời không khả dụng. Vui lòng thử lại sau ít phút.`;
+
+    setError(errorMessage);
+    return null;
   };
 
   return {

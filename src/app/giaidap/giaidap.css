@@ -1,34 +1,26 @@
-/* Main App Container - Using Vietnam flag colors */
+/* Main App Container - Vietnamese Museum Heritage Style */
 .app-container {
   min-height: calc(100vh - 56px);
-  background: #f5e6d3;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, #00000008 1px, transparent 1px);
+  background: var(--museum-cream);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
-  font-family: "Fraunces", "Inter", -apple-system, BlinkMacSystemFont,
-    sans-serif;
+  font-family: var(--font-fraunces), serif;
   position: relative;
 }
 
-/* CSS Variables matching main page */
-:root {
-  --vn-red-600: #a84334;
-  --vn-red-700: #8b3a2b;
-  --vn-red-800: #6b2f23;
-  --vn-yellow-400: #f5e6d3;
-  --vn-yellow-500: #f5e6d3;
-  --cream-100: #f5e6d3;
-  --cream-200: #f0ede7;
-  --cream-300: #e8e3dc;
-  --navy: #0f1f3d;
-  --gold: #d4af37;
+/* Using global color variables from convention */
+.giaidap-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* Header */
+/* Header - Museum Style */
 .chat-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 1rem 2rem;
+  background: var(--paper-white);
+  border-bottom: 3px solid var(--lacquer-red);
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -38,14 +30,14 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #333333;
-  font-size: 1.25rem;
+  color: var(--lacquer-red);
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 .app-logo::before {
-  content: "🇻🇳";
-  font-size: 1.5rem;
+  content: "📚";
+  font-size: 1.8rem;
 }
 
 /* Sidebar Overlay */
@@ -67,16 +59,15 @@
   visibility: visible;
 }
 
-/* Sidebar */
+/* Sidebar - Heritage Style */
 .sidebar {
   position: fixed;
   left: 0;
   top: 56px;
   width: 260px;
   height: calc(100vh - 56px);
-  background: var(--navy);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(168, 67, 52, 0.1);
+  background: var(--paper-white);
+  border-right: 3px solid var(--lacquer-red);
   padding: 1rem;
   overflow-y: auto;
   z-index: 100;
@@ -93,10 +84,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
-  color: var(--cream-100);
+  color: var(--lacquer-red);
   position: relative;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--lacquer-gold);
 }
 
 .sidebar-header h3 {
@@ -137,21 +128,21 @@
 }
 
 .new-session-btn {
-  background: #a84334 !important;
-  border-color: #a84334 !important;
-  color: #f5e6d3 !important;
+  background: var(--lacquer-red) !important;
+  border-color: var(--lacquer-red) !important;
+  color: var(--paper-white) !important;
   font-weight: 600;
   border-radius: 8px;
   width: 100%;
   margin-bottom: 1rem;
   font-size: 0.875rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .new-session-btn:hover {
-  background: #8b3a2b !important;
-  border-color: #8b3a2b !important;
-  transform: translateY(-2px);
+  background: var(--lacquer-red-light) !important;
+  border-color: var(--lacquer-red-light) !important;
+  transform: translateY(-1px);
 }
 
 .session-list {
@@ -162,28 +153,28 @@
 
 .session-item {
   padding: 0.75rem;
-  background: var(--navy);
+  background: var(--museum-cream);
   border-radius: 8px;
-  color: var(--cream-100);
+  color: var(--ink-black);
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(168, 67, 52, 0.1);
+  transition: all 0.2s ease;
+  border: 1px solid var(--museum-tan);
   font-size: 0.875rem;
   display: flex;
   align-items: center;
 }
 
 .session-item:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--museum-beige);
+  border-color: var(--lacquer-gold);
   transform: translateX(4px);
 }
 
 .session-item.active {
-  background: linear-gradient(135deg, var(--vn-red-600), var(--vn-red-700));
-  color: #ffffff;
+  background: var(--museum-beige);
+  color: var(--lacquer-red);
   font-weight: 600;
-  border-color: var(--vn-red-600);
+  border-color: var(--lacquer-red);
 }
 
 /* Main Chat Area */
@@ -243,11 +234,11 @@
 }
 
 .welcome-title {
-  font-family: "Fraunces", serif;
+  font-family: var(--font-fraunces), serif;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 800;
   font-optical-sizing: auto;
-  color: var(--vn-red-600);
+  color: var(--lacquer-red);
   margin-bottom: 0.5rem;
   text-align: center;
   line-height: 1.3;
@@ -256,7 +247,7 @@
 }
 
 .welcome-subtitle {
-  color: var(--vn-red-700);
+  color: var(--lacquer-red-light);
   font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   margin-bottom: 1rem;
   max-width: 800px;
@@ -277,20 +268,19 @@
 }
 
 .prompt-card {
-  background: var(--vn-red-600);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(212, 175, 55, 0.3);
-  border-radius: 10px;
+  background: var(--paper-white);
+  border: 1px solid var(--museum-tan);
+  border-radius: 8px;
   padding: 0.875rem 1.15rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   text-align: left;
   position: relative;
   overflow: hidden;
   height: 120px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(61, 40, 23, 0.1);
 }
 
 .prompt-card::before {
@@ -300,14 +290,15 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: var(--gold);
-  transition: width 0.3s ease;
+  background: var(--lacquer-gold);
+  transition: width 0.2s ease;
 }
 
 .prompt-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+  border-color: var(--lacquer-gold);
+  transform: translateY(-2px);
+  background: var(--museum-beige);
+  box-shadow: 0 4px 8px rgba(61, 40, 23, 0.15);
 }
 
 .prompt-card:hover::before {
@@ -315,7 +306,7 @@
 }
 
 .prompt-card-title {
-  color: #ffffff;
+  color: var(--lacquer-red);
   font-weight: 700;
   margin-bottom: 0.4rem;
   font-size: 0.95rem;
@@ -326,13 +317,13 @@
 }
 
 .prompt-card-title::before {
-  content: "💡";
+  content: "�";
   font-size: 0.95rem;
   flex-shrink: 0;
 }
 
 .prompt-card-text {
-  color: var(--cream-100);
+  color: var(--ink-black);
   font-size: 0.8rem;
   line-height: 1.35;
   font-weight: 400;
@@ -388,67 +379,64 @@
 }
 
 .user-message .message-avatar {
-  background: var(--vn-red-600);
-  border: 2px solid var(--vn-yellow-400);
-  color: #ffffff;
+  background: var(--lacquer-red);
+  border: 2px solid var(--lacquer-gold);
+  color: var(--paper-white);
   font-weight: 700;
 }
 
 .ai-message .message-avatar {
-  background: var(--gold);
-  border: 2px solid var(--vn-red-600);
-  color: var(--cream-100);
+  background: var(--lacquer-gold);
+  border: 2px solid var(--lacquer-red);
+  color: var(--paper-white);
   font-weight: 700;
 }
 
 .message-content {
-  background: var(--navy);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(168, 67, 52, 0.1);
-  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(139, 26, 26, 0.1);
+  border-radius: 8px;
   padding: 1rem 1.25rem;
   max-width: calc(100% - 50px);
-  color: var(--cream-100);
+  color: var(--ink-black);
   line-height: 1.7;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .user-message .message-content {
-  background: var(--vn-red-600);
-  color: var(--cream-100);
-  border-color: var(--gold);
-  border-left: 4px solid var(--gold);
+  background: var(--paper-white);
+  color: var(--ink-black);
+  border-color: var(--lacquer-gold);
+  border-left: 4px solid var(--lacquer-gold);
   font-weight: 500;
 }
 
 .ai-message .message-content {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(168, 67, 52, 0.15);
-  color: #333333;
-  border-left: 4px solid var(--vn-red-600);
+  background: var(--museum-cream);
+  border-color: var(--lacquer-red);
+  color: var(--ink-black);
+  border-left: 4px solid var(--lacquer-red);
 }
 
-/* Input Container - Floating */
+/* Input Container - Museum Heritage Style */
 .input-container {
   position: fixed;
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 1000px; /* Tăng từ 700px lên 1000px */
-  width: calc(100% - 3rem); /* Tăng width */
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--vn-red-600);
-  border-radius: 16px;
-  padding: 0.2rem 1rem; /* Giảm padding dọc */
+  max-width: 1000px;
+  width: calc(100% - 3rem);
+  background: var(--paper-white);
+  border: 2px solid var(--lacquer-red);
+  border-radius: 12px;
+  padding: 0.2rem 1rem;
   display: flex;
   gap: 1rem;
   align-items: center;
   z-index: 1000;
-  /* box-shadow: 0 8px 20px rgba(212, 55, 49, 0.2); */
-  transition: all 0.3s ease;
-  min-height: 60px; /* Đặt chiều cao tối thiểu */
+  transition: all 0.2s ease;
+  min-height: 60px;
 }
 
 .main-content.with-sidebar .input-container {
@@ -464,22 +452,22 @@
 
 /* Menu Toggle in Header */
 .menu-toggle-header {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  color: white !important;
+  background: rgba(139, 26, 26, 0.1) !important;
+  border: 1px solid var(--lacquer-red) !important;
+  color: var(--lacquer-red) !important;
   border-radius: 8px;
   width: 40px;
   height: 40px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .menu-toggle-header:hover {
-  background: rgba(249, 243, 80, 0.2) !important;
-  border-color: var(--vn-yellow-400) !important;
-  color: var(--vn-yellow-400) !important;
+  background: rgba(212, 175, 55, 0.1) !important;
+  border-color: var(--lacquer-gold) !important;
+  color: var(--lacquer-gold) !important;
   transform: scale(1.05);
 }
 
@@ -509,16 +497,15 @@
 }
 
 .error-message {
-  background: rgba(220, 38, 38, 0.1);
-  border: 2px solid var(--vn-red-600);
-  border-left: 4px solid var(--vn-red-600);
-  color: var(--vn-red-800);
+  background: var(--paper-white);
+  border: 2px solid var(--lacquer-red);
+  border-left: 4px solid var(--lacquer-red);
+  color: var(--lacquer-red);
   padding: 1rem 1.25rem;
   border-radius: 8px;
   text-align: center;
   margin: 1rem 0;
   font-weight: 600;
-  backdrop-filter: blur(10px);
 }
 
 /* Responsive Design */
@@ -862,20 +849,54 @@
   padding: 0 !important;
 }
 
-/* Override Ant Design styles */
+/* AI Loading Skeleton */
+.ai-loading-skeleton {
+  padding: 0.5rem 0;
+}
+
+.loading-text {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--lacquer-red-light);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Custom Skeleton Styling */
+.ai-loading-skeleton .ant-skeleton-paragraph > li {
+  background: linear-gradient(
+    90deg,
+    var(--museum-beige) 25%,
+    var(--museum-tan) 50%,
+    var(--museum-beige) 75%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-loading 1.5s infinite !important;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Override Ant Design styles - Heritage Museum Style */
 .ant-input {
   background: transparent !important;
   border: none !important;
-  color: var(--vn-red-800) !important;
+  color: var(--ink-black) !important;
   font-size: 1rem !important;
   padding: 8px 0 !important;
-  font-family: "Fraunces", serif !important;
+  font-family: var(--font-fraunces), serif !important;
   font-weight: 500 !important;
   line-height: 1.5 !important;
 }
 
 .ant-input::placeholder {
-  color: var(--vn-red-600) !important;
+  color: var(--lacquer-red-light) !important;
   font-weight: 400 !important;
 }
 
@@ -897,22 +918,17 @@
 }
 
 .ant-btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--vn-yellow-400),
-    var(--vn-yellow-500)
-  ) !important;
-  border-color: var(--vn-yellow-400) !important;
-  color: var(--vn-red-800) !important;
+  background: var(--lacquer-red) !important;
+  border-color: var(--lacquer-red) !important;
+  color: var(--paper-white) !important;
   height: auto !important;
   min-height: 48px !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 16px rgba(249, 243, 80, 0.3) !important;
 }
 
 .ant-btn-primary:hover {
-  background: var(--vn-yellow-500) !important;
-  border-color: var(--vn-yellow-500) !important;
+  background: var(--lacquer-red-light) !important;
+  border-color: var(--lacquer-red-light) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -1004,16 +1020,15 @@
 .suggestion-tags {
   margin: 1.5rem 0;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border: 1px solid rgba(212, 55, 49, 0.1);
+  background: var(--museum-cream);
+  border-radius: 8px;
+  border: 1px solid var(--museum-tan);
 }
 
 .suggestion-tags-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--vn-red-700);
+  color: var(--lacquer-red);
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -1026,21 +1041,21 @@
 }
 
 .suggestion-tag {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--vn-yellow-400);
-  color: var(--vn-red-700);
+  background: var(--paper-white);
+  border: 1px solid var(--lacquer-gold);
+  color: var(--ink-black);
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 16px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .suggestion-tag:hover {
-  background: var(--vn-red-600);
-  color: var(--cream-100);
+  background: var(--lacquer-red);
+  color: var(--paper-white);
   transform: translateY(-2px);
 }
 
@@ -1051,8 +1066,8 @@
 }
 
 .suggestion-tag:disabled:hover {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--vn-red-700);
+  background: var(--paper-white);
+  color: var(--ink-black);
   transform: none;
   box-shadow: none;
 }

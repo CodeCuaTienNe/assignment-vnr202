@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeftOutlined, RobotOutlined } from "@ant-design/icons";
-import { Button, Input, Layout, Spin, Typography } from "antd";
+import { Button, Input, Layout, Skeleton, Spin, Typography } from "antd";
 import { MessageCircle, Plus, SendHorizontal, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -15,50 +15,50 @@ const { Title } = Typography;
 
 const suggestedPrompts = [
   {
-    title: "Lý luận Mác-Ăngghen về gia đình",
-    text: "Giải thích quan điểm của C.Mác và Ph.Ăngghen về nguồn gốc lịch sử và bản chất của gia đình",
+    title: "Hiệp định Giơnevơ và Bối cảnh 1954",
+    text: "Phân tích tác động của Hiệp định Giơnevơ (7/1954) đến việc hình thành đường lối chiến lược của Đảng",
   },
   {
-    title: "Quan điểm Lê-nin về gia đình",
-    text: "Lý luận của V.I.Lê-nin về vai trò của gia đình trong thời kỳ quá độ lên chủ nghĩa xã hội",
+    title: "Đại hội III và Hai Nhiệm vụ Chiến lược",
+    text: "Giải thích tính độc lập, tự chủ của Đảng khi đề ra đường lối hai nhiệm vụ chiến lược tại Đại hội III (9/1960)",
   },
   {
-    title: "Gia đình Việt Nam trong kháng chiến",
-    text: "Phân tích sự chuyển đổi vai trò của gia đình Việt Nam trong cuộc kháng chiến chống Mỹ (1945-1975)",
+    title: "Nghị quyết 15 và Con đường Bạo lực Cách mạng",
+    text: "Phân tích tầm quan trọng của Nghị quyết 15 (1/1959) trong việc chuyển hướng cách mạng miền Nam",
   },
   {
-    title: "Gia đình trong thời kỳ Đổi mới",
-    text: "Đánh giá tác động của kinh tế thị trường và hội nhập đến cấu trúc gia đình Việt Nam từ 1986 đến nay",
+    title: "Phong trào Đồng Khởi 1960",
+    text: "Đánh giá ý nghĩa lịch sử của phong trào Đồng Khởi bắt đầu từ Bến Tre và lan rộng ra cả nước",
   },
   {
-    title: "Mất cân bằng giới tính khi sinh",
-    text: "Phân tích nguyên nhân và hệ lụy của tình trạng mất cân bằng giới tính khi sinh ở Việt Nam",
+    title: "Miền Bắc XHCN - Hậu phương Chiến lược",
+    text: "Phân tích vai trò 'quyết định nhất' của miền Bắc trong việc xây dựng CNXH và hỗ trợ miền Nam",
   },
   {
-    title: "Tình yêu và hôn nhân trong xã hội XHCN",
-    text: "Thảo luận về mối quan hệ giữa tình yêu, hôn nhân và các giá trị gia đình trong chủ nghĩa xã hội",
+    title: "Đường Hồ Chí Minh và Chiến lược Vận chuyển",
+    text: "Giải thích tầm quan trọng của Đường mòn Hồ Chí Minh trong việc chi viện cho chiến trường miền Nam",
   },
   {
-    title: "Quan điểm Hồ Chí Minh về gia đình",
-    text: "Phân tích quan điểm của Chủ tịch Hồ Chí Minh về vai trò của gia đình trong xã hội Việt Nam",
+    title: "Chiến thắng Chiến tranh Cục bộ và Việt Nam hóa",
+    text: "Phân tích sự lãnh đạo sáng tạo của Đảng trong việc đánh bại chiến lược 'Chiến tranh Cục bộ' và 'Việt Nam hóa'",
   },
   {
-    title: "Gia đình trong xã hội XHCN",
-    text: "Thảo luận về đặc điểm và vai trò của gia đình trong xã hội xã hội chủ nghĩa",
+    title: "Mùa Xuân 1975 và Thống nhất Đất nước",
+    text: "Đánh giá ý nghĩa lịch sử của chiến dịch Hồ Chí Minh và việc hoàn thành mục tiêu thống nhất đất nước",
   },
 ];
 
 const suggestionTags = [
-  "Gia đình trong thời kỳ quá độ",
-  "Quan điểm Mác-Ăngghen về gia đình",
-  "Lý luận Lê-nin về hôn nhân",
-  "Thực tiễn gia đình Việt Nam",
-  "Chính sách gia đình XHCN",
-  "Tình trạng mất cân bằng giới tính",
-  "Vai trò phụ nữ trong kháng chiến",
-  "Gia đình hạt nhân hiện đại",
-  "Giải phóng phụ nữ theo Mác",
-  "Thách thức gia đình Việt Nam",
+  "Hiệp định Giơnevơ 1954",
+  "Đại hội III và Hai nhiệm vụ",
+  "Nghị quyết 15 - Bạo lực cách mạng",
+  "Phong trào Đồng Khởi 1960",
+  "Miền Bắc - Hậu phương chiến lược",
+  "Đường mòn Hồ Chí Minh",
+  "Chiến tranh cục bộ",
+  "Việt Nam hóa",
+  "Mùa Xuân 1975",
+  "Thống nhất đất nước",
 ];
 
 export default function TestAI() {
@@ -98,13 +98,36 @@ export default function TestAI() {
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
 
+    // Add loading message
+    const loadingMessage = { text: "", isUser: false, isLoading: true };
+    setMessages((prev) => [...prev, loadingMessage]);
+
     // Get AI response
     const response = await generateResponse(text);
-    if (response) {
-      const formattedResponse = formatResponse(response);
-      const aiMessage = { text: formattedResponse, isUser: false };
-      setMessages((prev) => [...prev, aiMessage]);
-    }
+
+    // Remove loading message and add actual response
+    setMessages((prev) => {
+      const newMessages = [...prev];
+      newMessages.pop(); // Remove loading message
+      if (response) {
+        const formattedResponse = formatResponse(response);
+        const aiMessage = {
+          text: formattedResponse,
+          isUser: false,
+          isLoading: false,
+        };
+        newMessages.push(aiMessage);
+      } else {
+        // Add error message if no response
+        const errorMessage = {
+          text: "Xin lỗi, đã xảy ra lỗi khi xử lý câu hỏi của bạn. Vui lòng thử lại sau.",
+          isUser: false,
+          isLoading: false,
+        };
+        newMessages.push(errorMessage);
+      }
+      return newMessages;
+    });
   };
 
   const handlePromptClick = (prompt) => {
@@ -151,7 +174,7 @@ export default function TestAI() {
           top: 0,
           width: "100%",
           zIndex: 1000,
-          background: "#a84334",
+          background: "#8b1a1a",
           padding: "0 16px",
           height: "56px",
           lineHeight: "56px",
@@ -170,7 +193,7 @@ export default function TestAI() {
             <Button
               type="text"
               icon={<ArrowLeftOutlined />}
-              onClick={() => router.push("/Assignment_MLN131")}
+              onClick={() => router.push("/")}
               style={{
                 color: "white",
                 display: "flex",
@@ -217,7 +240,7 @@ export default function TestAI() {
               }}
             >
               <RobotOutlined style={{ marginRight: 8 }} />
-              Trợ lý AI - Gia đình trong thời kỳ quá độ
+              Trợ lý AI - Lịch sử Đảng Cộng sản Việt Nam
             </Title>
           </div>
         </div>
@@ -299,12 +322,13 @@ export default function TestAI() {
                 // Welcome Screen
                 <div className="welcome-screen">
                   <div className="welcome-title">
-                    Học tập Mác Lênin - Chủ nghĩa xã hội khoa học
+                    Sự Lãnh đạo của Đảng Cộng sản Việt Nam (1954-1975)
                   </div>
                   <div className="welcome-subtitle">
-                    Trợ lý AI tùy chỉnh cho nhu cầu học tập. Hãy bắt đầu cuộc
-                    trò chuyện bằng cách chọn một chủ đề dưới đây hoặc đặt câu
-                    hỏi của riêng bạn.
+                    Trợ lý AI chuyên về lịch sử Đảng trong cuộc kháng chiến
+                    chống đế quốc Mỹ xâm lược. Hãy bắt đầu cuộc trò chuyện bằng
+                    cách chọn một chủ đề dưới đây hoặc đặt câu hỏi của riêng
+                    bạn.
                   </div>
 
                   <div className="suggested-prompts">
@@ -336,6 +360,20 @@ export default function TestAI() {
                       <div className="message-content">
                         {message.isUser ? (
                           message.text
+                        ) : message.isLoading ? (
+                          <div className="ai-loading-skeleton">
+                            <Skeleton
+                              active
+                              paragraph={{
+                                rows: 3,
+                                width: ["100%", "90%", "60%"],
+                              }}
+                              title={false}
+                            />
+                            <div className="loading-text">
+                              Đang phân tích và tìm kiếm thông tin lịch sử...
+                            </div>
+                          </div>
                         ) : (
                           <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
@@ -353,7 +391,7 @@ export default function TestAI() {
                               strong: ({ children }) => (
                                 <strong
                                   style={{
-                                    color: "#d43731",
+                                    color: "var(--lacquer-red)",
                                     fontWeight: "700",
                                   }}
                                 >
@@ -393,11 +431,12 @@ export default function TestAI() {
                               h1: ({ children }) => (
                                 <h1
                                   style={{
-                                    color: "#d43731",
+                                    color: "var(--lacquer-red)",
                                     fontSize: "1.5rem",
                                     fontWeight: "800",
                                     marginBottom: "1rem",
-                                    borderBottom: "2px solid #f9f350",
+                                    borderBottom:
+                                      "2px solid var(--lacquer-gold)",
                                     paddingBottom: "0.5rem",
                                   }}
                                 >
@@ -407,7 +446,7 @@ export default function TestAI() {
                               h2: ({ children }) => (
                                 <h2
                                   style={{
-                                    color: "#d43731",
+                                    color: "var(--lacquer-red)",
                                     fontSize: "1.25rem",
                                     fontWeight: "700",
                                     marginBottom: "0.75rem",
@@ -419,7 +458,7 @@ export default function TestAI() {
                               h3: ({ children }) => (
                                 <h3
                                   style={{
-                                    color: "#d43731",
+                                    color: "var(--lacquer-red-light)",
                                     fontSize: "1.1rem",
                                     fontWeight: "700",
                                     marginBottom: "0.5rem",
@@ -431,7 +470,8 @@ export default function TestAI() {
                               code: ({ children }) => (
                                 <code
                                   style={{
-                                    background: "#f3f4f6",
+                                    background: "var(--museum-beige)",
+                                    color: "var(--jade-green)",
                                     padding: "0.2rem 0.4rem",
                                     borderRadius: "4px",
                                     fontSize: "0.9rem",
@@ -443,7 +483,7 @@ export default function TestAI() {
                               blockquote: ({ children }) => (
                                 <blockquote
                                   style={{
-                                    borderLeft: "4px solid #d43731",
+                                    borderLeft: "4px solid var(--lacquer-red)",
                                     paddingLeft: "1rem",
                                     margin: "1rem 0",
                                     fontStyle: "italic",

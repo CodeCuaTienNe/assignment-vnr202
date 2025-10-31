@@ -5,7 +5,6 @@ import StrategySection from "@/component/layout/library/chuong_2/StrategySection
 import NorthSection from "@/component/layout/library/chuong_3/NorthSection";
 import SouthSection from "@/component/layout/library/chuong_4/SouthSection";
 import VictorySection from "@/component/layout/library/chuong_5/VictorySection";
-import OrientationSection from "@/component/layout/library/chuong_6/OrientationSection";
 import MuseumFooter from "@/component/layout/library/footer/MuseumFooter";
 import MuseumHeader from "@/component/layout/library/header/MuseumHeader";
 import MuseumHero from "@/component/layout/library/hero/MuseumHero";
@@ -167,27 +166,6 @@ export default function HomePage() {
           </div>
           <VictorySection />
         </section>
-
-        <div className="museum-divider">
-          <div className="divider-line" />
-          <div className="divider-ornament">✦</div>
-          <div className="divider-line" />
-        </div>
-
-        {/* PHẦN VI: CỦNG CỐ NIỀM TIN VÀ ĐỊNH HƯỚNG PHẤN ĐẤU */}
-        <section
-          id="orientation"
-          className="museum-section orientation-section magazine-section bg-orientation"
-        >
-          <div className="section-header">
-            <div className="section-roman">
-              VI. Củng cố Niềm tin và Định hướng Phấn đấu
-            </div>
-            <div className="section-subtitle">Liên hệ Thực tế - CLO4</div>
-          </div>
-          <OrientationSection />
-        </section>
-
         <MuseumFooter />
       </Content>
     </Layout>

@@ -1,7 +1,10 @@
 /* VictorySection.css */
 
 .victory-section {
-  padding: 2rem 0;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
 }
 
 .subsection-header {

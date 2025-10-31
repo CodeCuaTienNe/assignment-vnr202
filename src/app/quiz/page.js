@@ -52,7 +52,7 @@ export default function QuizPage() {
               <Button
                 type="text"
                 icon={<ArrowLeftOutlined />}
-                onClick={() => router.push("/Assignment_MLN131")}
+                onClick={() => router.push("/assignment-vnr202")}
                 style={{
                   color: "white",
                   display: "flex",

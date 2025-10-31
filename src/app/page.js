@@ -3,11 +3,11 @@
 import FoundationSection from "@/component/layout/library/chuong_1/FoundationSection";
 import StrategySection from "@/component/layout/library/chuong_2/StrategySection";
 import NorthSection from "@/component/layout/library/chuong_3/NorthSection";
+import SouthSection from "@/component/layout/library/chuong_4/SouthSection";
 import MuseumFooter from "@/component/layout/library/footer/MuseumFooter";
 import MuseumHeader from "@/component/layout/library/header/MuseumHeader";
 import MuseumHero from "@/component/layout/library/hero/MuseumHero";
 import OrientationSection from "@/component/layout/library/orientation/OrientationSection";
-import SouthSection from "@/component/layout/library/south/SouthSection";
 import VictorySection from "@/component/layout/library/victory/VictorySection";
 import { Layout } from "antd";
 import { useEffect, useState } from "react";

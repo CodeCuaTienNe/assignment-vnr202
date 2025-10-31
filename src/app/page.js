@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import FoundationSection from "@/component/layout/library/chuong_1/FoundationSection";
 import StrategySection from "@/component/layout/library/chuong_2/StrategySection";
 import NorthSection from "@/component/layout/library/chuong_3/NorthSection";
@@ -8,49 +9,112 @@ import VictorySection from "@/component/layout/library/chuong_5/VictorySection";
 import MuseumFooter from "@/component/layout/library/footer/MuseumFooter";
 import MuseumHeader from "@/component/layout/library/header/MuseumHeader";
 import MuseumHero from "@/component/layout/library/hero/MuseumHero";
-import ScrollReveal from "@/component/animation/ScrollReveal";
-import { Layout } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import { Button, Layout } from "antd";
 import { useEffect, useState } from "react";
 import "./page.css";
 
 const { Content } = Layout;
 
 export default function HomePage() {
-  const [activeSection, setActiveSection] = useState("foundation");
+  const [activeSection, setActiveSection] = useState("hero");
 
-  // Scroll spy to track active section
+  // Scroll to top whenever activeSection changes
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        "foundation",
-        "strategy",
-        "north",
-        "south",
-        "victory",
-        "orientation",
-      ];
-      const scrollPosition = window.scrollY + 200;
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [activeSection]);
 
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const { offsetTop, offsetHeight } = section;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
+  // Define chapters configuration (include hero and footer)
+  const chapters = [
+    { key: "hero", title: "Trang chủ", isHero: true },
+    { key: "foundation", title: "I. Bối cảnh Lịch sử", years: "1954 – 1960" },
+    {
+      key: "strategy",
+      title: "II. Sự Lãnh đạo Chuyển hướng",
+      years: "1954 – 1965",
+      subtitle: "Nghị quyết 15 và Phong trào Đồng Khởi",
+    },
+    {
+      key: "north",
+      title: "III. Miền Bắc XHCN",
+      years: "1954 – 1975",
+      subtitle: "Xây dựng CNXH và Đường Hồ Chí Minh",
+    },
+    {
+      key: "south",
+      title: "IV. Sự Lãnh đạo Vượt qua Thử thách",
+      years: "1965 – 1975",
+      subtitle: "Đánh bại Chiến tranh Cục bộ, Việt Nam hóa và Mùa Xuân 1975",
+    },
+    {
+      key: "victory",
+      title: "V. Ý nghĩa Lịch sử",
+      years: "1954 – 1975",
+      subtitle: "Bài học Trường tồn và Di sản Quý báu",
+    },
+    { key: "footer", title: "Thông tin", isFooter: true },
+  ];
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+  const currentIndex = chapters.findIndex((ch) => ch.key === activeSection);
+  const safeCurrentIndex = currentIndex >= 0 ? currentIndex : 0;
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const handleNextChapter = () => {
+    // Chuyển tuyến tính: hero->1->2->3->4->5->footer->hero (loop back)
+    const nextIndex = (safeCurrentIndex + 1) % chapters.length;
+    setActiveSection(chapters[nextIndex].key);
+  };
+
+  const handlePreviousChapter = () => {
+    // Chuyển ngược: footer->5->4->3->2->1->hero->footer
+    const prevIndex =
+      (safeCurrentIndex - 1 + chapters.length) % chapters.length;
+    setActiveSection(chapters[prevIndex].key);
+  };
+
+  // Render current chapter component
+  const renderCurrentChapter = () => {
+    const currentChapter = chapters[safeCurrentIndex];
+
+    if (!currentChapter) {
+      return <MuseumHero />;
+    }
+
+    // If hero section, render hero directly
+    if (currentChapter.isHero) {
+      return <MuseumHero />;
+    }
+
+    // If footer section, render footer directly
+    if (currentChapter.isFooter) {
+      return <MuseumFooter />;
+    }
+
+    return (
+      <section
+        id={currentChapter.key}
+        className={`museum-section ${currentChapter.key}-section magazine-section bg-${currentChapter.key}`}
+      >
+        <ScrollReveal variant="fadeUp" duration={0.8}>
+          <div className="section-header">
+            <div className="section-roman">{currentChapter.title}</div>
+            <div className="section-years">{currentChapter.years}</div>
+            {currentChapter.subtitle && (
+              <div className="section-subtitle">{currentChapter.subtitle}</div>
+            )}
+          </div>
+        </ScrollReveal>
+
+        {activeSection === "foundation" && <FoundationSection />}
+        {activeSection === "strategy" && <StrategySection />}
+        {activeSection === "north" && <NorthSection />}
+        {activeSection === "south" && <SouthSection />}
+        {activeSection === "victory" && <VictorySection />}
+      </section>
+    );
+  };
 
   return (
     <Layout className="museum-layout">
@@ -60,132 +124,64 @@ export default function HomePage() {
       />
 
       <Content className="museum-content museum-article">
-        <MuseumHero />
+        {/* Chapter Navigation Buttons - Circular like AI button */}
+        <div className="chapter-navigation-buttons">
+          {/* Previous Button */}
+          <Button
+            type="primary"
+            shape="circle"
+            size="large"
+            icon={<ArrowLeftOutlined style={{ fontSize: "24px" }} />}
+            onClick={handlePreviousChapter}
+            className="nav-btn-circle nav-btn-prev"
+            style={{
+              width: "60px",
+              height: "60px",
+              background: "var(--lacquer-red)",
+              borderColor: "var(--lacquer-gold)",
+              border: "3px solid var(--lacquer-gold)",
+              boxShadow: "0 4px 12px rgba(139, 26, 26, 0.4)",
+            }}
+            title={`Quay lại ${
+              chapters[
+                (safeCurrentIndex - 1 + chapters.length) % chapters.length
+              ].title
+            }`}
+          />
 
-        {/* PHẦN I: NỀN TẢNG LỊCH SỬ VÀ ĐƯỜNG LỐI CHIẾN LƯỢC */}
-        <section
-          id="foundation"
-          className="museum-section foundation-section magazine-section bg-foundation"
-        >
-          <ScrollReveal variant="fadeUp" duration={0.8}>
-            <div className="section-header">
-              <div className="section-roman">
-                I. Bối cảnh Lịch sử và Sự Hình thành Đường lối Chiến lược Chung
-              </div>
-              <div className="section-years">1954 – 1960</div>
-            </div>
-          </ScrollReveal>
-          <FoundationSection />
-        </section>
-
-        <ScrollReveal variant="fadeIn" duration={0.6}>
-          <div className="museum-divider">
-            <div className="divider-line" />
-            <div className="divider-ornament">✦</div>
-            <div className="divider-line" />
+          {/* Chapter indicator */}
+          <div className="chapter-indicator">
+            {chapters[safeCurrentIndex].isHero
+              ? "Home"
+              : chapters[safeCurrentIndex].isFooter
+              ? "Info"
+              : `${safeCurrentIndex}/5`}
           </div>
-        </ScrollReveal>
 
-        {/* PHẦN II: CHUYỂN HƯỚNG VÀ KHỞI NGHĨA */}
-        <section
-          id="strategy"
-          className="museum-section strategy-section magazine-section bg-strategy"
-        >
-          <ScrollReveal variant="fadeUp" duration={0.8}>
-            <div className="section-header">
-              <div className="section-roman">
-                II. Sự Lãnh đạo Chuyển hướng và Khởi nghĩa
-              </div>
-              <div className="section-years">1954 – 1965</div>
-              <div className="section-subtitle">
-                Nghị quyết 15 và Phong trào Đồng Khởi
-              </div>
-            </div>
-          </ScrollReveal>
-          <StrategySection />
-        </section>
+          {/* Next Button */}
+          <Button
+            type="primary"
+            shape="circle"
+            size="large"
+            icon={<ArrowRightOutlined style={{ fontSize: "24px" }} />}
+            onClick={handleNextChapter}
+            className="nav-btn-circle nav-btn-next"
+            style={{
+              width: "60px",
+              height: "60px",
+              background: "var(--lacquer-red)",
+              borderColor: "var(--lacquer-gold)",
+              border: "3px solid var(--lacquer-gold)",
+              boxShadow: "0 4px 12px rgba(139, 26, 26, 0.4)",
+            }}
+            title={`Chuyển sang ${
+              chapters[(safeCurrentIndex + 1) % chapters.length].title
+            }`}
+          />
+        </div>
 
-        <ScrollReveal variant="fadeIn" duration={0.6}>
-          <div className="museum-divider">
-            <div className="divider-line" />
-            <div className="divider-ornament">✦</div>
-            <div className="divider-line" />
-          </div>
-        </ScrollReveal>
-
-        {/* PHẦN III: MIỀN BẮC XHCN - HẬU PHƯƠNG CHIẾN LƯỢC */}
-        <section
-          id="north"
-          className="museum-section north-section magazine-section bg-north"
-        >
-          <ScrollReveal variant="fadeUp" duration={0.8}>
-            <div className="section-header">
-              <div className="section-roman">
-                III. Miền Bắc XHCN: Hậu phương Chiến lược Vững mạnh
-              </div>
-              <div className="section-years">1954 – 1975</div>
-              <div className="section-subtitle">
-                Xây dựng CNXH và Đường Hồ Chí Minh
-              </div>
-            </div>
-          </ScrollReveal>
-          <NorthSection />
-        </section>
-
-        <ScrollReveal variant="fadeIn" duration={0.6}>
-          <div className="museum-divider">
-            <div className="divider-line" />
-            <div className="divider-ornament">✦</div>
-            <div className="divider-line" />
-          </div>
-        </ScrollReveal>
-
-        {/* PHẦN IV: SỰ LÃNH ĐẠO VƯỢT QUA THỬ THÁCH VÀ GIÀNH THẮNG LỢI */}
-        <section
-          id="south"
-          className="museum-section south-section magazine-section bg-south"
-        >
-          <ScrollReveal variant="fadeUp" duration={0.8}>
-            <div className="section-header">
-              <div className="section-roman">
-                IV. Sự Lãnh đạo Vượt qua Thử thách và Giành Thắng lợi
-              </div>
-              <div className="section-years">1965 – 1975</div>
-              <div className="section-subtitle">
-                Đánh bại Chiến tranh Cục bộ, Việt Nam hóa và Mùa Xuân 1975
-              </div>
-            </div>
-          </ScrollReveal>
-          <SouthSection />
-        </section>
-
-        <ScrollReveal variant="fadeIn" duration={0.6}>
-          <div className="museum-divider">
-            <div className="divider-line" />
-            <div className="divider-ornament">✦</div>
-            <div className="divider-line" />
-          </div>
-        </ScrollReveal>
-
-        {/* PHẦN V: Ý NGHĨA LỊCH SỬ VÀ BÀI HỌC */}
-        <section
-          id="victory"
-          className="museum-section victory-section magazine-section bg-victory"
-        >
-          <ScrollReveal variant="fadeUp" duration={0.8}>
-            <div className="section-header">
-              <div className="section-roman">
-                V. Ý nghĩa Lịch sử và Kinh nghiệm Lãnh đạo
-              </div>
-              <div className="section-years">1954 – 1975</div>
-              <div className="section-subtitle">
-                Bài học Trường tồn và Di sản Quý báu
-              </div>
-            </div>
-          </ScrollReveal>
-          <VictorySection />
-        </section>
-        <MuseumFooter />
+        {/* Render Current Chapter Only */}
+        {renderCurrentChapter()}
       </Content>
     </Layout>
   );

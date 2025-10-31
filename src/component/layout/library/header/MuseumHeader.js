@@ -1,6 +1,5 @@
 "use client";
 
-import { scrollToSection } from "@/hooks/library/library";
 import { BookOutlined, MenuOutlined, StarOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import "./MuseumHeader.css";
@@ -9,16 +8,17 @@ const { Header } = Layout;
 
 export default function MuseumHeader({ activeSection, setActiveSection }) {
   const menuItems = [
+    { key: "hero", label: "Trang chủ", icon: <StarOutlined /> },
     { key: "foundation", label: "I. Bối cảnh", icon: <BookOutlined /> },
     { key: "strategy", label: "II. Chuyển hướng", icon: <BookOutlined /> },
     { key: "north", label: "III. Miền Bắc", icon: <BookOutlined /> },
     { key: "south", label: "IV. Thắng lợi", icon: <BookOutlined /> },
     { key: "victory", label: "V. Ý nghĩa", icon: <BookOutlined /> },
-    { key: "orientation", label: "VI. Định hướng", icon: <BookOutlined /> },
+    { key: "footer", label: "📋 Thông tin", icon: <StarOutlined /> },
   ];
 
   const handleMenuClick = (e) => {
-    scrollToSection(e.key);
+    // Directly change chapter instead of scrolling
     setActiveSection(e.key);
   };
 

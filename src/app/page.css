@@ -15,6 +15,87 @@ html {
 
 .museum-content {
   background: var(--museum-cream);
+  position: relative;
+}
+
+/* Chapter Navigation Buttons - Circular like AI button */
+.chapter-navigation-buttons {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-btn-circle {
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.nav-btn-circle:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 20px rgba(139, 26, 26, 0.6) !important;
+  opacity: 0.9;
+}
+
+.nav-btn-circle:active {
+  transform: scale(0.95) !important;
+}
+
+/* Chapter Indicator */
+.chapter-indicator {
+  background: var(--lacquer-red);
+  color: var(--lacquer-gold);
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--lacquer-gold);
+  box-shadow: 0 2px 8px rgba(139, 26, 26, 0.3);
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .chapter-navigation-buttons {
+    right: 15px;
+    gap: 10px;
+  }
+
+  .nav-btn-circle {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .nav-btn-circle .anticon {
+    font-size: 20px !important;
+  }
+
+  .chapter-indicator {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-navigation-buttons {
+    right: 10px;
+    bottom: 80px;
+    top: auto;
+    transform: none;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .nav-btn-circle {
+    width: 45px !important;
+    height: 45px !important;
+  }
 }
 
 /* Magazine-style article wrapper */

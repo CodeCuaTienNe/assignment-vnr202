@@ -4,6 +4,7 @@ import contentData from "@/content/contentData";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import "./FoundationSection.css";
 
 export default function FoundationSection() {
@@ -23,19 +24,22 @@ export default function FoundationSection() {
     <div className="foundation-section">
       {/* Section 1.1: Bối cảnh Quốc tế và Trong nước */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">1.1</div>
-          <h3 className="subsection-title">{section11?.title}</h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">1.1</div>
+            <h3 className="subsection-title">{section11?.title}</h3>
+          </div>
+        </ScrollReveal>
 
         {/* Bối cảnh Quốc tế */}
-        <div className="context-section international">
-          <h4 className="context-title">
-            <span className="title-marker">✦</span>
-            Bối cảnh Quốc tế
-          </h4>
+        <ScrollReveal variant="slideLeft" delay={0.2} duration={0.7}>
+          <div className="context-section international">
+            <h4 className="context-title">
+              <span className="title-marker">✦</span>
+              Bối cảnh Quốc tế
+            </h4>
 
-          <div className="split-content">
+            <div className="split-content">
             <div className="text-content">
               <div className="favorable-block">
                 <strong className="block-label favorable">Thuận lợi:</strong>
@@ -303,16 +307,18 @@ export default function FoundationSection() {
               <p className="image-caption">Hội nghị Giơnevơ (7/1954)</p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Bối cảnh Trong nước */}
-        <div className="context-section domestic">
-          <h4 className="context-title">
-            <span className="title-marker">✦</span>
-            Bối cảnh Trong nước
-          </h4>
+        <ScrollReveal variant="slideRight" delay={0.2} duration={0.7}>
+          <div className="context-section domestic">
+            <h4 className="context-title">
+              <span className="title-marker">✦</span>
+              Bối cảnh Trong nước
+            </h4>
 
-          <div className="split-content reverse">
+            <div className="split-content reverse">
             <div className="image-content">
               <Image
                 src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
@@ -457,19 +463,23 @@ export default function FoundationSection() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Section 1.2: Đường lối Chiến lược Hai nhiệm vụ */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">1.2</div>
-          <h3 className="subsection-title">{section12?.title}</h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">1.2</div>
+            <h3 className="subsection-title">{section12?.title}</h3>
+          </div>
+        </ScrollReveal>
 
         {/* Congress Introduction */}
-        <div className="congress-intro">
-          <div className="split-content">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="congress-intro">
+            <div className="split-content">
             <div className="text-content">
               <h4 className="intro-title">
                 Đại hội III của Đảng (9/1960)
@@ -580,10 +590,12 @@ export default function FoundationSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Two Strategies Grid */}
-        <div className="strategies-comparison">
+        <ScrollReveal variant="fadeUp" delay={0.1} duration={0.7}>
+          <div className="strategies-comparison">
           {section12?.content.dual_strategy.strategies.map((strategy, idx) => (
             <div
               key={idx}
@@ -626,10 +638,12 @@ export default function FoundationSection() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Comparison Table */}
-        <div className="table-wrapper">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="table-wrapper">
           <h4 className="table-title">
             {section12?.content.comparison_table.title}
           </h4>
@@ -653,7 +667,8 @@ export default function FoundationSection() {
               ))}
             </tbody>
           </table>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       <Modal

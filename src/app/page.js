@@ -8,6 +8,7 @@ import VictorySection from "@/component/layout/library/chuong_5/VictorySection";
 import MuseumFooter from "@/component/layout/library/footer/MuseumFooter";
 import MuseumHeader from "@/component/layout/library/header/MuseumHeader";
 import MuseumHero from "@/component/layout/library/hero/MuseumHero";
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import { Layout } from "antd";
 import { useEffect, useState } from "react";
 import "./page.css";
@@ -66,104 +67,122 @@ export default function HomePage() {
           id="foundation"
           className="museum-section foundation-section magazine-section bg-foundation"
         >
-          <div className="section-header">
-            <div className="section-roman">
-              I. Bối cảnh Lịch sử và Sự Hình thành Đường lối Chiến lược Chung
+          <ScrollReveal variant="fadeUp" duration={0.8}>
+            <div className="section-header">
+              <div className="section-roman">
+                I. Bối cảnh Lịch sử và Sự Hình thành Đường lối Chiến lược Chung
+              </div>
+              <div className="section-years">1954 – 1960</div>
             </div>
-            <div className="section-years">1954 – 1960</div>
-          </div>
+          </ScrollReveal>
           <FoundationSection />
         </section>
 
-        <div className="museum-divider">
-          <div className="divider-line" />
-          <div className="divider-ornament">✦</div>
-          <div className="divider-line" />
-        </div>
+        <ScrollReveal variant="fadeIn" duration={0.6}>
+          <div className="museum-divider">
+            <div className="divider-line" />
+            <div className="divider-ornament">✦</div>
+            <div className="divider-line" />
+          </div>
+        </ScrollReveal>
 
         {/* PHẦN II: CHUYỂN HƯỚNG VÀ KHỞI NGHĨA */}
         <section
           id="strategy"
           className="museum-section strategy-section magazine-section bg-strategy"
         >
-          <div className="section-header">
-            <div className="section-roman">
-              II. Sự Lãnh đạo Chuyển hướng và Khởi nghĩa
+          <ScrollReveal variant="fadeUp" duration={0.8}>
+            <div className="section-header">
+              <div className="section-roman">
+                II. Sự Lãnh đạo Chuyển hướng và Khởi nghĩa
+              </div>
+              <div className="section-years">1954 – 1965</div>
+              <div className="section-subtitle">
+                Nghị quyết 15 và Phong trào Đồng Khởi
+              </div>
             </div>
-            <div className="section-years">1954 – 1965</div>
-            <div className="section-subtitle">
-              Nghị quyết 15 và Phong trào Đồng Khởi
-            </div>
-          </div>
+          </ScrollReveal>
           <StrategySection />
         </section>
 
-        <div className="museum-divider">
-          <div className="divider-line" />
-          <div className="divider-ornament">✦</div>
-          <div className="divider-line" />
-        </div>
+        <ScrollReveal variant="fadeIn" duration={0.6}>
+          <div className="museum-divider">
+            <div className="divider-line" />
+            <div className="divider-ornament">✦</div>
+            <div className="divider-line" />
+          </div>
+        </ScrollReveal>
 
         {/* PHẦN III: MIỀN BẮC XHCN - HẬU PHƯƠNG CHIẾN LƯỢC */}
         <section
           id="north"
           className="museum-section north-section magazine-section bg-north"
         >
-          <div className="section-header">
-            <div className="section-roman">
-              III. Miền Bắc XHCN: Hậu phương Chiến lược Vững mạnh
+          <ScrollReveal variant="fadeUp" duration={0.8}>
+            <div className="section-header">
+              <div className="section-roman">
+                III. Miền Bắc XHCN: Hậu phương Chiến lược Vững mạnh
+              </div>
+              <div className="section-years">1954 – 1975</div>
+              <div className="section-subtitle">
+                Xây dựng CNXH và Đường Hồ Chí Minh
+              </div>
             </div>
-            <div className="section-years">1954 – 1975</div>
-            <div className="section-subtitle">
-              Xây dựng CNXH và Đường Hồ Chí Minh
-            </div>
-          </div>
+          </ScrollReveal>
           <NorthSection />
         </section>
 
-        <div className="museum-divider">
-          <div className="divider-line" />
-          <div className="divider-ornament">✦</div>
-          <div className="divider-line" />
-        </div>
+        <ScrollReveal variant="fadeIn" duration={0.6}>
+          <div className="museum-divider">
+            <div className="divider-line" />
+            <div className="divider-ornament">✦</div>
+            <div className="divider-line" />
+          </div>
+        </ScrollReveal>
 
         {/* PHẦN IV: SỰ LÃNH ĐẠO VƯỢT QUA THỬ THÁCH VÀ GIÀNH THẮNG LỢI */}
         <section
           id="south"
           className="museum-section south-section magazine-section bg-south"
         >
-          <div className="section-header">
-            <div className="section-roman">
-              IV. Sự Lãnh đạo Vượt qua Thử thách và Giành Thắng lợi
+          <ScrollReveal variant="fadeUp" duration={0.8}>
+            <div className="section-header">
+              <div className="section-roman">
+                IV. Sự Lãnh đạo Vượt qua Thử thách và Giành Thắng lợi
+              </div>
+              <div className="section-years">1965 – 1975</div>
+              <div className="section-subtitle">
+                Đánh bại Chiến tranh Cục bộ, Việt Nam hóa và Mùa Xuân 1975
+              </div>
             </div>
-            <div className="section-years">1965 – 1975</div>
-            <div className="section-subtitle">
-              Đánh bại Chiến tranh Cục bộ, Việt Nam hóa và Mùa Xuân 1975
-            </div>
-          </div>
+          </ScrollReveal>
           <SouthSection />
         </section>
 
-        <div className="museum-divider">
-          <div className="divider-line" />
-          <div className="divider-ornament">✦</div>
-          <div className="divider-line" />
-        </div>
+        <ScrollReveal variant="fadeIn" duration={0.6}>
+          <div className="museum-divider">
+            <div className="divider-line" />
+            <div className="divider-ornament">✦</div>
+            <div className="divider-line" />
+          </div>
+        </ScrollReveal>
 
         {/* PHẦN V: Ý NGHĨA LỊCH SỬ VÀ BÀI HỌC */}
         <section
           id="victory"
           className="museum-section victory-section magazine-section bg-victory"
         >
-          <div className="section-header">
-            <div className="section-roman">
-              V. Ý nghĩa Lịch sử và Kinh nghiệm Lãnh đạo
+          <ScrollReveal variant="fadeUp" duration={0.8}>
+            <div className="section-header">
+              <div className="section-roman">
+                V. Ý nghĩa Lịch sử và Kinh nghiệm Lãnh đạo
+              </div>
+              <div className="section-years">1954 – 1975</div>
+              <div className="section-subtitle">
+                Bài học Trường tồn và Di sản Quý báu
+              </div>
             </div>
-            <div className="section-years">1954 – 1975</div>
-            <div className="section-subtitle">
-              Bài học Trường tồn và Di sản Quý báu
-            </div>
-          </div>
+          </ScrollReveal>
           <VictorySection />
         </section>
         <MuseumFooter />

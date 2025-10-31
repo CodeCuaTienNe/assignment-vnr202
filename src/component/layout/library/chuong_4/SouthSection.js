@@ -4,6 +4,7 @@ import contentData from "@/content/contentData";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import "./SouthSection.css";
 
 export default function SouthSection() {
@@ -25,9 +26,10 @@ export default function SouthSection() {
     <div className="south-section">
       {/* ==================== SECTION 4.1 ==================== */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">4.1</div>
-          <h3 className="subsection-title">{section41?.title}</h3>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">4.1</div>
+            <h3 className="subsection-title">{section41?.title}</h3>
           <Button
             type="text"
             icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
@@ -126,10 +128,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Thắng lợi quân sự */}
-        <div className="content-section">
+        <ScrollReveal variant="slideRight" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">Thắng lợi Quân sự Tiêu biểu</h4>
           <div className="achievement-block">
             <h5>Các trận chiến quan trọng</h5>
@@ -258,10 +262,12 @@ export default function SouthSection() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Ba mũi giáp công */}
-        <div className="content-section">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="content-section">
           <h4 className="content-heading">
             Phương châm "Ba mũi giáp công"
             <Button
@@ -331,14 +337,16 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* ==================== SECTION 4.2: TẾT MẬU THÂN ==================== */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">4.2</div>
-          <h3 className="subsection-title">{section42?.title}</h3>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">4.2</div>
+            <h3 className="subsection-title">{section42?.title}</h3>
           <Button
             type="text"
             icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
@@ -442,10 +450,12 @@ export default function SouthSection() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Vai trò Biệt động Sài Gòn */}
-        <div className="content-section">
+        <ScrollReveal variant="slideLeft" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">
             Vai trò của Lực lượng Biệt động Sài Gòn
             <Button
@@ -536,10 +546,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Kết quả và Ý nghĩa */}
-        <div className="content-section">
+        <ScrollReveal variant="slideRight" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">Kết quả và Ý nghĩa Chiến lược</h4>
           <div className="achievement-block">
             <h5>Kết quả trực tiếp</h5>
@@ -559,14 +571,16 @@ export default function SouthSection() {
               (5/1968).
             </p>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* ==================== SECTION 4.3: ĐÁNH BẠI VIỆT NAM HÓA ==================== */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">4.3</div>
-          <h3 className="subsection-title">{section43?.title}</h3>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">4.3</div>
+            <h3 className="subsection-title">{section43?.title}</h3>
           <Button
             type="text"
             icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
@@ -643,10 +657,12 @@ export default function SouthSection() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Chiến công liên hợp */}
-        <div className="content-section">
+        <ScrollReveal variant="slideLeft" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">Các Chiến công Liên hợp</h4>
           <div className="achievement-block">
             <h5>Thắng lợi quân sự tiêu biểu</h5>
@@ -756,10 +772,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Điện Biên Phủ trên không */}
-        <div className="content-section">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="content-section">
           <h4 className="content-heading">
             Chiến thắng Điện Biên Phủ trên không (12/1972)
             <Button
@@ -870,10 +888,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Hiệp định Paris */}
-        <div className="content-section">
+        <ScrollReveal variant="slideRight" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">
             Hiệp định Paris (27/1/1973)
             <Button
@@ -973,14 +993,16 @@ export default function SouthSection() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* ==================== SECTION 4.4: TỔNG TIẾN CÔNG MÙA XUÂN 1975 ==================== */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">4.4</div>
-          <h3 className="subsection-title">{section44?.title}</h3>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">4.4</div>
+            <h3 className="subsection-title">{section44?.title}</h3>
           <Button
             type="text"
             icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
@@ -1127,10 +1149,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Quyết tâm chiến lược */}
-        <div className="content-section">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="content-section">
           <h4 className="content-heading">
             Quyết tâm Lịch sử của Bộ Chính trị
           </h4>
@@ -1158,10 +1182,12 @@ export default function SouthSection() {
           <div className="strategic-quote">
             <p>"Thần tốc, thần tốc hơn nữa! Táo bạo, táo bạo hơn nữa!"</p>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Tổng tiến công 1975 */}
-        <div className="content-section">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">
             Cuộc Tổng tiến công và nổi dậy Mùa Xuân 1975
           </h4>
@@ -1313,10 +1339,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Khoảnh khắc lịch sử */}
-        <div className="content-section">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="content-section">
           <h4 className="content-heading">Khoảnh khắc Lịch sử</h4>
           <div className="split-content">
             <div>
@@ -1346,10 +1374,12 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Bài học lãnh đạo */}
-        <div className="content-section">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="content-section">
           <h4 className="content-heading">Bài học về Nghệ thuật Lãnh đạo</h4>
           <div className="lessons-grid">
             <div className="lesson-item">
@@ -1377,7 +1407,8 @@ export default function SouthSection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Modal */}

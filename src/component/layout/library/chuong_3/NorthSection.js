@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import contentData from "@/content/contentData";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
@@ -23,59 +24,62 @@ export default function NorthSection() {
     <div className="north-section">
       {/* Section 3.1: Xây dựng CNXH và Vai trò Hậu phương */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">3.1</div>
-          <h3 className="subsection-title">{section31.title}</h3>
-          <Button
-            type="text"
-            icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
-            onClick={() =>
-              openModal(
-                "Vai trò của Miền Bắc XHCN",
-                <div>
-                  <p>
-                    Sau Hiệp định Giơnevơ (1954), miền Bắc được giải phóng hoàn
-                    toàn và trở thành <strong>căn cứ địa cách mạng</strong> cho
-                    cả nước. Đảng Lao động Việt Nam xác định rõ vai trò quyết
-                    định nhất của miền Bắc trong toàn bộ sự nghiệp cách mạng.
-                  </p>
-                  {/* <div className="modal-image-grid">
-                    <div className="modal-image-item">
-                      <Image
-                        src="https://cdn.hvcsnd.edu.vn/uploads/2025/04/08/6/unnamed-57-1744104303.jpg?q=75&f=6&s=mp6hq0egmwc"
-                        alt="Xây dựng miền Bắc XHCN"
-                        style={{
-                          width: "50%",
-                          maxWidth: "400px",
-                          borderRadius: "4px",
-                        }}
-                        preview={true}
-                      />
-                      <p className="modal-caption">Xây dựng miền Bắc XHCN</p>
-                    </div>
-                    <div className="modal-image-item">
-                      <Image
-                        src="https://baophapluat.vn/stores/news_dataimages/dieulinh/032021/18/15/nhip-song-mien-bac-xa-hoi-chu-nghia.jpg"
-                        alt="Nhịp sống miền Bắc"
-                        preview={true}
-                      />
-                      <p className="modal-caption">
-                        Nhịp sống miền Bắc thập niên 1960
-                      </p>
-                    </div>
-                  </div> */}
-                  <p>
-                    <strong>Tư tưởng chiến lược:</strong> "Miền Nam là tiền
-                    tuyến lớn, miền Bắc là hậu phương lớn" - Chủ tịch Hồ Chí
-                    Minh. Vai trò này thể hiện qua việc cung cấp nguồn lực vật
-                    chất, tinh thần và con người cho cuộc kháng chiến chống Mỹ,
-                    cứu nước.
-                  </p>
-                </div>
-              )
-            }
-          />
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">3.1</div>
+            <h3 className="subsection-title">{section31.title}</h3>
+            <Button
+              type="text"
+              icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+              onClick={() =>
+                openModal(
+                  "Vai trò của Miền Bắc XHCN",
+                  <div>
+                    <p>
+                      Sau Hiệp định Giơnevơ (1954), miền Bắc được giải phóng
+                      hoàn toàn và trở thành{" "}
+                      <strong>căn cứ địa cách mạng</strong> cho cả nước. Đảng
+                      Lao động Việt Nam xác định rõ vai trò quyết định nhất của
+                      miền Bắc trong toàn bộ sự nghiệp cách mạng.
+                    </p>
+                    {/* <div className="modal-image-grid">
+                      <div className="modal-image-item">
+                        <Image
+                          src="https://cdn.hvcsnd.edu.vn/uploads/2025/04/08/6/unnamed-57-1744104303.jpg?q=75&f=6&s=mp6hq0egmwc"
+                          alt="Xây dựng miền Bắc XHCN"
+                          style={{
+                            width: "50%",
+                            maxWidth: "400px",
+                            borderRadius: "4px",
+                          }}
+                          preview={true}
+                        />
+                        <p className="modal-caption">Xây dựng miền Bắc XHCN</p>
+                      </div>
+                      <div className="modal-image-item">
+                        <Image
+                          src="https://baophapluat.vn/stores/news_dataimages/dieulinh/032021/18/15/nhip-song-mien-bac-xa-hoi-chu-nghia.jpg"
+                          alt="Nhịp sống miền Bắc"
+                          preview={true}
+                        />
+                        <p className="modal-caption">
+                          Nhịp sống miền Bắc thập niên 1960
+                        </p>
+                      </div>
+                    </div> */}
+                    <p>
+                      <strong>Tư tưởng chiến lược:</strong> "Miền Nam là tiền
+                      tuyến lớn, miền Bắc là hậu phương lớn" - Chủ tịch Hồ Chí
+                      Minh. Vai trò này thể hiện qua việc cung cấp nguồn lực vật
+                      chất, tinh thần và con người cho cuộc kháng chiến chống
+                      Mỹ, cứu nước.
+                    </p>
+                  </div>
+                )
+              }
+            />
+          </div>
+        </ScrollReveal>
 
         {/* Vai trò của Miền Bắc XHCN và Vai trò chiến lược và Hero Image */}
         <div className="content-section">
@@ -136,381 +140,399 @@ export default function NorthSection() {
         </div>
 
         {/* Five Year Plan - Expanded Content */}
-        <div className="content-section">
-          <h4 className="content-heading">
-            Kế hoạch 5 năm lần thứ nhất (
-            {section31.content.first_five_year_plan.period})
-          </h4>
+        <ScrollReveal variant="slideLeft" delay={0.15} duration={0.7}>
+          <div className="content-section">
+            <h4 className="content-heading">
+              Kế hoạch 5 năm lần thứ nhất (
+              {section31.content.first_five_year_plan.period})
+            </h4>
 
-          <p className="content-text">
-            <strong>Mục tiêu:</strong>{" "}
-            {section31.content.first_five_year_plan.goal}
-          </p>
+            <p className="content-text">
+              <strong>Mục tiêu:</strong>{" "}
+              {section31.content.first_five_year_plan.goal}
+            </p>
 
-          <div className="two-column-grid">
-            <div className="content-column">
-              <h5 className="column-title">Mục tiêu chính</h5>
-              <ul className="info-list">
-                <li>Xây dựng bước đầu cơ sở vật chất-kỹ thuật của CNXH</li>
-                <li>Phát triển công nghiệp, đặc biệt là công nghiệp nặng</li>
-                <li>
-                  Cải tạo nông nghiệp theo hướng{" "}
-                  <strong
-                    className="highlight-term"
-                    onClick={() =>
-                      openModal(
-                        "Tập thể hóa nông nghiệp",
-                        <div>
-                          <p>
-                            <strong>Tập thể hóa nông nghiệp</strong> là quá
-                            trình chuyển đổi từ sản xuất nhỏ, manh mún sang sản
-                            xuất tập thể theo mô hình hợp tác xã.
-                          </p>
-                          <p>
-                            <strong>Mục đích:</strong> Nâng cao năng suất, cơ
-                            giới hóa nông nghiệp, cải thiện đời sống nông dân.
-                          </p>
-                          <p>
-                            <strong>Kết quả:</strong> Đến năm 1965, 90% hộ nông
-                            dân miền Bắc tham gia hợp tác xã.
-                          </p>
-                        </div>
-                      )
-                    }
-                  >
-                    tập thể hóa{" "}
-                    <InfoCircleOutlined
-                      style={{ fontSize: "0.85em", color: "#1890ff" }}
-                    />
-                  </strong>
-                </li>
-                <li>Nâng cao đời sống vật chất và tinh thần nhân dân</li>
-              </ul>
+            <div className="two-column-grid">
+              <div className="content-column">
+                <h5 className="column-title">Mục tiêu chính</h5>
+                <ul className="info-list">
+                  <li>Xây dựng bước đầu cơ sở vật chất-kỹ thuật của CNXH</li>
+                  <li>Phát triển công nghiệp, đặc biệt là công nghiệp nặng</li>
+                  <li>
+                    Cải tạo nông nghiệp theo hướng{" "}
+                    <strong
+                      className="highlight-term"
+                      onClick={() =>
+                        openModal(
+                          "Tập thể hóa nông nghiệp",
+                          <div>
+                            <p>
+                              <strong>Tập thể hóa nông nghiệp</strong> là quá
+                              trình chuyển đổi từ sản xuất nhỏ, manh mún sang
+                              sản xuất tập thể theo mô hình hợp tác xã.
+                            </p>
+                            <p>
+                              <strong>Mục đích:</strong> Nâng cao năng suất, cơ
+                              giới hóa nông nghiệp, cải thiện đời sống nông dân.
+                            </p>
+                            <p>
+                              <strong>Kết quả:</strong> Đến năm 1965, 90% hộ
+                              nông dân miền Bắc tham gia hợp tác xã.
+                            </p>
+                          </div>
+                        )
+                      }
+                    >
+                      tập thể hóa{" "}
+                      <InfoCircleOutlined
+                        style={{ fontSize: "0.85em", color: "#1890ff" }}
+                      />
+                    </strong>
+                  </li>
+                  <li>Nâng cao đời sống vật chất và tinh thần nhân dân</li>
+                </ul>
+              </div>
+
+              <div className="content-column">
+                <h5 className="column-title">Thành tựu nổi bật</h5>
+                <ul className="info-list">
+                  <li>
+                    Xây dựng các nhà máy công nghiệp quan trọng:{" "}
+                    <strong>Nhà máy Thép Thái Nguyên, Xi măng Hải Phòng</strong>
+                  </li>
+                  <li>
+                    Hoàn thành tập thể hóa nông nghiệp cơ bản vào năm 1965
+                  </li>
+                  <li>Phát triển giáo dục và y tế miễn phí cho nhân dân</li>
+                  <li>
+                    Tăng trưởng GDP bình quân <strong>6,5%/năm</strong>{" "}
+                    (1961-1964)
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div className="content-column">
-              <h5 className="column-title">Thành tựu nổi bật</h5>
-              <ul className="info-list">
-                <li>
-                  Xây dựng các nhà máy công nghiệp quan trọng:{" "}
-                  <strong>Nhà máy Thép Thái Nguyên, Xi măng Hải Phòng</strong>
-                </li>
-                <li>Hoàn thành tập thể hóa nông nghiệp cơ bản vào năm 1965</li>
-                <li>Phát triển giáo dục và y tế miễn phí cho nhân dân</li>
-                <li>
-                  Tăng trưởng GDP bình quân <strong>6,5%/năm</strong>{" "}
-                  (1961-1964)
-                </li>
-              </ul>
+            <div className="image-grid-2">
+              <div className="image-item">
+                <Image
+                  src="https://thainguyen.dcs.vn/uploads/hoat-dong-cua-cac-dang-bo/2024_06/image-20240604134132-3.jpeg"
+                  alt="Nhà máy Thép Thái Nguyên"
+                  preview={true}
+                  sizes="50%"
+                  className="section-image"
+                />
+                <p className="image-caption">
+                  Nhà máy Thép Thái Nguyên - Biểu tượng công nghiệp hóa
+                </p>
+              </div>
+              <div className="image-item">
+                <Image
+                  src="https://image.plo.vn/w1000/Uploaded/2025/abxbflu/2014_04_30/11_PJFS.jpg.webp"
+                  alt="Đời sống miền Bắc"
+                  preview={true}
+                  className="section-image"
+                />
+                <p className="image-caption">
+                  Đời sống nhân dân miền Bắc thập niên 1960
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="image-grid-2">
-            <div className="image-item">
-              <Image
-                src="https://thainguyen.dcs.vn/uploads/hoat-dong-cua-cac-dang-bo/2024_06/image-20240604134132-3.jpeg"
-                alt="Nhà máy Thép Thái Nguyên"
-                preview={true}
-                sizes="50%"
-                className="section-image"
-              />
-              <p className="image-caption">
-                Nhà máy Thép Thái Nguyên - Biểu tượng công nghiệp hóa
-              </p>
-            </div>
-            <div className="image-item">
-              <Image
-                src="https://image.plo.vn/w1000/Uploaded/2025/abxbflu/2014_04_30/11_PJFS.jpg.webp"
-                alt="Đời sống miền Bắc"
-                preview={true}
-                className="section-image"
-              />
-              <p className="image-caption">
-                Đời sống nhân dân miền Bắc thập niên 1960
-              </p>
-            </div>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* Wartime Adjustment - Expanded */}
-        <div className="content-section">
-          <h4 className="content-heading">
-            Điều chỉnh Chiến lược trong Chiến tranh
-          </h4>
+        <ScrollReveal variant="slideRight" delay={0.15} duration={0.7}>
+          <div className="content-section">
+            <h4 className="content-heading">
+              Điều chỉnh Chiến lược trong Chiến tranh
+            </h4>
 
-          <div>
-            <p className="warning-text">
-              <strong>Bối cảnh:</strong> Từ ngày 5/8/1964, Mỹ bắt đầu cuộc{" "}
-              <strong
-                className="highlight-term"
-                onClick={() =>
-                  openModal(
-                    "Chiến tranh phá hoại miền Bắc",
-                    <div>
-                      <p>
-                        <strong>
-                          Chiến tranh phá hoại miền Bắc (1964-1972)
-                        </strong>{" "}
-                        là chiến dịch không kích quy mô lớn của Mỹ nhằm phá hủy
-                        hệ thống kinh tế, giao thông và tinh thần chiến đấu của
-                        miền Bắc.
-                      </p>
-                      <p>
-                        <strong>Quy mô:</strong> Gần 3 triệu tấn bom đạn được
-                        ném xuống miền Bắc, nhiều hơn tổng số bom đạn trong Thế
-                        chiến II.
-                      </p>
-                      <p>
-                        <strong>Mục đích:</strong> Phá hoại kinh tế, gây hoang
-                        mang và buộc Việt Nam phải đầu hàng, ngừng chi viện cho
-                        miền Nam.
-                      </p>
-                      <div className="modal-image-grid">
-                        <div className="modal-image-item">
-                          <Image
-                            src="https://cdnphoto.dantri.com.vn/M4ylaWSUZZiPtu8nw5vBogpQM_8=/zoom/1200_630/2024/09/04/chien-tranh-phao-huy-mien-bac-crop-1725420799537.jpeg"
-                            alt="Máy bay B-52"
-                            preview={true}
-                          />
-                          <p className="modal-caption">
-                            Máy bay B-52 Mỹ đánh phá miền Bắc
-                          </p>
-                        </div>
-                        <div className="modal-image-item">
-                          <Image
-                            src="https://baoquocte.vn/stores/news_dataimages/hoangoanh/112019/22/15/croped/1_1.jpg"
-                            alt="Phòng không"
-                            preview={true}
-                          />
-                          <p className="modal-caption">
-                            Nhân dân tham gia phòng không
-                          </p>
+            <div>
+              <p className="warning-text">
+                <strong>Bối cảnh:</strong> Từ ngày 5/8/1964, Mỹ bắt đầu cuộc{" "}
+                <strong
+                  className="highlight-term"
+                  onClick={() =>
+                    openModal(
+                      "Chiến tranh phá hoại miền Bắc",
+                      <div>
+                        <p>
+                          <strong>
+                            Chiến tranh phá hoại miền Bắc (1964-1972)
+                          </strong>{" "}
+                          là chiến dịch không kích quy mô lớn của Mỹ nhằm phá
+                          hủy hệ thống kinh tế, giao thông và tinh thần chiến
+                          đấu của miền Bắc.
+                        </p>
+                        <p>
+                          <strong>Quy mô:</strong> Gần 3 triệu tấn bom đạn được
+                          ném xuống miền Bắc, nhiều hơn tổng số bom đạn trong
+                          Thế chiến II.
+                        </p>
+                        <p>
+                          <strong>Mục đích:</strong> Phá hoại kinh tế, gây hoang
+                          mang và buộc Việt Nam phải đầu hàng, ngừng chi viện
+                          cho miền Nam.
+                        </p>
+                        <div className="modal-image-grid">
+                          <div className="modal-image-item">
+                            <Image
+                              src="https://cdnphoto.dantri.com.vn/M4ylaWSUZZiPtu8nw5vBogpQM_8=/zoom/1200_630/2024/09/04/chien-tranh-phao-huy-mien-bac-crop-1725420799537.jpeg"
+                              alt="Máy bay B-52"
+                              preview={true}
+                            />
+                            <p className="modal-caption">
+                              Máy bay B-52 Mỹ đánh phá miền Bắc
+                            </p>
+                          </div>
+                          <div className="modal-image-item">
+                            <Image
+                              src="https://baoquocte.vn/stores/news_dataimages/hoangoanh/112019/22/15/croped/1_1.jpg"
+                              alt="Phòng không"
+                              preview={true}
+                            />
+                            <p className="modal-caption">
+                              Nhân dân tham gia phòng không
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )
-                }
-              >
-                chiến tranh phá hoại miền Bắc{" "}
-                <InfoCircleOutlined
-                  style={{ fontSize: "0.85em", color: "#1890ff" }}
-                />
-              </strong>{" "}
-              bằng không quân và hải quân. Đế quốc Mỹ ném hàng triệu tấn bom
-              đạn, nhằm phá hoại kinh tế và buộc Việt Nam đầu hàng.
-            </p>
-          </div>
+                    )
+                  }
+                >
+                  chiến tranh phá hoại miền Bắc{" "}
+                  <InfoCircleOutlined
+                    style={{ fontSize: "0.85em", color: "#1890ff" }}
+                  />
+                </strong>{" "}
+                bằng không quân và hải quân. Đế quốc Mỹ ném hàng triệu tấn bom
+                đạn, nhằm phá hoại kinh tế và buộc Việt Nam đầu hàng.
+              </p>
+            </div>
 
-          <div className="two-column-grid">
-            <div>
-              <h5 className="section-subheading">Phương châm điều chỉnh</h5>
+            <div className="two-column-grid">
               <div>
-                <p className="strategy-slogan">"Vừa sản xuất vừa chiến đấu"</p>
-                <ul className="info-list">
-                  <li>
-                    Điều chỉnh kế hoạch xây dựng kinh tế phù hợp chiến tranh
-                  </li>
-                  <li>Tản cư dân cư và nhà máy ra các vùng an toàn</li>
-                  <li>Huy động toàn dân tham gia phòng không</li>
-                  <li>Duy trì sản xuất trong điều kiện bom đạn</li>
-                </ul>
+                <h5 className="section-subheading">Phương châm điều chỉnh</h5>
+                <div>
+                  <p className="strategy-slogan">
+                    "Vừa sản xuất vừa chiến đấu"
+                  </p>
+                  <ul className="info-list">
+                    <li>
+                      Điều chỉnh kế hoạch xây dựng kinh tế phù hợp chiến tranh
+                    </li>
+                    <li>Tản cư dân cư và nhà máy ra các vùng an toàn</li>
+                    <li>Huy động toàn dân tham gia phòng không</li>
+                    <li>Duy trì sản xuất trong điều kiện bom đạn</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <h5 className="section-subheading">Kết quả đạt được</h5>
+                <div>
+                  <ul className="info-list">
+                    <li>Miền Bắc vẫn duy trì được sản xuất và đời sống</li>
+                    <li>Tiếp tục chi viện cho tiền tuyến miền Nam</li>
+                    <li>Bắn rơi hàng nghìn máy bay Mỹ</li>
+                    <li>
+                      Tinh thần "Không có gì quý hơn độc lập, tự do" lan tỏa
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
-            <div>
-              <h5 className="section-subheading">Kết quả đạt được</h5>
-              <div>
-                <ul className="info-list">
-                  <li>Miền Bắc vẫn duy trì được sản xuất và đời sống</li>
-                  <li>Tiếp tục chi viện cho tiền tuyến miền Nam</li>
-                  <li>Bắn rơi hàng nghìn máy bay Mỹ</li>
-                  <li>
-                    Tinh thần "Không có gì quý hơn độc lập, tự do" lan tỏa
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* <div className="emphasis-quote">
+            {/* <div className="emphasis-quote">
             <p>"{section31.content.wartime_adjustment.spirit}"</p>
             <p className="quote-author">
               - Tinh thần chiến đấu của nhân dân Việt Nam
             </p>
           </div> */}
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Emulation Movements - Expanded */}
-        <div className="content-section">
-          <h4 className="content-heading">Phong trào Thi đua Yêu nước</h4>
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="content-section">
+            <h4 className="content-heading">Phong trào Thi đua Yêu nước</h4>
 
-          <p className="section-intro">
-            Trong bối cảnh chiến tranh, Đảng phát động các phong trào thi đua
-            yêu nước nhằm huy động toàn dân tham gia xây dựng và bảo vệ miền
-            Bắc, đồng thời chi viện cho tiền tuyến miền Nam.
-          </p>
-
-          <div className="movements-grid-expanded">
-            {/* Ba sẵn sàng */}
-            <div className="movement-card-expanded">
-              <div className="movement-header youth">
-                <h5 className="movement-title">Ba sẵn sàng</h5>
-                <span className="movement-badge">Thanh niên</span>
-              </div>
-              <ul className="movement-content-list">
-                <li>
-                  <strong>Sẵn sàng đi bộ đội</strong> - Tham gia quân đội bảo vệ
-                  Tổ quốc
-                </li>
-                <li>
-                  <strong>Sẵn sàng đi công tác</strong> - Nhận nhiệm vụ ở bất kỳ
-                  đâu
-                </li>
-                <li>
-                  <strong>Sẵn sàng đi làm việc</strong> - Ở bất cứ nơi đâu Tổ
-                  quốc cần
-                </li>
-              </ul>
-              <div className="movement-image">
-                <Image
-                  src="https://doanthanhnien.vn/Content/uploads/images/132829702148100812_3-san-sang-080821.jpg"
-                  alt="Thanh niên xung phong"
-                  preview={true}
-                  className="movement-img"
-                />
-                <p className="image-caption">Thanh niên xung phong</p>
-              </div>
-            </div>
-
-            {/* Ba đảm đang */}
-            <div className="movement-card-expanded">
-              <div className="movement-header women">
-                <h5 className="movement-title">Ba đảm đang</h5>
-                <span className="movement-badge">Phụ nữ</span>
-              </div>
-              <ul className="movement-content-list">
-                <li>
-                  <strong>Đảm đang công việc của chồng</strong> - Khi chồng đi
-                  chiến đấu
-                </li>
-                <li>
-                  <strong>Đảm đang sản xuất</strong> - Phát triển kinh tế, nuôi
-                  sống gia đình
-                </li>
-                <li>
-                  <strong>Đảm đang nuôi dạy con</strong> - Chăm sóc gia đình và
-                  xã hội
-                </li>
-              </ul>
-              <div className="movement-image">
-                <Image
-                  src="https://cdn.nhandan.vn/images/11f4e8a9cd502b98d7f9c51888e4aacaacb6299525b9638014fae82f8984aa5ba12a2623f745faf2db5624b2f2365334e2a64358745e0ad5ff703e4a542f813ebd785253b965d63491ad35d8cbe8ce4143313a37993e9ca5ab86f2a561726753/vnapotalky-1587825863-70-7012.jpg.webp"
-                  alt="Phụ nữ ba đảm đang"
-                  preview={true}
-                  className="movement-img"
-                />
-                <p className="image-caption">Phụ nữ Việt Nam ba đảm đang</p>
-              </div>
-            </div>
-
-            {/* Tay cày tay súng */}
-            <div className="movement-card-expanded">
-              <div className="movement-header farmer">
-                <h5 className="movement-title">Tay cày tay súng</h5>
-                <span className="movement-badge">Nông dân</span>
-              </div>
-              <ul className="movement-content-list">
-                <li>
-                  <strong>Vừa làm nông nghiệp</strong> - Vừa sẵn sàng chiến đấu
-                </li>
-                <li>
-                  <strong>Tham gia dân quân du kích</strong> - Bảo vệ quê hương
-                </li>
-                <li>
-                  <strong>Duy trì sản xuất</strong> - Trong điều kiện chiến
-                  tranh
-                </li>
-              </ul>
-              <div className="movement-image">
-                <Image
-                  src="https://phunu.hochiminhcity.gov.vn/img/Upload/web2b/Album/ContentNews/2016-9/36546-3a_10920160816.jpg"
-                  alt="Tay cày tay súng"
-                  preview={true}
-                  className="movement-img"
-                />
-                <p className="image-caption">Nông dân tay cày tay súng</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="significance-box">
-            <h5 className="significance-title">Ý nghĩa lịch sử</h5>
-            <p className="significance-text">
-              Các phong trào thi đua này đã{" "}
-              <strong>huy động sức mạnh toàn dân</strong>, tạo nên khối đại đoàn
-              kết vững mạnh, góp phần quyết định vào thắng lợi cuối cùng của
-              cách mạng Việt Nam. Đây là biểu hiện của sức mạnh chiến tranh nhân
-              dân, khi mỗi người dân đều là chiến sĩ bảo vệ Tổ quốc.
+            <p className="section-intro">
+              Trong bối cảnh chiến tranh, Đảng phát động các phong trào thi đua
+              yêu nước nhằm huy động toàn dân tham gia xây dựng và bảo vệ miền
+              Bắc, đồng thời chi viện cho tiền tuyến miền Nam.
             </p>
+
+            <div className="movements-grid-expanded">
+              {/* Ba sẵn sàng */}
+              <div className="movement-card-expanded">
+                <div className="movement-header youth">
+                  <h5 className="movement-title">Ba sẵn sàng</h5>
+                  <span className="movement-badge">Thanh niên</span>
+                </div>
+                <ul className="movement-content-list">
+                  <li>
+                    <strong>Sẵn sàng đi bộ đội</strong> - Tham gia quân đội bảo
+                    vệ Tổ quốc
+                  </li>
+                  <li>
+                    <strong>Sẵn sàng đi công tác</strong> - Nhận nhiệm vụ ở bất
+                    kỳ đâu
+                  </li>
+                  <li>
+                    <strong>Sẵn sàng đi làm việc</strong> - Ở bất cứ nơi đâu Tổ
+                    quốc cần
+                  </li>
+                </ul>
+                <div className="movement-image">
+                  <Image
+                    src="https://doanthanhnien.vn/Content/uploads/images/132829702148100812_3-san-sang-080821.jpg"
+                    alt="Thanh niên xung phong"
+                    preview={true}
+                    className="movement-img"
+                  />
+                  <p className="image-caption">Thanh niên xung phong</p>
+                </div>
+              </div>
+
+              {/* Ba đảm đang */}
+              <div className="movement-card-expanded">
+                <div className="movement-header women">
+                  <h5 className="movement-title">Ba đảm đang</h5>
+                  <span className="movement-badge">Phụ nữ</span>
+                </div>
+                <ul className="movement-content-list">
+                  <li>
+                    <strong>Đảm đang công việc của chồng</strong> - Khi chồng đi
+                    chiến đấu
+                  </li>
+                  <li>
+                    <strong>Đảm đang sản xuất</strong> - Phát triển kinh tế,
+                    nuôi sống gia đình
+                  </li>
+                  <li>
+                    <strong>Đảm đang nuôi dạy con</strong> - Chăm sóc gia đình
+                    và xã hội
+                  </li>
+                </ul>
+                <div className="movement-image">
+                  <Image
+                    src="https://cdn.nhandan.vn/images/11f4e8a9cd502b98d7f9c51888e4aacaacb6299525b9638014fae82f8984aa5ba12a2623f745faf2db5624b2f2365334e2a64358745e0ad5ff703e4a542f813ebd785253b965d63491ad35d8cbe8ce4143313a37993e9ca5ab86f2a561726753/vnapotalky-1587825863-70-7012.jpg.webp"
+                    alt="Phụ nữ ba đảm đang"
+                    preview={true}
+                    className="movement-img"
+                  />
+                  <p className="image-caption">Phụ nữ Việt Nam ba đảm đang</p>
+                </div>
+              </div>
+
+              {/* Tay cày tay súng */}
+              <div className="movement-card-expanded">
+                <div className="movement-header farmer">
+                  <h5 className="movement-title">Tay cày tay súng</h5>
+                  <span className="movement-badge">Nông dân</span>
+                </div>
+                <ul className="movement-content-list">
+                  <li>
+                    <strong>Vừa làm nông nghiệp</strong> - Vừa sẵn sàng chiến
+                    đấu
+                  </li>
+                  <li>
+                    <strong>Tham gia dân quân du kích</strong> - Bảo vệ quê
+                    hương
+                  </li>
+                  <li>
+                    <strong>Duy trì sản xuất</strong> - Trong điều kiện chiến
+                    tranh
+                  </li>
+                </ul>
+                <div className="movement-image">
+                  <Image
+                    src="https://phunu.hochiminhcity.gov.vn/img/Upload/web2b/Album/ContentNews/2016-9/36546-3a_10920160816.jpg"
+                    alt="Tay cày tay súng"
+                    preview={true}
+                    className="movement-img"
+                  />
+                  <p className="image-caption">Nông dân tay cày tay súng</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="significance-box">
+              <h5 className="significance-title">Ý nghĩa lịch sử</h5>
+              <p className="significance-text">
+                Các phong trào thi đua này đã{" "}
+                <strong>huy động sức mạnh toàn dân</strong>, tạo nên khối đại
+                đoàn kết vững mạnh, góp phần quyết định vào thắng lợi cuối cùng
+                của cách mạng Việt Nam. Đây là biểu hiện của sức mạnh chiến
+                tranh nhân dân, khi mỗi người dân đều là chiến sĩ bảo vệ Tổ
+                quốc.
+              </p>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Section 3.2: Đường Hồ Chí Minh */}
       <div className="section-block">
-        <div className="subsection-header">
-          <div className="subsection-number">3.2</div>
-          <h3 className="subsection-title">{section32.title}</h3>
-          <Button
-            type="text"
-            icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
-            onClick={() =>
-              openModal(
-                "Kỳ tích Đường Hồ Chí Minh",
-                <div>
-                  <p>
-                    Đường Hồ Chí Minh (còn gọi là Đường Trường Sơn) là một trong
-                    những kỳ tích vĩ đại nhất của dân tộc Việt Nam trong cuộc
-                    kháng chiến chống Mỹ, cứu nước. Đây là tuyến đường vận tải
-                    chiến lược huyết mạch nối liền miền Bắc và miền Nam, thể
-                    hiện ý chí kiên cường và trí tuệ sáng tạo của nhân dân Việt
-                    Nam.
-                  </p>
-                  <div className="modal-image-grid">
-                    <div className="modal-image-item">
-                      <Image
-                        src="https://vnanet.vn/Data/Articles/2020/01/11/4369830/vna_potal_90_nam_dcs_viet_nam_mo_duong_truong_son_-_su_nhay_ben_tu_duy_va_tai_thao_luoc_trong_chi_dao_chien_tranh_cua_dang__stand.jpg"
-                        alt="Đường Trường Sơn"
-                        preview={true}
-                      />
-                      <p className="modal-caption">Xây dựng Đường Trường Sơn</p>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">3.2</div>
+            <h3 className="subsection-title">{section32.title}</h3>
+            <Button
+              type="text"
+              icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
+              onClick={() =>
+                openModal(
+                  "Kỳ tích Đường Hồ Chí Minh",
+                  <div>
+                    <p>
+                      Đường Hồ Chí Minh (còn gọi là Đường Trường Sơn) là một
+                      trong những kỳ tích vĩ đại nhất của dân tộc Việt Nam trong
+                      cuộc kháng chiến chống Mỹ, cứu nước. Đây là tuyến đường
+                      vận tải chiến lược huyết mạch nối liền miền Bắc và miền
+                      Nam, thể hiện ý chí kiên cường và trí tuệ sáng tạo của
+                      nhân dân Việt Nam.
+                    </p>
+                    <div className="modal-image-grid">
+                      <div className="modal-image-item">
+                        <Image
+                          src="https://vnanet.vn/Data/Articles/2020/01/11/4369830/vna_potal_90_nam_dcs_viet_nam_mo_duong_truong_son_-_su_nhay_ben_tu_duy_va_tai_thao_luoc_trong_chi_dao_chien_tranh_cua_dang__stand.jpg"
+                          alt="Đường Trường Sơn"
+                          preview={true}
+                        />
+                        <p className="modal-caption">
+                          Xây dựng Đường Trường Sơn
+                        </p>
+                      </div>
+                      <div className="modal-image-item">
+                        <Image
+                          src="https://file1.dangcongsan.vn/data/0/images/2019/05/19/upload_2271/doan-559-copy1.jpg"
+                          alt="Đoàn 559"
+                          preview={true}
+                        />
+                        <p className="modal-caption">Bộ đội Đoàn 559</p>
+                      </div>
                     </div>
-                    <div className="modal-image-item">
-                      <Image
-                        src="https://file1.dangcongsan.vn/data/0/images/2019/05/19/upload_2271/doan-559-copy1.jpg"
-                        alt="Đoàn 559"
-                        preview={true}
-                      />
-                      <p className="modal-caption">Bộ đội Đoàn 559</p>
-                    </div>
+                    <p>
+                      <strong>Tên gọi:</strong> Đường 559 (theo ngày ra đời
+                      19/5/1959), Đường Hồ Chí Minh (để tưởng nhớ Chủ tịch Hồ
+                      Chí Minh), Đường Trường Sơn (theo địa danh dãy núi Trường
+                      Sơn).
+                    </p>
+                    <p>
+                      <strong>Tuyến đường huyền thoại:</strong> Đường Hồ Chí
+                      Minh đã chịu đựng gần 3 triệu tấn bom đạn của Mỹ, kể cả
+                      chiến tranh hóa học, nhưng vẫn duy trì hoạt động liên tục
+                      suốt 16 năm. Đây là biểu tượng của sức mạnh chiến tranh
+                      nhân dân, của tinh thần bất khuất và trí tuệ Việt Nam.
+                    </p>
                   </div>
-                  <p>
-                    <strong>Tên gọi:</strong> Đường 559 (theo ngày ra đời
-                    19/5/1959), Đường Hồ Chí Minh (để tưởng nhớ Chủ tịch Hồ Chí
-                    Minh), Đường Trường Sơn (theo địa danh dãy núi Trường Sơn).
-                  </p>
-                  <p>
-                    <strong>Tuyến đường huyền thoại:</strong> Đường Hồ Chí Minh
-                    đã chịu đựng gần 3 triệu tấn bom đạn của Mỹ, kể cả chiến
-                    tranh hóa học, nhưng vẫn duy trì hoạt động liên tục suốt 16
-                    năm. Đây là biểu tượng của sức mạnh chiến tranh nhân dân,
-                    của tinh thần bất khuất và trí tuệ Việt Nam.
-                  </p>
-                </div>
-              )
-            }
-          />
-        </div>
+                )
+              }
+            />
+          </div>
+        </ScrollReveal>
         {/* Hero Image
         <div className="hero-image-wrapper">
           <Image

@@ -2,6 +2,7 @@
 
 import contentData from "@/content/contentData";
 import { Image } from "antd";
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import "./VictorySection.css";
 
 export default function VictorySection() {
@@ -15,18 +16,23 @@ export default function VictorySection() {
     <div className="victory-section">
       {/* Section 5.1: Ý nghĩa Lịch sử */}
       <div className="significance-block">
-        <div className="subsection-header">
-          <div className="subsection-number">5.1</div>
-          <h3 className="subsection-title">{sections[0].title}</h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">5.1</div>
+            <h3 className="subsection-title">{sections[0].title}</h3>
+          </div>
+        </ScrollReveal>
 
-        <div className="overall-significance">
-          <p className="significance-text">
-            {sections[0].content.overall_significance}
-          </p>
-        </div>
+        <ScrollReveal variant="fadeIn" delay={0.2}>
+          <div className="overall-significance">
+            <p className="significance-text">
+              {sections[0].content.overall_significance}
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="achievements-grid">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="achievements-grid">
           {sections[0].content.achievements.map((achievement, idx) => (
             <div key={idx} className="achievement-card">
               <h4 className="achievement-aspect">{achievement.aspect}</h4>
@@ -38,9 +44,11 @@ export default function VictorySection() {
               )}
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollReveal>
 
-        <div className="congress-assessment">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="congress-assessment">
           <h4>
             Đánh giá của Đại hội IV (
             {sections[0].content.party_congress_assessment.date})
@@ -48,21 +56,27 @@ export default function VictorySection() {
           <blockquote className="assessment-quote">
             "{sections[0].content.party_congress_assessment.statement}"
           </blockquote>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Section 5.2: Nguyên nhân Thắng lợi */}
       <div className="causes-block">
-        <div className="subsection-header">
-          <div className="subsection-number">5.2</div>
-          <h3 className="subsection-title">{sections[1].title}</h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">5.2</div>
+            <h3 className="subsection-title">{sections[1].title}</h3>
+          </div>
+        </ScrollReveal>
 
-        <div className="primary-cause">
-          <p>{sections[1].content.primary_cause}</p>
-        </div>
+        <ScrollReveal variant="fadeIn" delay={0.15}>
+          <div className="primary-cause">
+            <p>{sections[1].content.primary_cause}</p>
+          </div>
+        </ScrollReveal>
 
-        <div className="factors-grid">
+        <ScrollReveal variant="fadeUp" delay={0.1} duration={0.7}>
+          <div className="factors-grid">
           {sections[1].content.key_factors.map((factor, idx) => (
             <div key={idx} className="factor-card">
               <h4 className="factor-title">{factor.factor}</h4>
@@ -86,17 +100,21 @@ export default function VictorySection() {
               )}
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Section 5.3: Bài học Kinh nghiệm */}
       <div className="lessons-block">
-        <div className="subsection-header">
-          <div className="subsection-number">5.3</div>
-          <h3 className="subsection-title">{sections[2].title}</h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">5.3</div>
+            <h3 className="subsection-title">{sections[2].title}</h3>
+          </div>
+        </ScrollReveal>
 
-        <div className="lessons-list">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="lessons-list">
           {sections[2].content.lessons.map((lesson, idx) => (
             <div key={idx} className="lesson-item">
               <div className="lesson-number">{lesson.lesson_number}</div>
@@ -113,26 +131,32 @@ export default function VictorySection() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Section 5.4: Định hướng Tương lai */}
       <div className="orientation-block">
-        <div className="subsection-header orientation-header">
-          <div className="subsection-number orientation-number">5.4</div>
-          <h3 className="subsection-title orientation-title">
-            {orientationSection.title}
-          </h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header orientation-header">
+            <div className="subsection-number orientation-number">5.4</div>
+            <h3 className="subsection-title orientation-title">
+              {orientationSection.title}
+            </h3>
+          </div>
+        </ScrollReveal>
 
-        <div className="overall-message">
-          <p className="message-text">
-            {orientationSection.content.overall_message}
-          </p>
-        </div>
+        <ScrollReveal variant="fadeIn" delay={0.15}>
+          <div className="overall-message">
+            <p className="message-text">
+              {orientationSection.content.overall_message}
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Historical Sites */}
-        <div className="historical-sites">
+        <ScrollReveal variant="slideLeft" delay={0.2} duration={0.8}>
+          <div className="historical-sites">
           <h4 className="sites-title">Di tích Lịch sử Minh chứng</h4>
 
           <div className="sites-grid">
@@ -241,10 +265,12 @@ export default function VictorySection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Message to Youth */}
-        <div className="youth-message">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="youth-message">
           <div className="message-card">
             <div className="message-icon"></div>
             <h4>Thông điệp đến Thế hệ Trẻ</h4>
@@ -252,10 +278,12 @@ export default function VictorySection() {
               {orientationSection.content.message_to_youth}
             </p>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* 50th Anniversary Celebration */}
-        <div className="anniversary-celebration">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="anniversary-celebration">
           <h4>Kỷ niệm 50 năm Giải phóng miền Nam (30/4/2025)</h4>
 
           {/* First Row - 2 Column Grid */}
@@ -340,20 +368,24 @@ export default function VictorySection() {
               Đoàn diễu hành trong lễ kỷ niệm 50 năm Ngày Giải phóng miền Nam
             </p>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Final Affirmation */}
-        <div className="final-affirmation">
+        <ScrollReveal variant="scaleIn" delay={0.2} duration={0.8}>
+          <div className="final-affirmation">
           <div className="affirmation-content">
             <div className="affirmation-icon">✦</div>
             <p className="affirmation-text">
               {orientationSection.content.final_affirmation}
             </p>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Call to Action */}
-        <div className="call-to-action">
+        <ScrollReveal variant="fadeUp" delay={0.15} duration={0.7}>
+          <div className="call-to-action">
           <h4>Hãy cùng nhau:</h4>
           <div className="action-grid">
             <div className="action-item">
@@ -373,7 +405,8 @@ export default function VictorySection() {
               <p>Đóng góp cho hòa bình thế giới</p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </div>
   );

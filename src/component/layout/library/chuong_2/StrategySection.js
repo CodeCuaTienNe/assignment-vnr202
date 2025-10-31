@@ -4,6 +4,7 @@ import contentData from "@/content/contentData";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
+import ScrollReveal from "@/component/animation/ScrollReveal";
 import "./StrategySection.css";
 
 export default function StrategySection() {
@@ -23,9 +24,10 @@ export default function StrategySection() {
     <div className="strategy-section">
       {/* Section 2.1: Nghị quyết 15 */}
       <div className="resolution-block">
-        <div className="subsection-header">
-          <div className="subsection-number">2.1</div>
-          <h3 className="subsection-title">{section21.title}</h3>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">2.1</div>
+            <h3 className="subsection-title">{section21.title}</h3>
           <Button
             type="text"
             icon={<InfoCircleOutlined style={{ color: "#1890ff" }} />}
@@ -337,18 +339,22 @@ export default function StrategySection() {
               <p>{section21.content.key_decisions.impact}</p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Section 2.2: Đồng Khởi và Chiến tranh Đặc biệt */}
       <div className="dongkhoi-block">
-        <div className="subsection-header">
-          <div className="subsection-number">2.2</div>
-          <h3 className="subsection-title">{section22.title}</h3>
-        </div>
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="subsection-header">
+            <div className="subsection-number">2.2</div>
+            <h3 className="subsection-title">{section22.title}</h3>
+          </div>
+        </ScrollReveal>
 
         {/* Phong trào Đồng Khởi */}
-        <div className="dongkhoi-content">
+        <ScrollReveal variant="slideLeft" delay={0.15} duration={0.7}>
+          <div className="dongkhoi-content">
           <h4 className="content-subtitle">
             Phong trào Đồng Khởi (1960)
             <Button
@@ -575,10 +581,12 @@ export default function StrategySection() {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Chiến tranh Đặc biệt */}
-        <div className="special-war-content">
+        <ScrollReveal variant="slideRight" delay={0.15} duration={0.7}>
+          <div className="special-war-content">
           <h4 className="content-subtitle">
             Chiến lược "Chiến tranh Đặc biệt" (1961-1965)
             <Button
@@ -1176,7 +1184,8 @@ export default function StrategySection() {
               </p>
             </div> */}
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       <Modal

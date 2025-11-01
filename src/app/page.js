@@ -87,7 +87,7 @@ export default function Dashboard() {
       title: "Thư Viện Lịch Sử",
       description:
         "Khám phá tài liệu và hình ảnh lịch sử kháng chiến 1954-1975",
-      link: "/library",
+      link: "/assignment-vnr202/library",
       icon: "BookOutlined",
       color: "lacquer-red",
     },
@@ -101,7 +101,7 @@ export default function Dashboard() {
     {
       title: "Báo cáo AI Usage",
       description: "Trò chuyện với AI về lịch sử Việt Nam",
-      link: "/ai-usage",
+      link: "/assignment-vnr202/ai-usage",
       icon: "RobotOutlined",
       color: "lacquer-gold",
     },

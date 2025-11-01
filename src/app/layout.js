@@ -1,8 +1,9 @@
 import { ConfigProvider } from "antd";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import FloatingChatbot from "../component/chatbot/FloatingChatbot";
+import HomeButton from "../component/layout/HomeButton";
 import "./globals.css";
-import "./page.css";
+// import "./page.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ export default function RootLayout({ children }) {
           }}
         >
           {children}
+          <HomeButton />
           <FloatingChatbot />
         </ConfigProvider>
       </body>

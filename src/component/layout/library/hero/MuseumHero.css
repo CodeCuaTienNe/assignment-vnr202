@@ -76,14 +76,17 @@
   }
 }
 
-.hero-main-title {
+.hero-main-title,
+.hero-main-title.ant-typography,
+h1.hero-main-title,
+.museum-hero .hero-main-title {
   font-family: "Fraunces", serif !important;
   font-size: 4rem !important;
   font-weight: 700 !important;
   color: white !important;
   margin: 0 0 2rem 0 !important;
   line-height: 1.2 !important;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4) !important;
   animation: fadeInUp 1s ease-out 0.4s both;
 }
 
@@ -108,7 +111,10 @@
   }
 }
 
-.hero-subtitle {
+.hero-subtitle,
+.hero-subtitle.ant-typography,
+h2.hero-subtitle,
+.museum-hero .hero-subtitle {
   font-family: "Fraunces", serif !important;
   font-size: 2.5rem !important;
   font-weight: 600 !important;

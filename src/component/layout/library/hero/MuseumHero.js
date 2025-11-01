@@ -37,10 +37,6 @@ export default function MuseumHero() {
           <span>1954 – 1975</span>
         </div>
 
-        <Paragraph className="hero-description">
-          Bài học về Bản lĩnh Chiến lược và Định hướng Lý tưởng cho Sinh viên
-        </Paragraph>
-
         <div className="hero-learning-outcomes">
           <div className="outcome-badge">
             <span className="outcome-label">CLO2</span>

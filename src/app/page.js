@@ -1,188 +1,120 @@
 "use client";
 
-import ScrollReveal from "@/component/animation/ScrollReveal";
-import FoundationSection from "@/component/layout/library/chuong_1/FoundationSection";
-import StrategySection from "@/component/layout/library/chuong_2/StrategySection";
-import NorthSection from "@/component/layout/library/chuong_3/NorthSection";
-import SouthSection from "@/component/layout/library/chuong_4/SouthSection";
-import VictorySection from "@/component/layout/library/chuong_5/VictorySection";
-import MuseumFooter from "@/component/layout/library/footer/MuseumFooter";
-import MuseumHeader from "@/component/layout/library/header/MuseumHeader";
-import MuseumHero from "@/component/layout/library/hero/MuseumHero";
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import { Button, Layout } from "antd";
-import { useEffect, useState } from "react";
-import "./page.css";
+import HeroSection from "@/component/layout/dashboard/sections/hero-section";
 
-const { Content } = Layout;
-
-export default function HomePage() {
-  const [activeSection, setActiveSection] = useState("hero");
-
-  // Scroll to top whenever activeSection changes
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, [activeSection]);
-
-  // Define chapters configuration (include hero and footer)
-  const chapters = [
-    { key: "hero", title: "Trang chủ", isHero: true },
-    { key: "foundation", title: "I. Bối cảnh Lịch sử", years: "1954 – 1960" },
+export default function Dashboard() {
+  // Historical images from the Vietnam War era (1954-1975)
+  const historicalImages = [
     {
-      key: "strategy",
-      title: "II. Sự Lãnh đạo Chuyển hướng",
-      years: "1954 – 1965",
-      subtitle: "Nghị quyết 15 và Phong trào Đồng Khởi",
+      title: "Hiệp định Giơnevơ 1954",
+      thumbnail: "https://ttdn.vn/Uploads/Images/2022/7/20/5/7321-13.2.jpg",
     },
     {
-      key: "north",
-      title: "III. Miền Bắc XHCN",
-      years: "1954 – 1975",
-      subtitle: "Xây dựng CNXH và Đường Hồ Chí Minh",
+      title: "Phong trào Đồng Khởi 1960",
+      thumbnail:
+        "https://vnanet.vn/Data/Articles/2020/01/16/4384796/vna_potal_ky_niem_60_nam_phong_trao_dong_khoi_1711960_-_1712020_huyen_thoai_%E2%80%9Cdoi_quan_toc_dai_ben_tre%E2%80%9D_102406468_stand.jpg",
     },
     {
-      key: "south",
-      title: "IV. Sự Lãnh đạo Vượt qua Thử thách",
-      years: "1965 – 1975",
-      subtitle: "Đánh bại Chiến tranh Cục bộ, Việt Nam hóa và Mùa Xuân 1975",
+      title: "Chiến thắng Ấp Bắc 1963",
+      thumbnail:
+        "https://cand.com.vn/Files/Image/linhchi/2016/12/19/8cd4b77c-8401-43f7-9157-2be317424430.jpg",
     },
     {
-      key: "victory",
-      title: "V. Ý nghĩa Lịch sử",
-      years: "1954 – 1975",
-      subtitle: "Bài học Trường tồn và Di sản Quý báu",
+      title: "Xây dựng Miền Bắc XHCN",
+      thumbnail:
+        "https://cdn.hvcsnd.edu.vn/uploads/2025/04/08/6/unnamed-57-1744104303.jpg?q=75&f=6&s=mp6hq0egmwc",
     },
-    { key: "footer", title: "Thông tin", isFooter: true },
+    {
+      title: "Đường Trường Sơn Huyền thoại",
+      thumbnail:
+        "https://vnanet.vn/Data/Articles/2020/01/11/4369830/vna_potal_90_nam_dcs_viet_nam_mo_duong_truong_son_-_su_nhay_ben_tu_duy_va_tai_thao_luoc_trong_chi_dao_chien_tranh_cua_dang__stand.jpg",
+    },
+    {
+      title: "Phòng không nhân dân",
+      thumbnail:
+        "https://file3.qdnd.vn/data/images/0/2024/12/09/upload_2165/vna-potal-51-nam-chien-thang-ha-noi-dien-bien-phu-tren-khong-121972-122023-tran-thang-mang-tam-voc-lich-su-o-the-ky-xx-stand.jpg?dpi=150&quality=100&w=870",
+    },
+    {
+      title: "Chiến dịch Điện Biên Phủ trên không",
+      thumbnail:
+        "https://tuyenquang.dcs.vn/Image/Large/2023122975637_145629.jpg",
+    },
+    {
+      title: "Đại thắng mùa Xuân 1975",
+      thumbnail:
+        "https://file3.qdnd.vn/data/images/0/2025/04/30/upload_2201/anh%20le%20ky%20niem.jpg?dpi=150&quality=100&w=870",
+    },
+    {
+      title: "Dinh Độc Lập",
+      thumbnail:
+        "https://ik.imagekit.io/tvlk/blog/2025/04/dinh-doc-lap.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2",
+    },
+    {
+      title: "Đại hội Đảng lần III 1960",
+      thumbnail:
+        "https://file3.qdnd.vn/data/images/0/2024/10/18/upload_2094/dai-hoi-iii.jpg?dpi=150&quality=100&w=870",
+    },
+    {
+      title: "Nghị quyết 15 năm 1959",
+      thumbnail:
+        "https://file3.qdnd.vn/data/images/0/2024/10/18/upload_2318/hoi%20nghi%2015.jpg?dpi=150&quality=100&w=870",
+    },
+    {
+      title: "Phụ nữ Việt Nam anh hùng",
+      thumbnail:
+        "https://phunu.hochiminhcity.gov.vn/img/Upload/web2b/Album/ContentNews/2016-9/36546-3a_10920160816.jpg",
+    },
+    {
+      title: "Thanh niên xung phong",
+      thumbnail:
+        "https://doanthanhnien.vn/Content/uploads/images/132829702148100812_3-san-sang-080821.jpg",
+    },
+    {
+      title: "Chiến tranh cục bộ",
+      thumbnail:
+        "https://special.nhandan.vn/duong-loi-va-chien-luoc-quan-su-Viet-Nam-phat-trien-cao-thoi-ky-khang-chien-chong-My-cuu-nuoc/assets/rBMwPsNgEe/vna_potal_90_nam_dcs_viet_nam_dang_lanh_dao_ca_nuoc_truc_tiep_chien_dau_chong_de_quoc_my_xam_luoc_1965_-_1973__151902709_stand-665x463.jpg",
+    },
+    {
+      title: "Chiến thắng lịch sử",
+      thumbnail:
+        "https://cdnmedia.baotintuc.vn/Upload/e9GdNZvHDFi8lZSWc6ubA/files/2025/04/dieu-hanh-30425-3.jpg",
+    },
   ];
 
-  const currentIndex = chapters.findIndex((ch) => ch.key === activeSection);
-  const safeCurrentIndex = currentIndex >= 0 ? currentIndex : 0;
-
-  const handleNextChapter = () => {
-    // Chuyển tuyến tính: hero->1->2->3->4->5->footer->hero (loop back)
-    const nextIndex = (safeCurrentIndex + 1) % chapters.length;
-    setActiveSection(chapters[nextIndex].key);
-  };
-
-  const handlePreviousChapter = () => {
-    // Chuyển ngược: footer->5->4->3->2->1->hero->footer
-    const prevIndex =
-      (safeCurrentIndex - 1 + chapters.length) % chapters.length;
-    setActiveSection(chapters[prevIndex].key);
-  };
-
-  // Render current chapter component
-  const renderCurrentChapter = () => {
-    const currentChapter = chapters[safeCurrentIndex];
-
-    if (!currentChapter) {
-      return <MuseumHero />;
-    }
-
-    // If hero section, render hero directly
-    if (currentChapter.isHero) {
-      return <MuseumHero />;
-    }
-
-    // If footer section, render footer directly
-    if (currentChapter.isFooter) {
-      return <MuseumFooter />;
-    }
-
-    return (
-      <section
-        id={currentChapter.key}
-        className={`museum-section ${currentChapter.key}-section magazine-section bg-${currentChapter.key}`}
-      >
-        <ScrollReveal variant="fadeUp" duration={0.8}>
-          <div className="section-header">
-            <div className="section-roman">{currentChapter.title}</div>
-            <div className="section-years">{currentChapter.years}</div>
-            {currentChapter.subtitle && (
-              <div className="section-subtitle">{currentChapter.subtitle}</div>
-            )}
-          </div>
-        </ScrollReveal>
-
-        {activeSection === "foundation" && <FoundationSection />}
-        {activeSection === "strategy" && <StrategySection />}
-        {activeSection === "north" && <NorthSection />}
-        {activeSection === "south" && <SouthSection />}
-        {activeSection === "victory" && <VictorySection />}
-      </section>
-    );
-  };
+  // Navigation cards for main features
+  const navigationCards = [
+    {
+      title: "Thư Viện Lịch Sử",
+      description:
+        "Khám phá tài liệu và hình ảnh lịch sử kháng chiến 1954-1975",
+      link: "/assignment-vnr202/library",
+      icon: "BookOutlined",
+      color: "lacquer-red",
+    },
+    {
+      title: "Trắc Nghiệm Lịch Sử",
+      description: "Kiểm tra kiến thức về cuộc kháng chiến chống Mỹ",
+      link: "https://play.blooket.com/play",
+      icon: "EditOutlined",
+      color: "jade-green",
+    },
+    {
+      title: "Báo cáo AI Usage",
+      description: "Trò chuyện với AI về lịch sử Việt Nam",
+      link: "/assignment-vnr202/ai-usage",
+      icon: "RobotOutlined",
+      color: "lacquer-gold",
+    },
+  ];
 
   return (
-    <Layout className="museum-layout">
-      <MuseumHeader
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-      />
-
-      <Content className="museum-content museum-article">
-        {/* Chapter Navigation Buttons - Circular like AI button */}
-        <div className="chapter-navigation-buttons">
-          {/* Previous Button */}
-          <Button
-            type="primary"
-            shape="circle"
-            size="large"
-            icon={<ArrowLeftOutlined style={{ fontSize: "24px" }} />}
-            onClick={handlePreviousChapter}
-            className="nav-btn-circle nav-btn-prev"
-            style={{
-              width: "60px",
-              height: "60px",
-              background: "var(--lacquer-red)",
-              borderColor: "var(--lacquer-gold)",
-              border: "3px solid var(--lacquer-gold)",
-              boxShadow: "0 4px 12px rgba(139, 26, 26, 0.4)",
-            }}
-            title={`Quay lại ${
-              chapters[
-                (safeCurrentIndex - 1 + chapters.length) % chapters.length
-              ].title
-            }`}
-          />
-
-          {/* Chapter indicator */}
-          <div className="chapter-indicator">
-            {chapters[safeCurrentIndex].isHero
-              ? "Home"
-              : chapters[safeCurrentIndex].isFooter
-              ? "Info"
-              : `${safeCurrentIndex}/5`}
-          </div>
-
-          {/* Next Button */}
-          <Button
-            type="primary"
-            shape="circle"
-            size="large"
-            icon={<ArrowRightOutlined style={{ fontSize: "24px" }} />}
-            onClick={handleNextChapter}
-            className="nav-btn-circle nav-btn-next"
-            style={{
-              width: "60px",
-              height: "60px",
-              background: "var(--lacquer-red)",
-              borderColor: "var(--lacquer-gold)",
-              border: "3px solid var(--lacquer-gold)",
-              boxShadow: "0 4px 12px rgba(139, 26, 26, 0.4)",
-            }}
-            title={`Chuyển sang ${
-              chapters[(safeCurrentIndex + 1) % chapters.length].title
-            }`}
-          />
-        </div>
-
-        {/* Render Current Chapter Only */}
-        {renderCurrentChapter()}
-      </Content>
-    </Layout>
+    <>
+      <main className="">
+        <HeroSection
+          historicalImages={historicalImages}
+          navigationCards={navigationCards}
+        />
+      </main>
+    </>
   );
 }

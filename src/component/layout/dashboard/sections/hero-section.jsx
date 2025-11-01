@@ -76,15 +76,16 @@ export default function HeroSection({ historicalImages, navigationCards }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 animate-fadeIn">
               {navigationCards.map((card, index) => {
                 const IconComponent = iconMap[card.icon];
-                const handleCardClick = (e) => {
-                  // Force full page reload for /library to ensure CSS loads properly
-                  if (card.link === '/library') {
-                    e.preventDefault();
-                    window.location.href = card.link;
-                  }
-                };
+                // Check if it's an external link (starts with http)
+                const isExternalLink = card.link.startsWith('http');
+
                 return (
-                  <Link key={index} href={card.link} onClick={handleCardClick}>
+                  <Link
+                    key={index}
+                    href={card.link}
+                    target={isExternalLink ? "_blank" : undefined}
+                    rel={isExternalLink ? "noopener noreferrer" : undefined}
+                  >
                     <div
                       className="nav-card group relative overflow-hidden rounded-lg p-6 sm:p-8 cursor-pointer transition-all duration-300 h-full min-h-[200px] sm:min-h-[240px]"
                       style={{

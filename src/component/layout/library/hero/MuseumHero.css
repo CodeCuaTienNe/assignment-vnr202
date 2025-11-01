@@ -79,15 +79,19 @@
 .hero-main-title,
 .hero-main-title.ant-typography,
 h1.hero-main-title,
-.museum-hero .hero-main-title {
+.museum-hero .hero-main-title,
+.ant-typography.hero-main-title {
   font-family: "Fraunces", serif !important;
   font-size: 4rem !important;
   font-weight: 700 !important;
   color: white !important;
   margin: 0 0 2rem 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 2rem !important;
   line-height: 1.2 !important;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4) !important;
-  animation: fadeInUp 1s ease-out 0.4s both;
+  animation: fadeInUp 1s ease-out 0.4s both !important;
+  display: block !important;
 }
 
 .hero-divider {
@@ -114,14 +118,18 @@ h1.hero-main-title,
 .hero-subtitle,
 .hero-subtitle.ant-typography,
 h2.hero-subtitle,
-.museum-hero .hero-subtitle {
+.museum-hero .hero-subtitle,
+.ant-typography.hero-subtitle {
   font-family: "Fraunces", serif !important;
   font-size: 2.5rem !important;
   font-weight: 600 !important;
   color: var(--lacquer-gold) !important;
   margin: 2rem 0 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
   line-height: 1.4 !important;
-  animation: fadeInUp 1s ease-out 0.8s both;
+  animation: fadeInUp 1s ease-out 0.8s both !important;
+  display: block !important;
 }
 
 .hero-years {

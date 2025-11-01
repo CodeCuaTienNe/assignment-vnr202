@@ -574,7 +574,7 @@ export default function FoundationSection() {
                   }}
                 >
                   <Image
-                    src="https://cdn.nhandan.vn/images/78d92bfef5333421c1cfa9f19aa2572af2f6454a381555b801846adcfda202211eaba25988cd7490f8bf974ba8911de145ae9efd2a3694f5a87363601ee5479ec3d24b4aed4c365a506c05a6e94d3a99/dbb68baec139379253c0a4315d3851e1.jpg"
+                    src="https://imgnvsk.vnanet.vn/MediaUpload/Medium/2023/08/03/dh3-5829-16705150957451064391203-10-59-3.jpg"
                     alt="Đại hội III Đảng Cộng sản Việt Nam"
                     style={{
                       width: "100%",

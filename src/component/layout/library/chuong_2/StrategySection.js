@@ -5,6 +5,7 @@ import contentData from "@/content/contentData";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
+import ARImage from "@/component/common/ARImage";
 import "./StrategySection.css";
 
 export default function StrategySection() {
@@ -580,16 +581,14 @@ export default function StrategySection() {
               </div>
 
               <div className="image-side">
-                <Image
+                <ARImage
                   src="https://vnanet.vn/Data/Articles/2020/01/16/4384796/vna_potal_ky_niem_60_nam_phong_trao_dong_khoi_1711960_-_1712020_huyen_thoai_%E2%80%9Cdoi_quan_toc_dai_ben_tre%E2%80%9D_102406468_stand.jpg"
                   alt="Đồng Khởi Bến Tre"
+                  qrCodePath="DongKhoi_QrCode.jpeg"
                   preview={true}
                   style={{ width: "100%", borderRadius: "4px" }}
+                  caption="Thiếu tướng Nguyễn Thị Định chỉ đạo LLVT đánh địch trong phong trào Đồng Khởi tại Bến Tre (1/1960)"
                 />
-                <p className="image-caption">
-                  Thiếu tướng Nguyễn Thị Định chỉ đạo LLVT đánh địch trong phong
-                  trào Đồng Khởi tại Bến Tre (1/1960)
-                </p>
               </div>
             </div>
           </div>

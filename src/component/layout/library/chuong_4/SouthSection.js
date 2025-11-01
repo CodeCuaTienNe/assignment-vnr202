@@ -5,6 +5,7 @@ import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
 import ScrollReveal from "@/component/animation/ScrollReveal";
+import ARImage from "@/component/common/ARImage";
 import "./SouthSection.css";
 
 export default function SouthSection() {
@@ -414,16 +415,14 @@ export default function SouthSection() {
           <h4 className="content-heading">Quyết tâm Chiến lược</h4>
           <div className="split-content reverse">
             <div>
-              <Image
+              <ARImage
                 src="https://baothainguyen.vn/file/e7837c027f6ecd14017ffa4e5f2a0e34/022024/1-untitled-1_20240211081340.jpg"
                 alt="Tổng tiến công Tết Mậu Thân"
+                qrCodePath="1968_QrCode.jpeg"
                 preview={true}
                 style={{ width: "100%", borderRadius: "2px" }}
+                caption="Chủ tịch Hồ Chí Minh chủ trì Hội nghị Bộ Chính trị bàn về Chiến dịch Tết Mậu Thân 1968"
               />
-              <p className="image-caption">
-                Chủ tịch Hồ Chí Minh chủ trì Hội nghị Bộ Chính trị bàn về Chiến
-                dịch Tết Mậu Thân 1968
-              </p>
             </div>
             <div>
               <p className="content-text">
@@ -958,9 +957,10 @@ export default function SouthSection() {
 
           <div className="split-content reverse">
             <div>
-              <Image
+              <ARImage
                 src="https://baonamdinh.vn/file/e7837c02816d130b0181a995d7ad7e96/012023/anh_2_20230118093747.jpg"
                 alt="Hiệp định Paris"
+                qrCodePath="ParisConf_QrCode.jpeg"
                 preview={true}
                 style={{ width: "100%", borderRadius: "8px" }}
               />

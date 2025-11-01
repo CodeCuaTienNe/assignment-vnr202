@@ -5,6 +5,7 @@ import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
 import ScrollReveal from "@/component/animation/ScrollReveal";
+import ARImage from "@/component/common/ARImage";
 import "./FoundationSection.css";
 
 export default function FoundationSection() {
@@ -324,16 +325,14 @@ export default function FoundationSection() {
 
             <div className="split-content reverse">
               <div className="image-content">
-                <Image
+                <ARImage
                   src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
                   alt="Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Chia cắt đất nước"
+                  qrCodePath="vi tuyen 17_QrCode.jpeg"
                   preview={true}
                   style={{ width: "100%", borderRadius: "8px" }}
+                  caption="Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Nỗi đau chia cắt đất nước"
                 />
-                <p className="image-caption">
-                  Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Nỗi đau chia cắt
-                  đất nước
-                </p>
               </div>
 
               <div className="text-content">
@@ -573,15 +572,17 @@ export default function FoundationSection() {
                     gap: "1rem",
                   }}
                 >
-                  <Image
+                  <ARImage
                     src="https://imgnvsk.vnanet.vn/MediaUpload/Medium/2023/08/03/dh3-5829-16705150957451064391203-10-59-3.jpg"
                     alt="Đại hội III Đảng Cộng sản Việt Nam"
+                    qrCodePath="DAIHOI III_QrCode.jpeg"
                     style={{
                       width: "100%",
                       height: "400px",
                       objectFit: "cover",
                       borderRadius: "8px",
                     }}
+                    caption="Đại hội III của Đảng (9/1960) và Hà Nội"
                   />
                   {/* <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hanoi_1960s.jpg/320px-Hanoi_1960s.jpg"
@@ -594,9 +595,6 @@ export default function FoundationSection() {
                   }}
                 /> */}
                 </div>
-                <p className="image-caption">
-                  Đại hội III của Đảng (9/1960) và Hà Nội
-                </p>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import AntdStylesProvider from "@/component/providers/AntdStyleProvider";
 import { ConfigProvider } from "antd";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import FloatingChatbot from "../component/chatbot/FloatingChatbot";
@@ -61,7 +62,7 @@ export default function RootLayout({ children }) {
             },
           }}
         >
-          {children}
+          <AntdStylesProvider>{children}</AntdStylesProvider>
           <HomeButton />
           <FloatingChatbot />
         </ConfigProvider>

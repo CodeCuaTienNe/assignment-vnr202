@@ -1,11 +1,12 @@
 "use client";
 
+import Assets from "@/assets";
+import ScrollReveal from "@/component/animation/ScrollReveal";
+import ARImage from "@/component/common/ARImage";
 import contentData from "@/content/contentData";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, Image, Modal } from "antd";
 import { useState } from "react";
-import ScrollReveal from "@/component/animation/ScrollReveal";
-import ARImage from "@/component/common/ARImage";
 import "./FoundationSection.css";
 
 export default function FoundationSection() {
@@ -328,7 +329,7 @@ export default function FoundationSection() {
                 <ARImage
                   src="https://special.nhandan.vn/vi_tuyen_17_co_hien_luong/assets/gjnQroXSAz/ben-hai-1-2560x1440.jpg"
                   alt="Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Chia cắt đất nước"
-                  qrCodePath="vi tuyen 17_QrCode.jpeg"
+                  qrCodePath={Assets.QRImageViTuyen17QrCode}
                   preview={true}
                   style={{ width: "100%", borderRadius: "8px" }}
                   caption="Cầu Hiền Lương - sông Bến Hải (vĩ tuyến 17) - Nỗi đau chia cắt đất nước"
@@ -575,7 +576,7 @@ export default function FoundationSection() {
                   <ARImage
                     src="https://imgnvsk.vnanet.vn/MediaUpload/Medium/2023/08/03/dh3-5829-16705150957451064391203-10-59-3.jpg"
                     alt="Đại hội III Đảng Cộng sản Việt Nam"
-                    qrCodePath="DAIHOI III_QrCode.jpeg"
+                    qrCodePath={Assets.QRImageDAIHOIIIIQrCode}
                     style={{
                       width: "100%",
                       height: "400px",

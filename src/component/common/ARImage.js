@@ -13,7 +13,7 @@ import "./ARImage.css";
  *
  * @param {string} src - Image source URL
  * @param {string} alt - Image alt text
- * @param {string} qrCodePath - Path to QR code image in /public/QR-image/
+ * @param {string|object} qrCodePath - Path to QR code image (can be /public path string or imported asset)
  * @param {object} style - Additional styles for the image
  * @param {boolean} preview - Enable image preview (default: true)
  * @param {string} caption - Optional caption text below image
@@ -24,15 +24,18 @@ export default function ARImage({
   qrCodePath,
   style = {},
   preview = true,
-  caption
+  caption,
 }) {
   const [tooltipVisible, setTooltipVisible] = useState(false);
+
+  // Handle both imported assets (objects with src property) and public path strings
+  const qrSrc = typeof qrCodePath === 'string' ? qrCodePath : qrCodePath?.src || qrCodePath;
 
   const tooltipContent = (
     <div className="ar-qr-tooltip">
       <div className="qr-title">Quét mã QR để trải nghiệm AR</div>
       <Image
-        src={`/QR-image/${qrCodePath}`}
+        src={qrSrc}
         alt="QR Code for AR experience"
         preview={false}
         style={{ width: 200, height: 200 }}
